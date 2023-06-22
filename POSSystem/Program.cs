@@ -8,6 +8,7 @@ namespace POSSystem
 {
     internal static class Program
     {
+        public static Form EnterPage;
         /// <summary>
         /// 應用程式的主要進入點。
         /// </summary>
@@ -16,7 +17,8 @@ namespace POSSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Menu());
+            EnterPage = new EnterPage();
+            Application.Run(EnterPage);
         }
     }
 }

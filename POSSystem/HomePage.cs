@@ -4,16 +4,16 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static POSSystem.EnterPage;
 
 namespace POSSystem
 {
-    public partial class EnterPage : Form
+    public partial class HomePage : Form
     {
-        public EnterPage()
+        public HomePage()
         {
             InitializeComponent();
         }
@@ -23,13 +23,40 @@ namespace POSSystem
             Application.Exit();
         }
 
-        private void btnEnterToOrder_Click(object sender, EventArgs e)
+        private void btnBackEnterPage_Click(object sender, EventArgs e)
         {
-            HomePage homePage = new HomePage();
-            homePage.Show();
-            this.Hide();
+            this.Close();
+            Program.EnterPage.Show();
         }
 
+        //讓滑鼠點到panl3時可以拖曳視窗
+        private bool isDragging = false;
+        private Point dragStartPosition;
+
+        private void panel3_MouseDown(object sender, MouseEventArgs e)
+        {
+            isDragging = true;
+            dragStartPosition = e.Location;
+        }
+
+        private void panel3_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                Form form = FindForm();
+                Point currentPosition = form.PointToScreen(e.Location);
+                currentPosition.Offset(-dragStartPosition.X, -dragStartPosition.Y);
+                form.Location = currentPosition;
+            }
+        }
+
+        private void panel3_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
+        }
+        //拖曳視窗結束
+
+        //改變視窗大小
         bool isMouseDown = false; //表示滑鼠是否在按下的狀態 
         MouseDirection direction = MouseDirection.None;//MouseDirection拖動方向
         public enum MouseDirection //拖動方向設定
@@ -39,8 +66,8 @@ namespace POSSystem
             Declining,//斜角，同時改變寬和高
             None//不拖動
         }
-        
-        private void EnterPage_MouseMove(object sender, MouseEventArgs e)
+
+        private void HomePage_MouseMove(object sender, MouseEventArgs e)
         {
             //調整大小
             //如果按下，同時有方向箭頭->调整大小
@@ -76,18 +103,16 @@ namespace POSSystem
                 this.Cursor = Cursors.Arrow;
         }
 
-        private void EnterPage_MouseUp(object sender, MouseEventArgs e)
-        {
-            isMouseDown = false;
-            direction = MouseDirection.None;
-
-        }
-
-        private void EnterPage_MouseDown(object sender, MouseEventArgs e)
+        private void HomePage_MouseDown(object sender, MouseEventArgs e)
         {
             isMouseDown = true;
         }
-        //調整大小
+
+        private void HomePage_MouseUp(object sender, MouseEventArgs e)
+        {
+            isMouseDown = false;
+            direction = MouseDirection.None;
+        }
         void ResizeWindow()
         {
             //只有在滑鼠按下時才能拖曳改變視窗大小，如果不作判斷，那滑鼠放開或按下时，視窗都可以被改變 
@@ -115,35 +140,15 @@ namespace POSSystem
                 this.Cursor = Cursors.Arrow;
         }
 
-        //拖曳視窗
-        private bool isDragging = false;
-        private Point dragStartPosition;
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            if (isDragging)
-            {
-                Form form = FindForm();
-                Point currentPosition = form.PointToScreen(e.Location);
-                currentPosition.Offset(-dragStartPosition.X, -dragStartPosition.Y);
-                form.Location = currentPosition;
-            }
-        }
+            Menu menu = new Menu();
+            menu.TopLevel = false;
+            menu.Dock = DockStyle.None;
+            panel2.Controls.Clear();
+            panel2.Controls.Add(menu);
+            menu.Show();
 
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            isDragging = false;
-        }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            isDragging = true;
-            dragStartPosition = e.Location;
-        }
-
-        private void btnExit_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }
