@@ -20,20 +20,22 @@ namespace POSSystem
         string strImageDir = @"..\productsimage";
 
         public int selectID = 0;
-        string image_modify_name = "";
+        public int getorderid = 0;
 
-        int cupcount = 0;
+        string image_modify_name = "";
+        int cupcount = 1;
         int totalprice = 0;
         int price = 0;
         string stringSugar = ""; //甜度儲存在這兒
         string stringIce = ""; //冰塊儲存在這兒
         int P_ID;
-
+        int ListID = 0;
 
         public ProductDetail()
         {
             InitializeComponent();
         }
+
 
         private void ProductDetail_Load(object sender, EventArgs e)
         {
@@ -42,11 +44,12 @@ namespace POSSystem
             scsb.IntegratedSecurity = true;
             strDBConnectionString = scsb.ConnectionString;
         }
-        public void ShowProductDetail(int selectID)
+        public void ShowProductDetail(int selectID, int orderid)
         {
+            getorderid = orderid;
+            //SetOrderID(getorderid);
             //cup預設值
             txtCup.Text = "1";
-            cupcount = 1;
             if (selectID > 0)
             {
                 SqlConnectionStringBuilder scsb2 = new SqlConnectionStringBuilder();
@@ -76,6 +79,7 @@ namespace POSSystem
                     pictureBoxProduct.Image = Image.FromFile(完整圖檔路徑);
                     if (reader["List_ID"].ToString() == "4")
                     {
+                        ListID = 4;
                         groupBoxSugar.Visible = false;
                         groupBoxIce.Visible = false;
                     }
@@ -94,6 +98,7 @@ namespace POSSystem
                 }
                 reader.Close();
                 con.Close();
+                TotalPrice();
             }
         }
 
@@ -126,9 +131,9 @@ namespace POSSystem
             isEspresso = checkBoxEspresso.Checked;
             TotalPrice();
         }
-
         void TotalPrice()
         {
+
             if (isEspresso)
             {
                 totalprice = (cupcount * (price + 20));
@@ -139,34 +144,84 @@ namespace POSSystem
             }
             lblPrice.Text = $"NT$ {totalprice}";
         }
-
         private void pictureBoxAddShopping_Click(object sender, EventArgs e)
         {
-            if ((stringSugar != "") && (stringIce != ""))
+            //if ((stringSugar != "") && (stringIce != ""))
+            //{
+            //    SqlConnection con = new SqlConnection(strDBConnectionString);
+            //    con.Open();
+            //    if (orderID == 0) //檢查是否已經有一個訂單進行中，如果沒有則創建新的訂單
+            //    {
+            //        //先創新的oid跟orderdate
+            //        string insertNewOrder = @"INSERT INTO Orders (OrderDate) VALUES (@NewTime);
+            //                                SELECT SCOPE_IDENTITY();
+            //                                ";
+            //        SqlCommand cmd = new SqlCommand(insertNewOrder, con);
+            //        cmd.Parameters.AddWithValue("@NewTime", DateTime.Now);
+            //        //取得自動生成的oid
+            //        orderID = Convert.ToInt32(cmd.ExecuteScalar());
+            //    }
+            //    //判斷oid有生成才會執行
+            //    if (orderID > 0)
+            //    {
+            //        string insertOrderDetailQuery = @"
+            //        INSERT INTO OrderDetail (O_ID, P_ID, Quantity, TotalPrice, Sugar, Ice, Espresso)
+            //        VALUES (@OrderID, @pid, @NewQuantity, @NewTotalPrice, @NewSugar, @NewIce, @NewEspresso);
+            //        ";
+
+            //        SqlCommand cmd = new SqlCommand(insertOrderDetailQuery, con);
+            //        cmd.Parameters.AddWithValue("@OrderID", orderID);
+            //        cmd.Parameters.AddWithValue("@pid", P_ID);
+            //        cmd.Parameters.AddWithValue("@NewQuantity", cupcount);
+            //        cmd.Parameters.AddWithValue("@NewTotalPrice", totalprice);
+            //        cmd.Parameters.AddWithValue("@NewSugar", stringSugar);
+            //        cmd.Parameters.AddWithValue("@NewIce", stringIce);
+            //        cmd.Parameters.AddWithValue("@NewEspresso", isEspresso);
+
+            //        int rows = cmd.ExecuteNonQuery();
+            //        con.Close();
+            //        MessageBox.Show($"訂購資料新增成功, {rows}筆資料受影響");
+            //    }
+            //}
+
+            //else
+            //{
+            //    MessageBox.Show("甜度,冰塊未選擇!");
+            //}
+
+            SqlConnection con = new SqlConnection(strDBConnectionString);
+            con.Open();
+            if (ListID == 4)
             {
-                SqlConnection con = new SqlConnection(strDBConnectionString);
-                con.Open();
+                string insertnNewOrderDetail = @"
+                    INSERT INTO OrderDetail (O_ID, P_ID, Quantity, TotalPrice)
+                    VALUES (@OrderID, @pid, @NewQuantity, @NewTotalPrice);
+                    ";
 
-                //先創新的oid跟orderdate
-                string insertNewOrder = @"INSERT INTO Orders (OrderDate) VALUES (@NewTime);
-                                            SELECT SCOPE_IDENTITY();
-                                            ";
-                SqlCommand cmd = new SqlCommand(insertNewOrder, con);
-                cmd.Parameters.AddWithValue("@NewTime", DateTime.Now);
-                //取得自動生成的oid
-                int orderID = Convert.ToInt32(cmd.ExecuteScalar());
-                //判斷oid有生成才會執行
-                if (orderID > 0)
+                SqlCommand cmd = new SqlCommand(insertnNewOrderDetail, con);
+                cmd.Parameters.AddWithValue("@OrderID", getorderid);
+                cmd.Parameters.AddWithValue("@pid", P_ID);
+                cmd.Parameters.AddWithValue("@NewQuantity", cupcount);
+                cmd.Parameters.AddWithValue("@NewTotalPrice", totalprice);
+
+                int rows = cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show($"{rows}件商品已成功添加到購物車");
+
+            }
+            else
+            {
+                if ((stringSugar != "") && (stringIce != ""))
                 {
-                    string insertOrderDetailQuery = @"
-                       SET IDENTITY_INSERT OrderDetail ON;
-                       INSERT INTO OrderDetail (O_ID, P_ID, Quantity, TotalPrice, Sugar, Ice, Espresso)
-                       VALUES (@OrderID, @pid, @NewQuantity, @NewTotalPrice, @NewSugar, @NewIce, @NewEspresso);
-                        SET IDENTITY_INSERT OrderDetail OFF;
-                       ";
+                    //SqlConnection con = new SqlConnection(strDBConnectionString);
+                    //con.Open();
+                    string insertnNewOrderDetail = @"
+                    INSERT INTO OrderDetail (O_ID, P_ID, Quantity, TotalPrice, Sugar, Ice, Espresso)
+                    VALUES (@OrderID, @pid, @NewQuantity, @NewTotalPrice, @NewSugar, @NewIce, @NewEspresso);
+                    ";
 
-                    cmd = new SqlCommand(insertOrderDetailQuery, con);
-                    cmd.Parameters.AddWithValue("@OrderID", orderID);
+                    SqlCommand cmd = new SqlCommand(insertnNewOrderDetail, con);
+                    cmd.Parameters.AddWithValue("@OrderID", getorderid);
                     cmd.Parameters.AddWithValue("@pid", P_ID);
                     cmd.Parameters.AddWithValue("@NewQuantity", cupcount);
                     cmd.Parameters.AddWithValue("@NewTotalPrice", totalprice);
@@ -176,15 +231,18 @@ namespace POSSystem
 
                     int rows = cmd.ExecuteNonQuery();
                     con.Close();
-                    MessageBox.Show($"訂購資料新增成功, {rows}筆資料受影響");
+                    MessageBox.Show($"{rows}件商品已成功添加到購物車");
                 }
-            }
 
-            else
-            {
-                MessageBox.Show("甜度,冰塊未選擇!");
+                else
+                {
+                    MessageBox.Show("甜度,冰塊未選擇!");
+                }
+
             }
+            con.Close();
         }
+
 
         private void rBtnSugar100_CheckedChanged(object sender, EventArgs e)
         {

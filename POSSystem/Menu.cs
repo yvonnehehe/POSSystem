@@ -30,6 +30,117 @@ namespace POSSystem
             InitializeComponent();
         }
 
+        int orderID;
+
+        public void NewOrderID(int newOid)
+        {
+            SqlConnectionStringBuilder scsb2 = new SqlConnectionStringBuilder();
+            scsb2.DataSource = @".";
+            scsb2.InitialCatalog = "IspanPersonalProject_POS";
+            scsb2.IntegratedSecurity = true;
+            string strDBConnectionString2 = scsb2.ConnectionString;
+
+            SqlConnection con = new SqlConnection(strDBConnectionString2);
+            con.Open();
+
+            if (orderID == 0) //檢查是否已經有一個訂單進行中，如果沒有則創建新的訂單
+            {
+                string getMaxOid = "SELECT MAX(O_ID) FROM orders;";
+                SqlCommand cmd = new SqlCommand(getMaxOid, con);
+                int maxOid = 0;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        if (!reader.IsDBNull(0))
+                        {
+                            maxOid = reader.GetInt32(0);
+                        }
+                    }
+                }
+                newOid = maxOid + 1;
+
+                string insertNewOrder = "INSERT INTO orders (O_ID,OrderDate) VALUES (@NewOid,@NewTime);";
+                SqlCommand cmd2 = new SqlCommand(insertNewOrder, con);
+                cmd2.Parameters.AddWithValue("@NewOid", newOid);
+                cmd2.Parameters.AddWithValue("@NewTime", DateTime.Now);
+                cmd2.ExecuteNonQuery();
+
+
+                orderID = newOid;
+                //orderID = (int)cmd.ExecuteScalar();
+
+                //    SqlCommand cmd2 = new SqlCommand(insertNewOrder, con);
+                //    cmd2.Parameters.AddWithValue("@NewOid", newOid);
+                //    cmd2.ExecuteNonQuery();
+
+                //    SqlCommand cmd3 = new SqlCommand(insertNewOrderTime, con);
+                //    cmd3.Parameters.AddWithValue("@NewTime", DateTime.Now);
+                //    cmd3.ExecuteNonQuery();
+
+            }
+
+            con.Close();
+            ////生出oid
+            //SqlConnectionStringBuilder scsb3 = new SqlConnectionStringBuilder();
+            //scsb3.DataSource = @".";
+            //scsb3.InitialCatalog = "IspanPersonalProject_POS";
+            //scsb3.IntegratedSecurity = true;
+            //string strDBConnectionString3 = scsb3.ConnectionString;
+
+            //SqlConnection con = new SqlConnection(strDBConnectionString3);
+            //con.Open();
+
+            //if (orderID == 0) //檢查是否已經有一個訂單進行中，如果沒有則創建新的訂單
+            //{
+            //    ////先創新的oid跟orderdate
+            //    //string insertNewOrder = @"INSERT INTO Orders (O_ID,OrderDate) VALUES (@NewOID,@NewTime);
+            //    //                        ";
+            //    //SqlCommand cmd = new SqlCommand(insertNewOrder, con);
+            //    //cmd.Parameters.AddWithValue("@NewOID", orderID);
+            //    //cmd.Parameters.AddWithValue("@NewTime", DateTime.Now);
+            //    ////取得自動生成的oid
+            //    //orderID = Convert.ToInt32(cmd.ExecuteScalar());
+            //    string getMaxOid = "SELECT MAX(O_ID) FROM orders;";
+            //    SqlCommand cmd = new SqlCommand(getMaxOid, con);
+            //    int maxOid = 0;
+
+            //    using (SqlDataReader reader = cmd.ExecuteReader())
+            //    {
+            //        if (reader.Read())
+            //        {
+            //            if (!reader.IsDBNull(0))
+            //            {
+            //                maxOid = reader.GetInt32(0);
+            //            }
+            //        }
+            //    }
+            //    //string getMaxOid = "SELECT MAX(O_ID) FROM Orders;";
+            //    //SqlCommand cmd = new SqlCommand(getMaxOid, con);
+            //    //SqlDataReader reader = cmd.ExecuteReader();
+            //    //int maxOid = (int)reader["MAX(O_ID)"];
+
+            //    int newOid = maxOid + 1;
+
+            //    string insertNewOrder = "INSERT INTO orderdetail (O_ID) VALUES (@NewOid);";
+            //    SqlCommand cmd2 = new SqlCommand(insertNewOrder, con);
+            //    cmd2.Parameters.AddWithValue("@NewOid", newOid);
+            //    cmd2.ExecuteNonQuery();
+
+            //    string insertNewOrderTime = "INSERT INTO orders (OrderDate) VALUES (@NewTime);";
+            //    SqlCommand cmd3 = new SqlCommand(insertNewOrderTime, con);
+            //    cmd3.Parameters.AddWithValue("@NewTime", DateTime.Now);
+            //    cmd3.ExecuteNonQuery();
+
+
+            //    orderID = newOid;
+            //}
+            //con.Close();
+
+        }
+
+
         private void btnCoffee_Click(object sender, EventArgs e)
         {
             QueryProd(1);
@@ -81,13 +192,14 @@ namespace POSSystem
             con.Close();
             ShowlistView();
         }
-
+        int orderid;
         private void Menu_Load(object sender, EventArgs e)
         {
             scsb.DataSource = @".";
             scsb.InitialCatalog = "IspanPersonalProject_POS";
             scsb.IntegratedSecurity = true;
             strDBConnectionString = scsb.ConnectionString;
+            NewOrderID(orderID);
         }
         void ShowlistView()
         {
@@ -112,7 +224,8 @@ namespace POSSystem
         {
             ProductDetail productDetail = new ProductDetail();
             productDetail.selectID = (int)listViewMenu.SelectedItems[0].Tag;
-            productDetail.ShowProductDetail(productDetail.selectID);
+            productDetail.getorderid = orderID;
+            productDetail.ShowProductDetail(productDetail.selectID,productDetail.getorderid);
             productDetail.ShowDialog();
            
         }
