@@ -144,6 +144,7 @@ namespace POSSystem
             }
             lblPrice.Text = $"NT$ {totalprice}";
         }
+        //尚未做重複點擊add按鈕
         private void pictureBoxAddShopping_Click(object sender, EventArgs e)
         {
             //if ((stringSugar != "") && (stringIce != ""))
@@ -189,10 +190,10 @@ namespace POSSystem
             //    MessageBox.Show("甜度,冰塊未選擇!");
             //}
 
-            SqlConnection con = new SqlConnection(strDBConnectionString);
-            con.Open();
             if (ListID == 4)
             {
+                SqlConnection con = new SqlConnection(strDBConnectionString);
+                con.Open();
                 string insertnNewOrderDetail = @"
                     INSERT INTO OrderDetail (O_ID, P_ID, Quantity, TotalPrice)
                     VALUES (@OrderID, @pid, @NewQuantity, @NewTotalPrice);
@@ -213,8 +214,8 @@ namespace POSSystem
             {
                 if ((stringSugar != "") && (stringIce != ""))
                 {
-                    //SqlConnection con = new SqlConnection(strDBConnectionString);
-                    //con.Open();
+                    SqlConnection con = new SqlConnection(strDBConnectionString);
+                    con.Open();
                     string insertnNewOrderDetail = @"
                     INSERT INTO OrderDetail (O_ID, P_ID, Quantity, TotalPrice, Sugar, Ice, Espresso)
                     VALUES (@OrderID, @pid, @NewQuantity, @NewTotalPrice, @NewSugar, @NewIce, @NewEspresso);
@@ -240,7 +241,6 @@ namespace POSSystem
                 }
 
             }
-            con.Close();
         }
 
 
