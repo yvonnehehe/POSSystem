@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateMember.Designer.cs">
+      <DependentUpon>CreateMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="EnterPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,12 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyMemberCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyMemberCenter.Designer.cs">
+      <DependentUpon>MyMemberCenter.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,12 +87,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Back_CustomerCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\Back_CustomerCenter.Designer.cs">
+      <DependentUpon>Back_CustomerCenter.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShoppingCar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ShoppingCar.Designer.cs">
       <DependentUpon>ShoppingCar.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CreateMember.resx">
+      <DependentUpon>CreateMember.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EnterPage.resx">
       <DependentUpon>EnterPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,8 +111,14 @@
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyMemberCenter.resx">
+      <DependentUpon>MyMemberCenter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductDetail.resx">
       <DependentUpon>ProductDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Back_CustomerCenter.resx">
+      <DependentUpon>Back_CustomerCenter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

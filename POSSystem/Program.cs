@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POSSystem.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace POSSystem
 {
     internal static class Program
     {
-        public static Form EnterPage;
+        //public static Form EnterPage;
         /// <summary>
         /// 應用程式的主要進入點。
         /// </summary>
@@ -17,8 +18,9 @@ namespace POSSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            EnterPage = new EnterPage();
-            Application.Run(EnterPage);
+            //EnterPage = new EnterPage();
+            //Application.Run(EnterPage);
+            Application.Run(new Back_CustomerCenter());
         }
     }
 }

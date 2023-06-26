@@ -26,7 +26,7 @@ namespace POSSystem
         private void btnBackEnterPage_Click(object sender, EventArgs e)
         {
             this.Close();
-            Program.EnterPage.Show();
+            //Program.EnterPage.Show();
         }
 
         //讓滑鼠點到panl3時可以拖曳視窗
