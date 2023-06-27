@@ -61,6 +61,7 @@
             this.btnContentManagement.TabIndex = 1;
             this.btnContentManagement.Text = "Content\r\nManagement";
             this.btnContentManagement.UseVisualStyleBackColor = true;
+            this.btnContentManagement.Click += new System.EventHandler(this.btnContentManagement_Click);
             // 
             // panel1
             // 

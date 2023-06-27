@@ -145,5 +145,12 @@ namespace POSSystem
         {
             Application.Exit();
         }
+
+        private void btnContentManagement_Click(object sender, EventArgs e)
+        {
+            Back_Center back_center = new Back_Center();
+            back_center.Show();
+            this.Hide();
+        }
     }
 }

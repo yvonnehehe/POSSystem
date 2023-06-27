@@ -24,13 +24,13 @@ namespace POSSystem
 
         string image_modify_name = "";
         int cupcount = 1;
-        int totalprice = 0;
+        int subtotal = 0;
         int price = 0;
         string stringSugar = ""; //甜度儲存在這兒
         string stringIce = ""; //冰塊儲存在這兒
         int P_ID;
         int ListID = 0;
-
+        string nonono = "0%";
         public ProductDetail()
         {
             InitializeComponent();
@@ -49,7 +49,7 @@ namespace POSSystem
             getorderid = orderid;
             //SetOrderID(getorderid);
             //cup預設值
-            txtCup.Text = "1";
+            txtQ2.Text = "1";
             if (selectID > 0)
             {
                 SqlConnectionStringBuilder scsb2 = new SqlConnectionStringBuilder();
@@ -98,24 +98,24 @@ namespace POSSystem
                 }
                 reader.Close();
                 con.Close();
-                TotalPrice();
+                Subtotal();
             }
         }
 
-        private void btnCupadd一_Click(object sender, EventArgs e)
+        private void btnQadd一_Click(object sender, EventArgs e)
         {
             cupcount++;
-            txtCup.Text = cupcount.ToString();
-            TotalPrice();
+            txtQ2.Text = cupcount.ToString();
+            Subtotal();
         }
 
-        private void btnCupLower_Click(object sender, EventArgs e)
+        private void btnQLower_Click(object sender, EventArgs e)
         {
             if (cupcount > 1)
             {
                 cupcount--;
-                txtCup.Text = cupcount.ToString();
-                TotalPrice();
+                txtQ2.Text = cupcount.ToString();
+                Subtotal();
             }
         }
         //讓Espresso只在coffee時顯示
@@ -129,20 +129,20 @@ namespace POSSystem
         private void checkBoxEspresso_CheckedChanged(object sender, EventArgs e)
         {
             isEspresso = checkBoxEspresso.Checked;
-            TotalPrice();
+            Subtotal();
         }
-        void TotalPrice()
+        void Subtotal()
         {
 
             if (isEspresso)
             {
-                totalprice = (cupcount * (price + 20));
+                subtotal = (cupcount * (price + 20));
             }
             else
             {
-                totalprice = cupcount * price;
+                subtotal = cupcount * price;
             }
-            lblPrice.Text = $"NT$ {totalprice}";
+            lblPrice.Text = $"NT$ {subtotal}";
         }
         //尚未做重複點擊add按鈕
         private void pictureBoxAddShopping_Click(object sender, EventArgs e)
@@ -195,20 +195,53 @@ namespace POSSystem
                 SqlConnection con = new SqlConnection(strDBConnectionString);
                 con.Open();
                 string insertnNewOrderDetail = @"
-                    INSERT INTO OrderDetail (O_ID, P_ID, Quantity, TotalPrice)
-                    VALUES (@OrderID, @pid, @NewQuantity, @NewTotalPrice);
+                    INSERT INTO orderdetail (O_ID, P_ID, Quantity, Subtotal, Sugar, Ice, Espresso)
+                    VALUES (@OrderID, @pid, @NewQuantity, @NewSubtotal,@NewSugar,@NewIce,@NewEspresso);
                     ";
 
                 SqlCommand cmd = new SqlCommand(insertnNewOrderDetail, con);
                 cmd.Parameters.AddWithValue("@OrderID", getorderid);
                 cmd.Parameters.AddWithValue("@pid", P_ID);
                 cmd.Parameters.AddWithValue("@NewQuantity", cupcount);
-                cmd.Parameters.AddWithValue("@NewTotalPrice", totalprice);
+                cmd.Parameters.AddWithValue("@NewSubtotal", subtotal);
+                cmd.Parameters.AddWithValue("@NewSugar", nonono);
+                cmd.Parameters.AddWithValue("@NewIce", nonono);
+                cmd.Parameters.AddWithValue("@NewEspresso", isEspresso);
 
                 int rows = cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show($"{rows}件商品已成功添加到購物車");
 
+            }
+            else if (ListID == 1)
+            {
+                if ((stringSugar != "") && (stringIce != ""))
+                {
+                    SqlConnection con = new SqlConnection(strDBConnectionString);
+                    con.Open();
+                    string insertnNewOrderDetail = @"
+                    INSERT INTO orderdetail (O_ID, P_ID, Quantity, Subtotal, Sugar, Ice, Espresso)
+                    VALUES (@OrderID, @pid, @NewQuantity, @Subtotal, @NewSugar, @NewIce, @NewEspresso);
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(insertnNewOrderDetail, con);
+                    cmd.Parameters.AddWithValue("@OrderID", getorderid);
+                    cmd.Parameters.AddWithValue("@pid", P_ID);
+                    cmd.Parameters.AddWithValue("@NewQuantity", cupcount);
+                    cmd.Parameters.AddWithValue("@Subtotal", subtotal);
+                    cmd.Parameters.AddWithValue("@NewSugar", "0%");
+                    cmd.Parameters.AddWithValue("@NewIce", "0%");
+                    cmd.Parameters.AddWithValue("@NewEspresso", isEspresso);
+
+                    int rows = cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show($"{rows}件商品已成功添加到購物車");
+                }
+
+                else
+                {
+                    MessageBox.Show("甜度,冰塊未選擇!");
+                }
             }
             else
             {
@@ -217,15 +250,15 @@ namespace POSSystem
                     SqlConnection con = new SqlConnection(strDBConnectionString);
                     con.Open();
                     string insertnNewOrderDetail = @"
-                    INSERT INTO OrderDetail (O_ID, P_ID, Quantity, TotalPrice, Sugar, Ice, Espresso)
-                    VALUES (@OrderID, @pid, @NewQuantity, @NewTotalPrice, @NewSugar, @NewIce, @NewEspresso);
+                    INSERT INTO orderdetail (O_ID, P_ID, Quantity, Subtotal, Sugar, Ice, Espresso)
+                    VALUES (@OrderID, @pid, @NewQuantity, @Subtotal, @NewSugar, @NewIce, @NewEspresso);
                     ";
 
                     SqlCommand cmd = new SqlCommand(insertnNewOrderDetail, con);
                     cmd.Parameters.AddWithValue("@OrderID", getorderid);
                     cmd.Parameters.AddWithValue("@pid", P_ID);
                     cmd.Parameters.AddWithValue("@NewQuantity", cupcount);
-                    cmd.Parameters.AddWithValue("@NewTotalPrice", totalprice);
+                    cmd.Parameters.AddWithValue("@Subtotal", subtotal);
                     cmd.Parameters.AddWithValue("@NewSugar", stringSugar);
                     cmd.Parameters.AddWithValue("@NewIce", stringIce);
                     cmd.Parameters.AddWithValue("@NewEspresso", isEspresso);
@@ -239,7 +272,6 @@ namespace POSSystem
                 {
                     MessageBox.Show("甜度,冰塊未選擇!");
                 }
-
             }
         }
 
@@ -282,6 +314,11 @@ namespace POSSystem
         private void rBtnIce100_CheckedChanged(object sender, EventArgs e)
         {
             stringIce = "100%";
+        }
+
+        private void txtCup_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

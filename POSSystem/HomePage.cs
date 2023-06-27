@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static POSSystem.EnterPage;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace POSSystem
 {
@@ -16,6 +18,7 @@ namespace POSSystem
         public HomePage()
         {
             InitializeComponent();
+            NewOrderID(orderID);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -26,7 +29,7 @@ namespace POSSystem
         private void btnBackEnterPage_Click(object sender, EventArgs e)
         {
             this.Close();
-            //Program.EnterPage.Show();
+            Program.EnterPage.Show();
         }
 
         //讓滑鼠點到panl3時可以拖曳視窗
@@ -143,12 +146,72 @@ namespace POSSystem
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
             Menu menu = new Menu();
+            menu.getorderid = orderID;
+            menu.GetorderId(menu.getorderid);//給oid
+
             menu.TopLevel = false;
-            menu.Dock = DockStyle.None;
+            menu.Dock = DockStyle.Fill;
             panel2.Controls.Clear();
             panel2.Controls.Add(menu);
             menu.Show();
-
         }
+
+        private void bunifuImageButton3_Click(object sender, EventArgs e)
+        {
+            ShoppingCar shoppingcar = new ShoppingCar();
+            shoppingcar.getorderid = orderID;
+            shoppingcar.ReadOrderData(shoppingcar.getorderid);//給oid
+
+            shoppingcar.TopLevel = false;
+            shoppingcar.Dock = DockStyle.Fill;
+            panel2.Controls.Clear();
+            panel2.Controls.Add(shoppingcar);
+            shoppingcar.Show();
+        }
+        //建立新訂單
+        int orderID;
+
+        public void NewOrderID(int newOid)
+        {
+            SqlConnectionStringBuilder scsb2 = new SqlConnectionStringBuilder();
+            scsb2.DataSource = @".";
+            scsb2.InitialCatalog = "IspanPersonalProject_POS";
+            scsb2.IntegratedSecurity = true;
+            string strDBConnectionString2 = scsb2.ConnectionString;
+
+            SqlConnection con = new SqlConnection(strDBConnectionString2);
+            con.Open();
+
+            if (orderID == 0) //檢查是否已經有一個訂單進行中，如果沒有則創建新的訂單
+            {
+                string getMaxOid = "SELECT MAX(O_ID) FROM orders;";
+                SqlCommand cmd = new SqlCommand(getMaxOid, con);
+                int maxOid = 0;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        if (!reader.IsDBNull(0))
+                        {
+                            maxOid = reader.GetInt32(0);
+                        }
+                    }
+                }
+                newOid = maxOid + 1;
+
+                string insertNewOrder = "INSERT INTO orders (O_ID,OrderDate) VALUES (@NewOid,@NewTime);";
+                SqlCommand cmd2 = new SqlCommand(insertNewOrder, con);
+                cmd2.Parameters.AddWithValue("@NewOid", newOid);
+                cmd2.Parameters.AddWithValue("@NewTime", DateTime.Now);
+                cmd2.ExecuteNonQuery();
+
+
+                orderID = newOid;
+            }
+
+            con.Close();
+        }
+
     }
 }

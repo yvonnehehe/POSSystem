@@ -353,5 +353,12 @@ namespace POSSystem.Properties
 
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Back_Center BC = new Back_Center();
+            this.Close();
+            BC.Visible = true;
+        }
     }
 }

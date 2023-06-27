@@ -41,42 +41,54 @@
             // 
             // btnCoffee
             // 
-            this.btnCoffee.Location = new System.Drawing.Point(63, 19);
+            this.btnCoffee.BackColor = System.Drawing.Color.DarkGray;
+            this.btnCoffee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCoffee.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCoffee.Location = new System.Drawing.Point(63, 12);
             this.btnCoffee.Name = "btnCoffee";
-            this.btnCoffee.Size = new System.Drawing.Size(75, 23);
+            this.btnCoffee.Size = new System.Drawing.Size(75, 30);
             this.btnCoffee.TabIndex = 1;
             this.btnCoffee.Text = "Coffee";
-            this.btnCoffee.UseVisualStyleBackColor = true;
+            this.btnCoffee.UseVisualStyleBackColor = false;
             this.btnCoffee.Click += new System.EventHandler(this.btnCoffee_Click);
             // 
             // btnFizz
             // 
-            this.btnFizz.Location = new System.Drawing.Point(183, 19);
+            this.btnFizz.BackColor = System.Drawing.Color.DarkGray;
+            this.btnFizz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFizz.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFizz.Location = new System.Drawing.Point(193, 12);
             this.btnFizz.Name = "btnFizz";
-            this.btnFizz.Size = new System.Drawing.Size(75, 23);
+            this.btnFizz.Size = new System.Drawing.Size(75, 30);
             this.btnFizz.TabIndex = 2;
             this.btnFizz.Text = "Fizz";
-            this.btnFizz.UseVisualStyleBackColor = true;
+            this.btnFizz.UseVisualStyleBackColor = false;
             this.btnFizz.Click += new System.EventHandler(this.btnFizz_Click);
             // 
             // btnTeaAndFlavorMilk
             // 
-            this.btnTeaAndFlavorMilk.Location = new System.Drawing.Point(313, 19);
+            this.btnTeaAndFlavorMilk.BackColor = System.Drawing.Color.DarkGray;
+            this.btnTeaAndFlavorMilk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTeaAndFlavorMilk.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTeaAndFlavorMilk.Location = new System.Drawing.Point(324, 12);
             this.btnTeaAndFlavorMilk.Name = "btnTeaAndFlavorMilk";
-            this.btnTeaAndFlavorMilk.Size = new System.Drawing.Size(115, 23);
+            this.btnTeaAndFlavorMilk.Size = new System.Drawing.Size(130, 30);
             this.btnTeaAndFlavorMilk.TabIndex = 3;
             this.btnTeaAndFlavorMilk.Text = "Tea and Flavor Milk";
-            this.btnTeaAndFlavorMilk.UseVisualStyleBackColor = true;
+            this.btnTeaAndFlavorMilk.UseVisualStyleBackColor = false;
             this.btnTeaAndFlavorMilk.Click += new System.EventHandler(this.btnTeaAndFlavorMilk_Click);
             // 
             // btnDessert
             // 
-            this.btnDessert.Location = new System.Drawing.Point(471, 19);
+            this.btnDessert.BackColor = System.Drawing.Color.DarkGray;
+            this.btnDessert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDessert.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDessert.Location = new System.Drawing.Point(504, 12);
             this.btnDessert.Name = "btnDessert";
-            this.btnDessert.Size = new System.Drawing.Size(75, 23);
+            this.btnDessert.Size = new System.Drawing.Size(75, 30);
             this.btnDessert.TabIndex = 4;
             this.btnDessert.Text = "Dessert";
-            this.btnDessert.UseVisualStyleBackColor = true;
+            this.btnDessert.UseVisualStyleBackColor = false;
             this.btnDessert.Click += new System.EventHandler(this.btnDessert_Click);
             // 
             // listViewMenu

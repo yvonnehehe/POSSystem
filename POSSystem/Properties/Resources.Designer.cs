@@ -113,6 +113,36 @@ namespace POSSystem.Properties {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
+        internal static System.Drawing.Bitmap fi_rr_shopping_cart_add {
+            get {
+                object obj = ResourceManager.GetObject("fi-rr-shopping-cart-add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap fi_rr_shopping_cart_check {
+            get {
+                object obj = ResourceManager.GetObject("fi-rr-shopping-cart-check", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap fi_rr_undo {
+            get {
+                object obj = ResourceManager.GetObject("fi-rr-undo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
         internal static System.Drawing.Bitmap fi_rr_utensils {
             get {
                 object obj = ResourceManager.GetObject("fi-rr-utensils", resourceCulture);

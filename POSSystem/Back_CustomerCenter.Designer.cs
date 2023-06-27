@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Back_CustomerCenter));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgvCustomerList = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -64,6 +65,7 @@
             this.btnDataUpdate = new System.Windows.Forms.Button();
             this.btnDataSelect = new System.Windows.Forms.Button();
             this.btnDataCount = new System.Windows.Forms.Button();
+            this.btnBack = new Bunifu.UI.WinForms.BunifuImageButton();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerList)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -453,16 +455,54 @@
             this.btnDataCount.UseVisualStyleBackColor = true;
             this.btnDataCount.Click += new System.EventHandler(this.btnDataCount_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.ActiveImage = null;
+            this.btnBack.AllowAnimations = true;
+            this.btnBack.AllowBuffering = false;
+            this.btnBack.AllowToggling = false;
+            this.btnBack.AllowZooming = true;
+            this.btnBack.AllowZoomingOnFocus = false;
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnBack.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnBack.ErrorImage")));
+            this.btnBack.FadeWhenInactive = false;
+            this.btnBack.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.btnBack.Image = global::POSSystem.Properties.Resources.fi_rs_undo_alt;
+            this.btnBack.ImageActive = null;
+            this.btnBack.ImageLocation = null;
+            this.btnBack.ImageMargin = 10;
+            this.btnBack.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnBack.ImageZoomSize = new System.Drawing.Size(40, 40);
+            this.btnBack.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnBack.InitialImage")));
+            this.btnBack.Location = new System.Drawing.Point(995, 433);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Rotation = 0;
+            this.btnBack.ShowActiveImage = true;
+            this.btnBack.ShowCursorChanges = true;
+            this.btnBack.ShowImageBorders = true;
+            this.btnBack.ShowSizeMarkers = false;
+            this.btnBack.Size = new System.Drawing.Size(40, 40);
+            this.btnBack.TabIndex = 13;
+            this.btnBack.ToolTipText = "";
+            this.btnBack.WaitOnLoad = false;
+            this.btnBack.Zoom = 10;
+            this.btnBack.ZoomSpeed = 10;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // Back_CustomerCenter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1036, 428);
+            this.ClientSize = new System.Drawing.Size(1036, 478);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Back_CustomerCenter";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Back_CustomerCenter";
             this.Load += new System.EventHandler(this.Back_CustomerCenter_Load);
             this.groupBox4.ResumeLayout(false);
@@ -514,5 +554,6 @@
         private System.Windows.Forms.Button btnDataUpdate;
         private System.Windows.Forms.Button btnDataSelect;
         private System.Windows.Forms.Button btnDataCount;
+        private Bunifu.UI.WinForms.BunifuImageButton btnBack;
     }
 }
