@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,13 @@ namespace POSSystem
 
         public int selectID = 0;
         public int getorderid = 0;
+        public int shoppingoid = 0;
 
         string image_modify_name = "";
         int cupcount = 1;
         int subtotal = 0;
         int price = 0;
+        int Q = 0; //接收讀出來的數量
         string stringSugar = ""; //甜度儲存在這兒
         string stringIce = ""; //冰塊儲存在這兒
         int P_ID;
@@ -49,7 +52,7 @@ namespace POSSystem
             getorderid = orderid;
             //SetOrderID(getorderid);
             //cup預設值
-            txtQ2.Text = "1";
+            txtQ.Text = "1";
             if (selectID > 0)
             {
                 SqlConnectionStringBuilder scsb2 = new SqlConnectionStringBuilder();
@@ -71,7 +74,7 @@ namespace POSSystem
                     labName.Text = reader["P_Name"].ToString();
                     labPrice.Text = reader["Price"].ToString();
                     price = (int)reader["Price"];
-                    lblPrice.Text = "NT$ " + reader["Price"].ToString();
+                    labSubtotal.Text = "NT$ " + reader["Price"].ToString();
                     txtDesc.Text = reader["P_Desc"].ToString();
                     //圖檔變動 上傳的圖檔以隨機命名產生檔名(不然會有重複)
                     image_modify_name = reader["P_Image"].ToString();
@@ -105,7 +108,7 @@ namespace POSSystem
         private void btnQadd一_Click(object sender, EventArgs e)
         {
             cupcount++;
-            txtQ2.Text = cupcount.ToString();
+            txtQ.Text = cupcount.ToString();
             Subtotal();
         }
 
@@ -114,7 +117,7 @@ namespace POSSystem
             if (cupcount > 1)
             {
                 cupcount--;
-                txtQ2.Text = cupcount.ToString();
+                txtQ.Text = cupcount.ToString();
                 Subtotal();
             }
         }
@@ -142,54 +145,11 @@ namespace POSSystem
             {
                 subtotal = cupcount * price;
             }
-            lblPrice.Text = $"NT$ {subtotal}";
+            labSubtotal.Text = $"NT$ {subtotal}";
         }
         //尚未做重複點擊add按鈕
         private void pictureBoxAddShopping_Click(object sender, EventArgs e)
         {
-            //if ((stringSugar != "") && (stringIce != ""))
-            //{
-            //    SqlConnection con = new SqlConnection(strDBConnectionString);
-            //    con.Open();
-            //    if (orderID == 0) //檢查是否已經有一個訂單進行中，如果沒有則創建新的訂單
-            //    {
-            //        //先創新的oid跟orderdate
-            //        string insertNewOrder = @"INSERT INTO Orders (OrderDate) VALUES (@NewTime);
-            //                                SELECT SCOPE_IDENTITY();
-            //                                ";
-            //        SqlCommand cmd = new SqlCommand(insertNewOrder, con);
-            //        cmd.Parameters.AddWithValue("@NewTime", DateTime.Now);
-            //        //取得自動生成的oid
-            //        orderID = Convert.ToInt32(cmd.ExecuteScalar());
-            //    }
-            //    //判斷oid有生成才會執行
-            //    if (orderID > 0)
-            //    {
-            //        string insertOrderDetailQuery = @"
-            //        INSERT INTO OrderDetail (O_ID, P_ID, Quantity, TotalPrice, Sugar, Ice, Espresso)
-            //        VALUES (@OrderID, @pid, @NewQuantity, @NewTotalPrice, @NewSugar, @NewIce, @NewEspresso);
-            //        ";
-
-            //        SqlCommand cmd = new SqlCommand(insertOrderDetailQuery, con);
-            //        cmd.Parameters.AddWithValue("@OrderID", orderID);
-            //        cmd.Parameters.AddWithValue("@pid", P_ID);
-            //        cmd.Parameters.AddWithValue("@NewQuantity", cupcount);
-            //        cmd.Parameters.AddWithValue("@NewTotalPrice", totalprice);
-            //        cmd.Parameters.AddWithValue("@NewSugar", stringSugar);
-            //        cmd.Parameters.AddWithValue("@NewIce", stringIce);
-            //        cmd.Parameters.AddWithValue("@NewEspresso", isEspresso);
-
-            //        int rows = cmd.ExecuteNonQuery();
-            //        con.Close();
-            //        MessageBox.Show($"訂購資料新增成功, {rows}筆資料受影響");
-            //    }
-            //}
-
-            //else
-            //{
-            //    MessageBox.Show("甜度,冰塊未選擇!");
-            //}
-
             if (ListID == 4)
             {
                 SqlConnection con = new SqlConnection(strDBConnectionString);
@@ -315,9 +275,127 @@ namespace POSSystem
         {
             stringIce = "100%";
         }
-
-        private void txtCup_TextChanged(object sender, EventArgs e)
+        List<int> listOrderDetailID = new List<int>();
+        public void ReadOrderDetail(int shoppingoid)
         {
+            if (shoppingoid > 0)
+            {
+                SqlConnectionStringBuilder scsb2 = new SqlConnectionStringBuilder();
+                scsb2.DataSource = @".";
+                scsb2.InitialCatalog = "IspanPersonalProject_POS";
+                scsb2.IntegratedSecurity = true;
+                string strDBConnectionString2 = scsb2.ConnectionString;
+
+                SqlConnection con = new SqlConnection(strDBConnectionString2);
+                con.Open();
+                string strSQL = @"SELECT  *
+                                FROM orderdetail od
+                                INNER JOIN products p ON od.P_ID = p.P_ID
+                                WHERE OrderDetail_ID = @SearchOID";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                cmd.Parameters.AddWithValue("@SearchOID", shoppingoid);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read() == true)
+                {
+                    P_ID = (int)reader["P_ID"];
+                    listOrderDetailID.Add((int)reader["OrderDetail_ID"]);
+                    labName.Text = reader["P_Name"].ToString();
+                    labPrice.Text = reader["Price"].ToString();
+                    price = (int)reader["Price"];
+                    txtQ.Text = reader["Quantity"].ToString();
+                    Q = (int)reader["Quantity"];
+                    txtDesc.Text = reader["P_Desc"].ToString();
+                    //圖檔變動 上傳的圖檔以隨機命名產生檔名(不然會有重複)
+                    image_modify_name = reader["P_Image"].ToString();
+                    string 完整圖檔路徑 = strImageDir + "\\" + image_modify_name;
+                    pictureBoxProduct.Image = Image.FromFile(完整圖檔路徑);
+                    if (reader["List_ID"].ToString() == "4")
+                    {
+                        ListID = 4;
+                        groupBoxSugar.Visible = false;
+                        groupBoxIce.Visible = false;
+                    }
+                    bool isCoffee = reader["List_ID"].ToString() == "1";
+                    checkBoxEspresso_CheckedChanged(isCoffee);
+                    string Sugar = reader["Sugar"].ToString();
+                    if (Sugar == "100%")
+                    {
+                        rBtnSugar100.Checked = true;
+                    }
+                    else if (Sugar == "80%")
+                    {
+                        rBtnSugar80.Checked = true;
+                    }
+                    else if (Sugar == "40%")
+                    {
+                        rBtnSugar40.Checked = true;
+                    }
+                    else
+                    {
+                        rBtnSugar0.Checked = true;
+                    }
+                    string Ice = reader["Ice"].ToString();
+                    if (Ice == "100%")
+                    {
+                        rBtnIce100.Checked = true;
+                    }
+                    else if (Ice == "80%")
+                    {
+                        rBtnIce80.Checked = true;
+                    }
+                    else if (Ice == "40%")
+                    {
+                        rBtnIce40.Checked = true;
+                    }
+                    else
+                    {
+                        rBtnIce0.Checked = true;
+                    }
+                    checkBoxEspresso.Checked = Convert.ToBoolean(reader["Espresso"]);
+                    if (checkBoxEspresso.Checked == true)
+                    {
+                        subtotal = (Q * (price + 20));
+                    }
+                    else
+                    {
+                        subtotal = Q * price;
+                    }
+                    labSubtotal.Text = $"NT$ {subtotal}";
+
+                }
+                reader.Close();
+                con.Close();
+            }
+        }
+
+
+
+        private void btnDetele_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAlter_Click(object sender, EventArgs e)
+        {
+            ReadOrderDetail(shoppingoid);
+            //存進資料庫
+            SqlConnection con = new SqlConnection(strDBConnectionString);
+            con.Open();
+            string strSQL = "UPDATE orderdetail SET Quantity = @NewQuantity, Subtotal = @NewSubtotal, Sugar = @NewSugar, Ice = @NewIce, Espresso = @NewEspresso WHERE O_ID = @SearchOID";
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            cmd.Parameters.AddWithValue("@SearchOID", shoppingoid);
+            cmd.Parameters.AddWithValue("@NewQuantity", txtQ.Text);
+            cmd.Parameters.AddWithValue("@NewSubtotal", labSubtotal.Text);
+            cmd.Parameters.AddWithValue("@NewSugar", stringSugar);
+            cmd.Parameters.AddWithValue("@NewIce", stringIce);
+            cmd.Parameters.AddWithValue("@NewEspresso", isEspresso);
+
+            int rows = cmd.ExecuteNonQuery();
+            con.Close();
+
+
+            MessageBox.Show($"{rows}資料更新成功");
 
         }
     }

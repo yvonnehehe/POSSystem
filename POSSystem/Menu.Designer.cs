@@ -36,6 +36,7 @@
             this.listViewMenu = new System.Windows.Forms.ListView();
             this.imageListPrducts = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnGOShpping = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.btnCoffee.BackColor = System.Drawing.Color.DarkGray;
             this.btnCoffee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCoffee.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCoffee.Location = new System.Drawing.Point(63, 12);
+            this.btnCoffee.Location = new System.Drawing.Point(40, 19);
             this.btnCoffee.Name = "btnCoffee";
             this.btnCoffee.Size = new System.Drawing.Size(75, 30);
             this.btnCoffee.TabIndex = 1;
@@ -57,7 +58,7 @@
             this.btnFizz.BackColor = System.Drawing.Color.DarkGray;
             this.btnFizz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFizz.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFizz.Location = new System.Drawing.Point(193, 12);
+            this.btnFizz.Location = new System.Drawing.Point(115, 19);
             this.btnFizz.Name = "btnFizz";
             this.btnFizz.Size = new System.Drawing.Size(75, 30);
             this.btnFizz.TabIndex = 2;
@@ -70,7 +71,7 @@
             this.btnTeaAndFlavorMilk.BackColor = System.Drawing.Color.DarkGray;
             this.btnTeaAndFlavorMilk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTeaAndFlavorMilk.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTeaAndFlavorMilk.Location = new System.Drawing.Point(324, 12);
+            this.btnTeaAndFlavorMilk.Location = new System.Drawing.Point(189, 19);
             this.btnTeaAndFlavorMilk.Name = "btnTeaAndFlavorMilk";
             this.btnTeaAndFlavorMilk.Size = new System.Drawing.Size(130, 30);
             this.btnTeaAndFlavorMilk.TabIndex = 3;
@@ -83,7 +84,7 @@
             this.btnDessert.BackColor = System.Drawing.Color.DarkGray;
             this.btnDessert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDessert.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDessert.Location = new System.Drawing.Point(504, 12);
+            this.btnDessert.Location = new System.Drawing.Point(319, 19);
             this.btnDessert.Name = "btnDessert";
             this.btnDessert.Size = new System.Drawing.Size(75, 30);
             this.btnDessert.TabIndex = 4;
@@ -94,10 +95,11 @@
             // listViewMenu
             // 
             this.listViewMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
+            this.listViewMenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.listViewMenu.HideSelection = false;
-            this.listViewMenu.Location = new System.Drawing.Point(63, 48);
+            this.listViewMenu.Location = new System.Drawing.Point(41, 48);
             this.listViewMenu.Name = "listViewMenu";
-            this.listViewMenu.Size = new System.Drawing.Size(653, 355);
+            this.listViewMenu.Size = new System.Drawing.Size(673, 327);
             this.listViewMenu.TabIndex = 5;
             this.listViewMenu.UseCompatibleStateImageBehavior = false;
             this.listViewMenu.ItemActivate += new System.EventHandler(this.listViewMenu_ItemActivate);
@@ -119,12 +121,29 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // btnGOShpping
+            // 
+            this.btnGOShpping.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGOShpping.BackgroundImage = global::POSSystem.Properties.Resources.fi_rr_shopping_cart;
+            this.btnGOShpping.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGOShpping.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGOShpping.FlatAppearance.BorderSize = 0;
+            this.btnGOShpping.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGOShpping.ForeColor = System.Drawing.Color.Transparent;
+            this.btnGOShpping.Location = new System.Drawing.Point(664, 381);
+            this.btnGOShpping.Name = "btnGOShpping";
+            this.btnGOShpping.Size = new System.Drawing.Size(50, 40);
+            this.btnGOShpping.TabIndex = 8;
+            this.btnGOShpping.UseVisualStyleBackColor = true;
+            this.btnGOShpping.Click += new System.EventHandler(this.btnGOShpping_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.ClientSize = new System.Drawing.Size(741, 440);
+            this.ClientSize = new System.Drawing.Size(752, 450);
+            this.Controls.Add(this.btnGOShpping);
             this.Controls.Add(this.listViewMenu);
             this.Controls.Add(this.btnDessert);
             this.Controls.Add(this.btnTeaAndFlavorMilk);
@@ -149,5 +168,6 @@
         private System.Windows.Forms.Button btnDessert;
         private System.Windows.Forms.ListView listViewMenu;
         private System.Windows.Forms.ImageList imageListPrducts;
+        private System.Windows.Forms.Button btnGOShpping;
     }
 }

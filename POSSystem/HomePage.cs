@@ -15,10 +15,16 @@ namespace POSSystem
 {
     public partial class HomePage : Form
     {
+        private bool isOrderCreated = false; // 追蹤訂單是否已創建
+
         public HomePage()
         {
             InitializeComponent();
-            NewOrderID(orderID);
+            if (!isOrderCreated)
+            {
+                NewOrderID(orderID);
+                isOrderCreated = true;
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -143,24 +149,12 @@ namespace POSSystem
                 this.Cursor = Cursors.Arrow;
         }
 
-        private void bunifuImageButton1_Click(object sender, EventArgs e)
-        {
-            Menu menu = new Menu();
-            menu.getorderid = orderID;
-            menu.GetorderId(menu.getorderid);//給oid
-
-            menu.TopLevel = false;
-            menu.Dock = DockStyle.Fill;
-            panel2.Controls.Clear();
-            panel2.Controls.Add(menu);
-            menu.Show();
-        }
 
         private void bunifuImageButton3_Click(object sender, EventArgs e)
         {
             ShoppingCar shoppingcar = new ShoppingCar();
             shoppingcar.getorderid = orderID;
-            shoppingcar.ReadOrderData(shoppingcar.getorderid);//給oid
+            shoppingcar.getOrderID(shoppingcar.getorderid);//給oid
 
             shoppingcar.TopLevel = false;
             shoppingcar.Dock = DockStyle.Fill;
@@ -213,5 +207,30 @@ namespace POSSystem
             con.Close();
         }
 
+        private void btnEnterMenu_Click(object sender, EventArgs e)
+        {
+            Menu menu = new Menu();
+            menu.getorderid = orderID;
+            menu.GetorderId(menu.getorderid);//給oid
+
+            menu.TopLevel = false;
+            menu.Dock = DockStyle.None;
+            panel2.Controls.Clear();
+            panel2.Controls.Add(menu);
+            menu.Show();
+        }
+
+        public void btnGoMenu_Click(object sender, EventArgs e)
+        {
+            Menu menu = new Menu();
+            menu.getorderid = orderID;
+            menu.GetorderId(menu.getorderid);//給oid
+
+            menu.TopLevel = false;
+            menu.Dock = DockStyle.None;
+            panel2.Controls.Clear();
+            panel2.Controls.Add(menu);
+            menu.Show();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32.SafeHandles;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -192,7 +193,6 @@ namespace POSSystem
             con.Close();
             ShowlistView();
         }
-        int orderid;
         private void Menu_Load(object sender, EventArgs e)
         {
             scsb.DataSource = @".";
@@ -203,9 +203,9 @@ namespace POSSystem
         void ShowlistView()
         {
             listViewMenu.View = View.LargeIcon;//指定顯示模式 ->大圖  //LargeIcon(大圖版), SmallIcon(小圖版), List(列), Tile(固定高度,如果圖太大會被切掉)
-            imageListPrducts.ImageSize = new Size(120, 120);//指定圖檔大小(最多256)
+            imageListPrducts.ImageSize = new Size(150, 150);//指定圖檔大小(最多256)
             listViewMenu.LargeImageList = imageListPrducts; //顯示大圖
-            listViewMenu.SmallImageList = imageListPrducts; //顯示小圖 50*50 40*40 30*30
+            //listViewMenu.SmallImageList = imageListPrducts; //顯示小圖 50*50 40*40 30*30
 
             //索引值對應
             for (int i = 0; i < imageListPrducts.Images.Count; i++)
@@ -213,7 +213,7 @@ namespace POSSystem
                 ListViewItem item = new ListViewItem(); //ListView顯示單元
                 item.ImageIndex = i;
                 item.Text = $"{listProductName[i]} {listPrice[i]}元";
-                item.Font = new Font("微軟正黑體", 14, FontStyle.Regular);
+                item.Font = new Font("微軟正黑體", 10, FontStyle.Regular);
                 item.Tag = listPid[i]; //藏東西選Tag ->藏ID (不會顯示出來但可以儲存資訊
                 listViewMenu.Items.Add(item);
             }
@@ -224,16 +224,35 @@ namespace POSSystem
             ProductDetail productDetail = new ProductDetail();
             productDetail.selectID = (int)listViewMenu.SelectedItems[0].Tag;
             productDetail.getorderid = getorderid;
-            productDetail.ShowProductDetail(productDetail.selectID,productDetail.getorderid);
+            productDetail.ShowProductDetail(productDetail.selectID, productDetail.getorderid);
+            productDetail.pictureBoxAddShopping.Visible = true;
             productDetail.ShowDialog();
 
-            ShoppingCar shoppingcar = new ShoppingCar();
-            shoppingcar.getorderid = getorderid;
-            shoppingcar.ReadOrderData(shoppingcar.getorderid);
+
         }
-        public int getorderid=0;
+        public int getorderid = 0;
         public void GetorderId(int getorderid)
         {
+        }
+
+        private void btnGOShpping_Click(object sender, EventArgs e)
+        {
+            // 建立 ShoppingCar 表單
+            ShoppingCar shoppingcar = new ShoppingCar();
+            shoppingcar.getorderid = getorderid;
+            shoppingcar.getOrderID(shoppingcar.getorderid); //給oid
+            
+            // 檢查是否存在 HomePage 的執行個體
+            HomePage homepage = Application.OpenForms.OfType<HomePage>().FirstOrDefault();
+            if (homepage != null)
+            {
+                // 將 ShoppingCar 表單加入 HomePage 的 panel2 中
+                shoppingcar.TopLevel = false;
+                shoppingcar.Dock = DockStyle.Fill;
+                homepage.panel2.Controls.Clear();
+                homepage.panel2.Controls.Add(shoppingcar);
+                shoppingcar.Show();
+            }
         }
     }
 }

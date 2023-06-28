@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblPrice = new System.Windows.Forms.Label();
+            this.labSubtotal = new System.Windows.Forms.Label();
             this.btnQadd一 = new System.Windows.Forms.Button();
             this.btnQLower = new System.Windows.Forms.Button();
-            this.txtQ2 = new System.Windows.Forms.TextBox();
+            this.txtQ = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,23 +53,25 @@
             this.checkBoxEspresso = new System.Windows.Forms.CheckBox();
             this.pictureBoxAddShopping = new System.Windows.Forms.PictureBox();
             this.pictureBoxProduct = new System.Windows.Forms.PictureBox();
+            this.btnAlter = new System.Windows.Forms.Button();
+            this.btnDetele = new System.Windows.Forms.Button();
             this.groupBoxSugar.SuspendLayout();
             this.groupBoxIce.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddShopping)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProduct)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblPrice
+            // labSubtotal
             // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.BackColor = System.Drawing.Color.Transparent;
-            this.lblPrice.Font = new System.Drawing.Font("Bahnschrift Condensed", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblPrice.Location = new System.Drawing.Point(573, 376);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(81, 35);
-            this.lblPrice.TabIndex = 35;
-            this.lblPrice.Text = "000元";
+            this.labSubtotal.AutoSize = true;
+            this.labSubtotal.BackColor = System.Drawing.Color.Transparent;
+            this.labSubtotal.Font = new System.Drawing.Font("Bahnschrift Condensed", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labSubtotal.ForeColor = System.Drawing.SystemColors.Control;
+            this.labSubtotal.Location = new System.Drawing.Point(573, 376);
+            this.labSubtotal.Name = "labSubtotal";
+            this.labSubtotal.Size = new System.Drawing.Size(81, 35);
+            this.labSubtotal.TabIndex = 35;
+            this.labSubtotal.Text = "000元";
             // 
             // btnQadd一
             // 
@@ -93,15 +95,14 @@
             this.btnQLower.UseVisualStyleBackColor = true;
             this.btnQLower.Click += new System.EventHandler(this.btnQLower_Click);
             // 
-            // txtQ2
+            // txtQ
             // 
-            this.txtQ2.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQ2.Location = new System.Drawing.Point(430, 383);
-            this.txtQ2.Name = "txtQ2";
-            this.txtQ2.Size = new System.Drawing.Size(73, 33);
-            this.txtQ2.TabIndex = 32;
-            this.txtQ2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtQ2.TextChanged += new System.EventHandler(this.txtCup_TextChanged);
+            this.txtQ.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQ.Location = new System.Drawing.Point(430, 383);
+            this.txtQ.Name = "txtQ";
+            this.txtQ.Size = new System.Drawing.Size(73, 33);
+            this.txtQ.TabIndex = 32;
+            this.txtQ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
             // 
@@ -115,13 +116,13 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label5.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.Gray;
             this.label5.Location = new System.Drawing.Point(575, 339);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 24);
+            this.label5.Size = new System.Drawing.Size(81, 23);
             this.label5.TabIndex = 25;
-            this.label5.Text = "小計";
+            this.label5.Text = "Subtotal";
             // 
             // label1
             // 
@@ -354,6 +355,7 @@
             this.pictureBoxAddShopping.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxAddShopping.TabIndex = 62;
             this.pictureBoxAddShopping.TabStop = false;
+            this.pictureBoxAddShopping.Visible = false;
             this.pictureBoxAddShopping.Click += new System.EventHandler(this.pictureBoxAddShopping_Click);
             // 
             // pictureBoxProduct
@@ -365,12 +367,42 @@
             this.pictureBoxProduct.TabIndex = 51;
             this.pictureBoxProduct.TabStop = false;
             // 
+            // btnAlter
+            // 
+            this.btnAlter.BackColor = System.Drawing.Color.Gray;
+            this.btnAlter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlter.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnAlter.Location = new System.Drawing.Point(690, 339);
+            this.btnAlter.Name = "btnAlter";
+            this.btnAlter.Size = new System.Drawing.Size(71, 37);
+            this.btnAlter.TabIndex = 68;
+            this.btnAlter.Text = "修改";
+            this.btnAlter.UseVisualStyleBackColor = false;
+            this.btnAlter.Visible = false;
+            this.btnAlter.Click += new System.EventHandler(this.btnAlter_Click);
+            // 
+            // btnDetele
+            // 
+            this.btnDetele.BackColor = System.Drawing.Color.Gray;
+            this.btnDetele.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDetele.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnDetele.Location = new System.Drawing.Point(690, 378);
+            this.btnDetele.Name = "btnDetele";
+            this.btnDetele.Size = new System.Drawing.Size(71, 37);
+            this.btnDetele.TabIndex = 69;
+            this.btnDetele.Text = "刪除";
+            this.btnDetele.UseVisualStyleBackColor = false;
+            this.btnDetele.Visible = false;
+            this.btnDetele.Click += new System.EventHandler(this.btnDetele_Click);
+            // 
             // ProductDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.ClientSize = new System.Drawing.Size(766, 427);
+            this.Controls.Add(this.btnDetele);
+            this.Controls.Add(this.btnAlter);
             this.Controls.Add(this.checkBoxEspresso);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -381,14 +413,15 @@
             this.Controls.Add(this.labName);
             this.Controls.Add(this.pictureBoxProduct);
             this.Controls.Add(this.txtDesc);
-            this.Controls.Add(this.lblPrice);
+            this.Controls.Add(this.labSubtotal);
             this.Controls.Add(this.btnQadd一);
             this.Controls.Add(this.btnQLower);
-            this.Controls.Add(this.txtQ2);
+            this.Controls.Add(this.txtQ);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Name = "ProductDetail";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductDetail";
             this.Load += new System.EventHandler(this.ProductDetail_Load);
             this.groupBoxSugar.ResumeLayout(false);
@@ -403,10 +436,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.Label labSubtotal;
         private System.Windows.Forms.Button btnQadd一;
         private System.Windows.Forms.Button btnQLower;
-        private System.Windows.Forms.TextBox txtQ2;
+        private System.Windows.Forms.TextBox txtQ;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
@@ -414,7 +447,6 @@
         private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.Label labName;
         private System.Windows.Forms.Label labPrice;
-        private System.Windows.Forms.PictureBox pictureBoxAddShopping;
         private System.Windows.Forms.GroupBox groupBoxSugar;
         private System.Windows.Forms.RadioButton rBtnSugar0;
         private System.Windows.Forms.RadioButton rBtnSugar40;
@@ -428,5 +460,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkBoxEspresso;
+        public System.Windows.Forms.Button btnAlter;
+        public System.Windows.Forms.PictureBox pictureBoxAddShopping;
+        public System.Windows.Forms.Button btnDetele;
     }
 }

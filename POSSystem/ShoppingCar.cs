@@ -22,9 +22,10 @@ namespace POSSystem
         List<string> listIce = new List<string>();
         List<bool> listEspresso = new List<bool>();
         List<int> listPID = new List<int>();
-        List<int> listOrderID = new List<int>();
-        List<int> listTotalPrice = new List<int>();
         string strDBConnectionString = "";
+        List<int> listOID = new List<int>();
+        List<int> listOrderDetailID = new List<int>();
+        int sum;
 
         public ShoppingCar()
         {
@@ -37,14 +38,14 @@ namespace POSSystem
             scsb.IntegratedSecurity = true;
             strDBConnectionString = scsb.ConnectionString;
 
-            ReadOrderData(getorderid);
+            ReadOrderData();
             ShowListView();
 
         }
         public int getorderid=0;
-        public void ReadOrderData(int orderid)
+        public void getOrderID(int orderid){}
+        private void ReadOrderData()
         {
-            getorderid = orderid;
             SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
             scsb.DataSource = @".";
             scsb.InitialCatalog = "IspanPersonalProject_POS";
@@ -77,6 +78,8 @@ namespace POSSystem
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read() == true)
                 {
+                    listOID.Add((int)reader["O_ID"]);
+                    listOrderDetailID.Add((int)reader["OrderDetail_ID"]);
                     listPID.Add((int)reader["P_ID"]);
                     listQuantity.Add((int)reader["Quantity"]);
                     listSubtotal.Add((int)reader["Subtotal"]);
@@ -103,21 +106,22 @@ namespace POSSystem
                 listViewProduct.LargeImageList = null;
                 listViewProduct.SmallImageList = null;
                 listViewProduct.View = View.Details;
+                //listViewProduct.Columns.Add("PID", 1);
                 listViewProduct.Columns.Add("Name", 200);
                 listViewProduct.Columns.Add("Price", 100);
                 listViewProduct.Columns.Add("Quantity", 100);
-                listViewProduct.Columns.Add("Sugar", 100);
-                listViewProduct.Columns.Add("Ice", 100);
+                listViewProduct.Columns.Add("Sugar", 80);
+                listViewProduct.Columns.Add("Ice", 80);
                 listViewProduct.Columns.Add("Espresso", 100);
                 listViewProduct.Columns.Add("Subtotal", 100);
                 listViewProduct.GridLines = true;//顯示格線
                 listViewProduct.FullRowSelect = true;//選到某選項就會整列反白
-                for (int i = 0; i < listPID.Count ; i++)
+                for (int i = 0; i < listOID.Count() ; i++)
                 {
                     ListViewItem listItem = new ListViewItem();
                     listItem.Font = new Font("微軟正黑體", 14, FontStyle.Regular);
-                    listItem.Tag = listPID[i];
-                    //listItem.Text = listOrderID[i].ToString(); //第一欄是text 第二欄開始是SubItems
+                    listItem.Tag = listOrderDetailID[i];
+                    //listItem.Text = listPID[i].ToString();
                     listItem.Text = listProductName[i];
                     listItem.SubItems.Add(listPrice[i].ToString());
                     listItem.SubItems.Add(listQuantity[i].ToString());
@@ -129,27 +133,18 @@ namespace POSSystem
                     listItem.BackColor = Color.LightGray;
 
                     listViewProduct.Items.Add(listItem);
+                    sum += listSubtotal[i];
+                    labTotalPrice.Text = "TotalPrice  NT$ "+sum.ToString();
                 }
             }
-            else
-            {
-                MessageBox.Show("找不到showoid");
-            }
-
         }
 
-
-
-        private void listViewProduct_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
         }
 
-        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
             HomePage homePage = new HomePage();
             Menu menu = new Menu();
@@ -162,5 +157,15 @@ namespace POSSystem
             this.Hide();
         }
 
+        private void listViewProduct_ItemActivate(object sender, EventArgs e)
+        {
+            ProductDetail productDetail = new ProductDetail();
+            productDetail.shoppingoid = (int)listViewProduct.SelectedItems[0].Tag;
+            //productDetail.shoppingoid = getorderid;
+            productDetail.ReadOrderDetail(productDetail.shoppingoid);
+            productDetail.btnAlter.Visible = true;
+            productDetail.btnDetele.Visible = true;
+            productDetail.ShowDialog();
+        }
     }
 }
