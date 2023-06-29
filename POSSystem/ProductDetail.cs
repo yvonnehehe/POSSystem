@@ -20,19 +20,19 @@ namespace POSSystem
         string strDBConnectionString = "";
         string strImageDir = @"..\productsimage";
 
-        public int selectID = 0;
-        public int getorderid = 0;
-        public int shoppingoid = 0;
+        public int selectID;
+        public int getorderid;
+        public int shoppingoid;
 
         string image_modify_name = "";
-        int cupcount = 1;
-        int subtotal = 0;
-        int price = 0;
-        int Q = 0; //接收讀出來的數量
+        int cupcount;
+        int subtotal;
+        int price;
+        int Q; //接收讀出來的數量
         string stringSugar = ""; //甜度儲存在這兒
         string stringIce = ""; //冰塊儲存在這兒
         int P_ID;
-        int ListID = 0;
+        int ListID;
         string nonono = "0%";
         public ProductDetail()
         {
@@ -51,10 +51,11 @@ namespace POSSystem
         {
             getorderid = orderid;
             //SetOrderID(getorderid);
-            //cup預設值
-            txtQ.Text = "1";
             if (selectID > 0)
             {
+                //cup預設值
+                txtQ.Text = "1";
+                cupcount = 1;
                 SqlConnectionStringBuilder scsb2 = new SqlConnectionStringBuilder();
                 scsb2.DataSource = @".";
                 scsb2.InitialCatalog = "IspanPersonalProject_POS";
@@ -304,7 +305,7 @@ namespace POSSystem
                     labPrice.Text = reader["Price"].ToString();
                     price = (int)reader["Price"];
                     txtQ.Text = reader["Quantity"].ToString();
-                    Q = (int)reader["Quantity"];
+                    cupcount = (int)reader["Quantity"];
                     txtDesc.Text = reader["P_Desc"].ToString();
                     //圖檔變動 上傳的圖檔以隨機命名產生檔名(不然會有重複)
                     image_modify_name = reader["P_Image"].ToString();
@@ -355,13 +356,14 @@ namespace POSSystem
                     checkBoxEspresso.Checked = Convert.ToBoolean(reader["Espresso"]);
                     if (checkBoxEspresso.Checked == true)
                     {
-                        subtotal = (Q * (price + 20));
+                        isEspresso=true;
+                        Subtotal();
+                        //labSubtotal.Text = $"NT$ {subtotal}";
                     }
                     else
                     {
-                        subtotal = Q * price;
-                    }
-                    labSubtotal.Text = $"NT$ {subtotal}";
+                        Subtotal();
+                    }        
 
                 }
                 reader.Close();
@@ -373,30 +375,48 @@ namespace POSSystem
 
         private void btnDetele_Click(object sender, EventArgs e)
         {
+            //刪除OrderDetail
+            if (shoppingoid > 0)
+            {
+                SqlConnection con = new SqlConnection(strDBConnectionString);
+                con.Open();
+                string strSQL = "delete from orderdetail where OrderDetail_ID = @SearchOID;";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                cmd.Parameters.AddWithValue("@SearchOID", shoppingoid);
+
+                if (MessageBox.Show("確認刪除此筆商品", "刪除", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int rows = cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show($"{rows}筆商品刪除成功");
+                }
+            }
+            else
+            {
+                MessageBox.Show("商品未選");
+            }
+
 
         }
 
         private void btnAlter_Click(object sender, EventArgs e)
         {
-            ReadOrderDetail(shoppingoid);
             //存進資料庫
             SqlConnection con = new SqlConnection(strDBConnectionString);
             con.Open();
-            string strSQL = "UPDATE orderdetail SET Quantity = @NewQuantity, Subtotal = @NewSubtotal, Sugar = @NewSugar, Ice = @NewIce, Espresso = @NewEspresso WHERE O_ID = @SearchOID";
+            string strSQL = "UPDATE orderdetail SET Quantity = @NewQuantity, Subtotal = @NewSubtotal, Sugar = @NewSugar, Ice = @NewIce, Espresso = @NewEspresso WHERE OrderDetail_ID = @SearchOID";
             SqlCommand cmd = new SqlCommand(strSQL, con);
             cmd.Parameters.AddWithValue("@SearchOID", shoppingoid);
             cmd.Parameters.AddWithValue("@NewQuantity", txtQ.Text);
-            cmd.Parameters.AddWithValue("@NewSubtotal", labSubtotal.Text);
+            cmd.Parameters.AddWithValue("@NewSubtotal", subtotal);
             cmd.Parameters.AddWithValue("@NewSugar", stringSugar);
             cmd.Parameters.AddWithValue("@NewIce", stringIce);
             cmd.Parameters.AddWithValue("@NewEspresso", isEspresso);
 
             int rows = cmd.ExecuteNonQuery();
             con.Close();
-
-
-            MessageBox.Show($"{rows}資料更新成功");
-
+            ReadOrderDetail(shoppingoid);
+            MessageBox.Show($"{rows}筆商品更新成功");
         }
     }
 }

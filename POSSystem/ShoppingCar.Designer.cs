@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShoppingCar));
             this.listViewProduct = new System.Windows.Forms.ListView();
             this.labTotalPrice = new System.Windows.Forms.Label();
-            this.ImageButtonbtnCheckout = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.btnCheckout = new Bunifu.UI.WinForms.BunifuImageButton();
             this.btnBack = new Bunifu.UI.WinForms.BunifuImageButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -55,45 +55,46 @@
             this.labTotalPrice.AutoSize = true;
             this.labTotalPrice.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labTotalPrice.ForeColor = System.Drawing.SystemColors.Control;
-            this.labTotalPrice.Location = new System.Drawing.Point(370, 388);
+            this.labTotalPrice.Location = new System.Drawing.Point(367, 371);
             this.labTotalPrice.Name = "labTotalPrice";
             this.labTotalPrice.Size = new System.Drawing.Size(109, 25);
             this.labTotalPrice.TabIndex = 63;
             this.labTotalPrice.Text = "Total Price";
             // 
-            // ImageButtonbtnCheckout
+            // btnCheckout
             // 
-            this.ImageButtonbtnCheckout.ActiveImage = null;
-            this.ImageButtonbtnCheckout.AllowAnimations = true;
-            this.ImageButtonbtnCheckout.AllowBuffering = false;
-            this.ImageButtonbtnCheckout.AllowToggling = false;
-            this.ImageButtonbtnCheckout.AllowZooming = true;
-            this.ImageButtonbtnCheckout.AllowZoomingOnFocus = false;
-            this.ImageButtonbtnCheckout.BackColor = System.Drawing.Color.Transparent;
-            this.ImageButtonbtnCheckout.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.ImageButtonbtnCheckout.ErrorImage = ((System.Drawing.Image)(resources.GetObject("ImageButtonbtnCheckout.ErrorImage")));
-            this.ImageButtonbtnCheckout.FadeWhenInactive = false;
-            this.ImageButtonbtnCheckout.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.ImageButtonbtnCheckout.Image = global::POSSystem.Properties.Resources.fi_rr_shopping_cart_check;
-            this.ImageButtonbtnCheckout.ImageActive = null;
-            this.ImageButtonbtnCheckout.ImageLocation = null;
-            this.ImageButtonbtnCheckout.ImageMargin = 10;
-            this.ImageButtonbtnCheckout.ImageSize = new System.Drawing.Size(42, 34);
-            this.ImageButtonbtnCheckout.ImageZoomSize = new System.Drawing.Size(52, 44);
-            this.ImageButtonbtnCheckout.InitialImage = ((System.Drawing.Image)(resources.GetObject("ImageButtonbtnCheckout.InitialImage")));
-            this.ImageButtonbtnCheckout.Location = new System.Drawing.Point(647, 379);
-            this.ImageButtonbtnCheckout.Name = "ImageButtonbtnCheckout";
-            this.ImageButtonbtnCheckout.Rotation = 0;
-            this.ImageButtonbtnCheckout.ShowActiveImage = true;
-            this.ImageButtonbtnCheckout.ShowCursorChanges = true;
-            this.ImageButtonbtnCheckout.ShowImageBorders = true;
-            this.ImageButtonbtnCheckout.ShowSizeMarkers = false;
-            this.ImageButtonbtnCheckout.Size = new System.Drawing.Size(52, 44);
-            this.ImageButtonbtnCheckout.TabIndex = 79;
-            this.ImageButtonbtnCheckout.ToolTipText = "";
-            this.ImageButtonbtnCheckout.WaitOnLoad = false;
-            this.ImageButtonbtnCheckout.Zoom = 10;
-            this.ImageButtonbtnCheckout.ZoomSpeed = 10;
+            this.btnCheckout.ActiveImage = null;
+            this.btnCheckout.AllowAnimations = true;
+            this.btnCheckout.AllowBuffering = false;
+            this.btnCheckout.AllowToggling = false;
+            this.btnCheckout.AllowZooming = true;
+            this.btnCheckout.AllowZoomingOnFocus = false;
+            this.btnCheckout.BackColor = System.Drawing.Color.Transparent;
+            this.btnCheckout.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnCheckout.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnCheckout.ErrorImage")));
+            this.btnCheckout.FadeWhenInactive = false;
+            this.btnCheckout.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.btnCheckout.Image = global::POSSystem.Properties.Resources.fi_rr_shopping_cart_check;
+            this.btnCheckout.ImageActive = null;
+            this.btnCheckout.ImageLocation = null;
+            this.btnCheckout.ImageMargin = 10;
+            this.btnCheckout.ImageSize = new System.Drawing.Size(42, 34);
+            this.btnCheckout.ImageZoomSize = new System.Drawing.Size(52, 44);
+            this.btnCheckout.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCheckout.InitialImage")));
+            this.btnCheckout.Location = new System.Drawing.Point(647, 352);
+            this.btnCheckout.Name = "btnCheckout";
+            this.btnCheckout.Rotation = 0;
+            this.btnCheckout.ShowActiveImage = true;
+            this.btnCheckout.ShowCursorChanges = true;
+            this.btnCheckout.ShowImageBorders = true;
+            this.btnCheckout.ShowSizeMarkers = false;
+            this.btnCheckout.Size = new System.Drawing.Size(52, 44);
+            this.btnCheckout.TabIndex = 79;
+            this.btnCheckout.ToolTipText = "";
+            this.btnCheckout.WaitOnLoad = false;
+            this.btnCheckout.Zoom = 10;
+            this.btnCheckout.ZoomSpeed = 10;
+            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
             // 
             // btnBack
             // 
@@ -115,7 +116,7 @@
             this.btnBack.ImageSize = new System.Drawing.Size(42, 34);
             this.btnBack.ImageZoomSize = new System.Drawing.Size(52, 44);
             this.btnBack.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnBack.InitialImage")));
-            this.btnBack.Location = new System.Drawing.Point(45, 379);
+            this.btnBack.Location = new System.Drawing.Point(45, 352);
             this.btnBack.Name = "btnBack";
             this.btnBack.Rotation = 0;
             this.btnBack.ShowActiveImage = true;
@@ -147,7 +148,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.ClientSize = new System.Drawing.Size(733, 431);
-            this.Controls.Add(this.ImageButtonbtnCheckout);
+            this.Controls.Add(this.btnCheckout);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labTotalPrice);
@@ -168,6 +169,6 @@
         private System.Windows.Forms.Label labTotalPrice;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.UI.WinForms.BunifuImageButton btnBack;
-        private Bunifu.UI.WinForms.BunifuImageButton ImageButtonbtnCheckout;
+        private Bunifu.UI.WinForms.BunifuImageButton btnCheckout;
     }
 }

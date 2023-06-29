@@ -40,9 +40,8 @@ namespace POSSystem
 
             ReadOrderData();
             ShowListView();
-
         }
-        public int getorderid=0;
+        public int getorderid;
         public void getOrderID(int orderid){}
         private void ReadOrderData()
         {
@@ -166,6 +165,35 @@ namespace POSSystem
             productDetail.btnAlter.Visible = true;
             productDetail.btnDetele.Visible = true;
             productDetail.ShowDialog();
+            RefreshData();
+        }
+        void RefreshData()
+        {
+            sum = 0;
+            listOID.Clear();
+            listOrderDetailID.Clear();
+            listPID.Clear();
+            listProductName.Clear();
+            listPrice.Clear();
+            listProductName.Clear();
+            listQuantity.Clear();
+            listSugar.Clear();
+            listIce.Clear();
+            listSubtotal.Clear();
+            listEspresso.Clear();
+            ReadOrderData();
+            ShowListView();
+        }
+
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.getorderid = getorderid;
+            login.ShowDialog();
+
+            Checkout checkout = new Checkout();
+            checkout.sum = sum;
+
         }
     }
 }

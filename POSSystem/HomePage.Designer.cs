@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBackEnterPage = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuImageButton6 = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuImageButton5 = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuImageButton4 = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.bunifuImageButton3 = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.btnGoShoppingCar = new Bunifu.UI.WinForms.BunifuImageButton();
             this.btnGoMenu = new Bunifu.UI.WinForms.BunifuImageButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnEnterMenu = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -54,7 +54,7 @@
             this.panel1.Controls.Add(this.bunifuImageButton6);
             this.panel1.Controls.Add(this.bunifuImageButton5);
             this.panel1.Controls.Add(this.bunifuImageButton4);
-            this.panel1.Controls.Add(this.bunifuImageButton3);
+            this.panel1.Controls.Add(this.btnGoShoppingCar);
             this.panel1.Controls.Add(this.btnGoMenu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -200,40 +200,40 @@
             this.bunifuImageButton4.Zoom = 10;
             this.bunifuImageButton4.ZoomSpeed = 10;
             // 
-            // bunifuImageButton3
+            // btnGoShoppingCar
             // 
-            this.bunifuImageButton3.ActiveImage = null;
-            this.bunifuImageButton3.AllowAnimations = true;
-            this.bunifuImageButton3.AllowBuffering = false;
-            this.bunifuImageButton3.AllowToggling = false;
-            this.bunifuImageButton3.AllowZooming = true;
-            this.bunifuImageButton3.AllowZoomingOnFocus = false;
-            this.bunifuImageButton3.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuImageButton3.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.bunifuImageButton3.ErrorImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton3.ErrorImage")));
-            this.bunifuImageButton3.FadeWhenInactive = false;
-            this.bunifuImageButton3.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.bunifuImageButton3.Image = global::POSSystem.Properties.Resources.fi_rr_shopping_cart;
-            this.bunifuImageButton3.ImageActive = null;
-            this.bunifuImageButton3.ImageLocation = null;
-            this.bunifuImageButton3.ImageMargin = 10;
-            this.bunifuImageButton3.ImageSize = new System.Drawing.Size(30, 30);
-            this.bunifuImageButton3.ImageZoomSize = new System.Drawing.Size(40, 40);
-            this.bunifuImageButton3.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton3.InitialImage")));
-            this.bunifuImageButton3.Location = new System.Drawing.Point(11, 87);
-            this.bunifuImageButton3.Name = "bunifuImageButton3";
-            this.bunifuImageButton3.Rotation = 0;
-            this.bunifuImageButton3.ShowActiveImage = true;
-            this.bunifuImageButton3.ShowCursorChanges = true;
-            this.bunifuImageButton3.ShowImageBorders = true;
-            this.bunifuImageButton3.ShowSizeMarkers = false;
-            this.bunifuImageButton3.Size = new System.Drawing.Size(40, 40);
-            this.bunifuImageButton3.TabIndex = 2;
-            this.bunifuImageButton3.ToolTipText = "";
-            this.bunifuImageButton3.WaitOnLoad = false;
-            this.bunifuImageButton3.Zoom = 10;
-            this.bunifuImageButton3.ZoomSpeed = 10;
-            this.bunifuImageButton3.Click += new System.EventHandler(this.bunifuImageButton3_Click);
+            this.btnGoShoppingCar.ActiveImage = null;
+            this.btnGoShoppingCar.AllowAnimations = true;
+            this.btnGoShoppingCar.AllowBuffering = false;
+            this.btnGoShoppingCar.AllowToggling = false;
+            this.btnGoShoppingCar.AllowZooming = true;
+            this.btnGoShoppingCar.AllowZoomingOnFocus = false;
+            this.btnGoShoppingCar.BackColor = System.Drawing.Color.Transparent;
+            this.btnGoShoppingCar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnGoShoppingCar.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnGoShoppingCar.ErrorImage")));
+            this.btnGoShoppingCar.FadeWhenInactive = false;
+            this.btnGoShoppingCar.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.btnGoShoppingCar.Image = global::POSSystem.Properties.Resources.fi_rr_shopping_cart;
+            this.btnGoShoppingCar.ImageActive = null;
+            this.btnGoShoppingCar.ImageLocation = null;
+            this.btnGoShoppingCar.ImageMargin = 10;
+            this.btnGoShoppingCar.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnGoShoppingCar.ImageZoomSize = new System.Drawing.Size(40, 40);
+            this.btnGoShoppingCar.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnGoShoppingCar.InitialImage")));
+            this.btnGoShoppingCar.Location = new System.Drawing.Point(11, 87);
+            this.btnGoShoppingCar.Name = "btnGoShoppingCar";
+            this.btnGoShoppingCar.Rotation = 0;
+            this.btnGoShoppingCar.ShowActiveImage = true;
+            this.btnGoShoppingCar.ShowCursorChanges = true;
+            this.btnGoShoppingCar.ShowImageBorders = true;
+            this.btnGoShoppingCar.ShowSizeMarkers = false;
+            this.btnGoShoppingCar.Size = new System.Drawing.Size(40, 40);
+            this.btnGoShoppingCar.TabIndex = 2;
+            this.btnGoShoppingCar.ToolTipText = "";
+            this.btnGoShoppingCar.WaitOnLoad = false;
+            this.btnGoShoppingCar.Zoom = 10;
+            this.btnGoShoppingCar.ZoomSpeed = 10;
+            this.btnGoShoppingCar.Click += new System.EventHandler(this.btnGoShoppingCar_Click);
             // 
             // btnGoMenu
             // 
@@ -298,11 +298,11 @@
             this.btnEnterMenu.ColorContrastOnClick = 45;
             this.btnEnterMenu.ColorContrastOnHover = 45;
             this.btnEnterMenu.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.btnEnterMenu.CustomizableEdges = borderEdges1;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.btnEnterMenu.CustomizableEdges = borderEdges2;
             this.btnEnterMenu.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnEnterMenu.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnEnterMenu.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -428,7 +428,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private Bunifu.UI.WinForms.BunifuImageButton btnGoMenu;
-        private Bunifu.UI.WinForms.BunifuImageButton bunifuImageButton3;
+        private Bunifu.UI.WinForms.BunifuImageButton btnGoShoppingCar;
         private Bunifu.UI.WinForms.BunifuImageButton bunifuImageButton4;
         private Bunifu.UI.WinForms.BunifuImageButton bunifuImageButton5;
         private Bunifu.UI.WinForms.BunifuImageButton bunifuImageButton6;

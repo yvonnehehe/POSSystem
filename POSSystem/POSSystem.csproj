@@ -153,11 +153,17 @@
     <Compile Include="Back_SystemCenter.Designer.cs">
       <DependentUpon>Back_SystemCenter.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateMember.cs">
+    <Compile Include="Checkout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateMember.Designer.cs">
-      <DependentUpon>CreateMember.cs</DependentUpon>
+    <Compile Include="Checkout.Designer.cs">
+      <DependentUpon>Checkout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="EnterPage.cs">
       <SubType>Form</SubType>
@@ -224,8 +230,11 @@
     <EmbeddedResource Include="Back_SystemCenter.resx">
       <DependentUpon>Back_SystemCenter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateMember.resx">
-      <DependentUpon>CreateMember.cs</DependentUpon>
+    <EmbeddedResource Include="Checkout.resx">
+      <DependentUpon>Checkout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EnterPage.resx">
       <DependentUpon>EnterPage.cs</DependentUpon>
@@ -310,6 +319,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fi-rr-shopping-cart-check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fi-rs-credit-card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment-dollar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

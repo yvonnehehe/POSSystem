@@ -63,6 +63,16 @@ namespace POSSystem.Properties {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
+        internal static System.Drawing.Bitmap comment_dollar {
+            get {
+                object obj = ResourceManager.GetObject("comment-dollar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
         internal static System.Drawing.Bitmap cross {
             get {
                 object obj = ResourceManager.GetObject("cross", resourceCulture);
@@ -146,6 +156,16 @@ namespace POSSystem.Properties {
         internal static System.Drawing.Bitmap fi_rr_utensils {
             get {
                 object obj = ResourceManager.GetObject("fi-rr-utensils", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap fi_rs_credit_card {
+            get {
+                object obj = ResourceManager.GetObject("fi-rs-credit-card", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

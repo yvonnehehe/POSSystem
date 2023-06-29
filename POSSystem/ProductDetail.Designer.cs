@@ -69,9 +69,9 @@
             this.labSubtotal.ForeColor = System.Drawing.SystemColors.Control;
             this.labSubtotal.Location = new System.Drawing.Point(573, 376);
             this.labSubtotal.Name = "labSubtotal";
-            this.labSubtotal.Size = new System.Drawing.Size(81, 35);
+            this.labSubtotal.Size = new System.Drawing.Size(92, 35);
             this.labSubtotal.TabIndex = 35;
-            this.labSubtotal.Text = "000元";
+            this.labSubtotal.Text = "NT$ 000";
             // 
             // btnQadd一
             // 
@@ -116,13 +116,13 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label5.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Gray;
-            this.label5.Location = new System.Drawing.Point(575, 339);
+            this.label5.Location = new System.Drawing.Point(584, 343);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 23);
+            this.label5.Size = new System.Drawing.Size(48, 24);
             this.label5.TabIndex = 25;
-            this.label5.Text = "Subtotal";
+            this.label5.Text = "小計";
             // 
             // label1
             // 

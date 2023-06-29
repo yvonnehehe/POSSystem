@@ -150,11 +150,11 @@ namespace POSSystem
         }
 
 
-        private void bunifuImageButton3_Click(object sender, EventArgs e)
+        private void btnGoShoppingCar_Click(object sender, EventArgs e)
         {
             ShoppingCar shoppingcar = new ShoppingCar();
-            shoppingcar.getorderid = orderID;
-            shoppingcar.getOrderID(shoppingcar.getorderid);//給oid
+            shoppingcar.getorderid = orderID;//給oid
+            shoppingcar.getOrderID(shoppingcar.getorderid);
 
             shoppingcar.TopLevel = false;
             shoppingcar.Dock = DockStyle.Fill;
@@ -210,8 +210,8 @@ namespace POSSystem
         private void btnEnterMenu_Click(object sender, EventArgs e)
         {
             Menu menu = new Menu();
-            menu.getorderid = orderID;
-            menu.GetorderId(menu.getorderid);//給oid
+            menu.getorderid = orderID;//給oid
+            menu.GetorderId(menu.getorderid);
 
             menu.TopLevel = false;
             menu.Dock = DockStyle.None;
@@ -223,8 +223,8 @@ namespace POSSystem
         public void btnGoMenu_Click(object sender, EventArgs e)
         {
             Menu menu = new Menu();
-            menu.getorderid = orderID;
-            menu.GetorderId(menu.getorderid);//給oid
+            menu.getorderid = orderID;//給oid
+            menu.GetorderId(menu.getorderid);
 
             menu.TopLevel = false;
             menu.Dock = DockStyle.None;
