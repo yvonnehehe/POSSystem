@@ -25,8 +25,11 @@ namespace POSSystem
 
         private void btnEnterToOrder_Click(object sender, EventArgs e)
         {
-            HomePage homePage = new HomePage();
-            homePage.Show();
+            //HomePage homePage = new HomePage();
+            //homePage.Show();
+            //this.Hide();
+            Login login = new Login();
+            login.Show();
             this.Hide();
         }
 

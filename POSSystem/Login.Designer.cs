@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btn會員搜尋 = new System.Windows.Forms.Button();
-            this.btn結帳 = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.gBox建立新會員 = new System.Windows.Forms.GroupBox();
             this.btn清空欄位 = new System.Windows.Forms.Button();
             this.btnCreatMember = new System.Windows.Forms.Button();
@@ -50,6 +50,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btn登入 = new System.Windows.Forms.Button();
             this.btn建立新會員 = new System.Windows.Forms.Button();
+            this.btnGuests = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.gBox登入.SuspendLayout();
             this.gBox建立新會員.SuspendLayout();
             this.SuspendLayout();
@@ -120,18 +122,18 @@
             this.btn會員搜尋.UseVisualStyleBackColor = true;
             this.btn會員搜尋.Click += new System.EventHandler(this.btn會員搜尋_Click_1);
             // 
-            // btn結帳
+            // btnLogin
             // 
-            this.btn結帳.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn結帳.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn結帳.Location = new System.Drawing.Point(191, 392);
-            this.btn結帳.Margin = new System.Windows.Forms.Padding(6);
-            this.btn結帳.Name = "btn結帳";
-            this.btn結帳.Size = new System.Drawing.Size(108, 33);
-            this.btn結帳.TabIndex = 52;
-            this.btn結帳.Text = "結帳";
-            this.btn結帳.UseVisualStyleBackColor = true;
-            this.btn結帳.Click += new System.EventHandler(this.btn結帳_Click_1);
+            this.btnLogin.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLogin.Location = new System.Drawing.Point(148, 394);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(6);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(108, 33);
+            this.btnLogin.TabIndex = 52;
+            this.btnLogin.Text = "登入會員";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLoginClick_1);
             // 
             // gBox建立新會員
             // 
@@ -297,17 +299,48 @@
             this.btn建立新會員.UseVisualStyleBackColor = true;
             this.btn建立新會員.Click += new System.EventHandler(this.btn建立新會員_Click);
             // 
+            // btnGuests
+            // 
+            this.btnGuests.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnGuests.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGuests.Location = new System.Drawing.Point(267, 394);
+            this.btnGuests.Margin = new System.Windows.Forms.Padding(6);
+            this.btnGuests.Name = "btnGuests";
+            this.btnGuests.Size = new System.Drawing.Size(108, 33);
+            this.btnGuests.TabIndex = 53;
+            this.btnGuests.Text = "訪客登入";
+            this.btnGuests.UseVisualStyleBackColor = true;
+            this.btnGuests.Click += new System.EventHandler(this.btnGuests_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
+            this.btnExit.BackgroundImage = global::POSSystem.Properties.Resources.cross;
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.Transparent;
+            this.btnExit.Location = new System.Drawing.Point(459, 40);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(20, 20);
+            this.btnExit.TabIndex = 54;
+            this.btnExit.UseVisualStyleBackColor = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.ClientSize = new System.Drawing.Size(516, 460);
-            this.Controls.Add(this.btn結帳);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnGuests);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btn建立新會員);
             this.Controls.Add(this.btn登入);
             this.Controls.Add(this.gBox建立新會員);
             this.Controls.Add(this.gBox登入);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateMember";
@@ -321,7 +354,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btn結帳;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtPhone_Login;
         private System.Windows.Forms.TextBox txtName_Login;
         private System.Windows.Forms.Label label1;
@@ -343,5 +376,7 @@
         private System.Windows.Forms.Button btn建立新會員;
         public System.Windows.Forms.GroupBox gBox登入;
         public System.Windows.Forms.GroupBox gBox建立新會員;
+        private System.Windows.Forms.Button btnGuests;
+        private System.Windows.Forms.Button btnExit;
     }
 }

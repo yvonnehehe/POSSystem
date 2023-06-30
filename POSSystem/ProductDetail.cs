@@ -22,7 +22,7 @@ namespace POSSystem
 
         public int selectID;
         public int getorderid;
-        public int shoppingoid;
+        public int ordertetailid;
 
         string image_modify_name = "";
         int cupcount;
@@ -47,10 +47,8 @@ namespace POSSystem
             scsb.IntegratedSecurity = true;
             strDBConnectionString = scsb.ConnectionString;
         }
-        public void ShowProductDetail(int selectID, int orderid)
+        public void ShowProductDetail(int selectID)
         {
-            getorderid = orderid;
-            //SetOrderID(getorderid);
             if (selectID > 0)
             {
                 //cup預設值
@@ -156,12 +154,12 @@ namespace POSSystem
                 SqlConnection con = new SqlConnection(strDBConnectionString);
                 con.Open();
                 string insertnNewOrderDetail = @"
-                    INSERT INTO orderdetail (O_ID, P_ID, Quantity, Subtotal, Sugar, Ice, Espresso)
-                    VALUES (@OrderID, @pid, @NewQuantity, @NewSubtotal,@NewSugar,@NewIce,@NewEspresso);
+                    INSERT INTO orderdetail (P_ID, Quantity, Subtotal, Sugar, Ice, Espresso)
+                    VALUES (@pid, @NewQuantity, @NewSubtotal,@NewSugar,@NewIce,@NewEspresso);
                     ";
 
                 SqlCommand cmd = new SqlCommand(insertnNewOrderDetail, con);
-                cmd.Parameters.AddWithValue("@OrderID", getorderid);
+                //cmd.Parameters.AddWithValue("@OrderID", getorderid);
                 cmd.Parameters.AddWithValue("@pid", P_ID);
                 cmd.Parameters.AddWithValue("@NewQuantity", cupcount);
                 cmd.Parameters.AddWithValue("@NewSubtotal", subtotal);
@@ -181,12 +179,12 @@ namespace POSSystem
                     SqlConnection con = new SqlConnection(strDBConnectionString);
                     con.Open();
                     string insertnNewOrderDetail = @"
-                    INSERT INTO orderdetail (O_ID, P_ID, Quantity, Subtotal, Sugar, Ice, Espresso)
-                    VALUES (@OrderID, @pid, @NewQuantity, @Subtotal, @NewSugar, @NewIce, @NewEspresso);
+                    INSERT INTO orderdetail (P_ID, Quantity, Subtotal, Sugar, Ice, Espresso)
+                    VALUES (@pid, @NewQuantity, @Subtotal, @NewSugar, @NewIce, @NewEspresso);
                     ";
 
                     SqlCommand cmd = new SqlCommand(insertnNewOrderDetail, con);
-                    cmd.Parameters.AddWithValue("@OrderID", getorderid);
+                    //cmd.Parameters.AddWithValue("@OrderID", getorderid);
                     cmd.Parameters.AddWithValue("@pid", P_ID);
                     cmd.Parameters.AddWithValue("@NewQuantity", cupcount);
                     cmd.Parameters.AddWithValue("@Subtotal", subtotal);
@@ -211,12 +209,12 @@ namespace POSSystem
                     SqlConnection con = new SqlConnection(strDBConnectionString);
                     con.Open();
                     string insertnNewOrderDetail = @"
-                    INSERT INTO orderdetail (O_ID, P_ID, Quantity, Subtotal, Sugar, Ice, Espresso)
-                    VALUES (@OrderID, @pid, @NewQuantity, @Subtotal, @NewSugar, @NewIce, @NewEspresso);
+                    INSERT INTO orderdetail (P_ID, Quantity, Subtotal, Sugar, Ice, Espresso)
+                    VALUES (@pid, @NewQuantity, @Subtotal, @NewSugar, @NewIce, @NewEspresso);
                     ";
 
                     SqlCommand cmd = new SqlCommand(insertnNewOrderDetail, con);
-                    cmd.Parameters.AddWithValue("@OrderID", getorderid);
+                    //cmd.Parameters.AddWithValue("@OrderID", getorderid);
                     cmd.Parameters.AddWithValue("@pid", P_ID);
                     cmd.Parameters.AddWithValue("@NewQuantity", cupcount);
                     cmd.Parameters.AddWithValue("@Subtotal", subtotal);
@@ -277,9 +275,9 @@ namespace POSSystem
             stringIce = "100%";
         }
         List<int> listOrderDetailID = new List<int>();
-        public void ReadOrderDetail(int shoppingoid)
+        public void ReadOrderDetail(int ordertetailid)
         {
-            if (shoppingoid > 0)
+            if (ordertetailid > 0)
             {
                 SqlConnectionStringBuilder scsb2 = new SqlConnectionStringBuilder();
                 scsb2.DataSource = @".";
@@ -292,9 +290,9 @@ namespace POSSystem
                 string strSQL = @"SELECT  *
                                 FROM orderdetail od
                                 INNER JOIN products p ON od.P_ID = p.P_ID
-                                WHERE OrderDetail_ID = @SearchOID";
+                                WHERE OrderDetail_ID = @SearchOdID";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
-                cmd.Parameters.AddWithValue("@SearchOID", shoppingoid);
+                cmd.Parameters.AddWithValue("@SearchOdID", ordertetailid);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read() == true)
@@ -371,18 +369,16 @@ namespace POSSystem
             }
         }
 
-
-
         private void btnDetele_Click(object sender, EventArgs e)
         {
             //刪除OrderDetail
-            if (shoppingoid > 0)
+            if (ordertetailid > 0)
             {
                 SqlConnection con = new SqlConnection(strDBConnectionString);
                 con.Open();
-                string strSQL = "delete from orderdetail where OrderDetail_ID = @SearchOID;";
+                string strSQL = "delete from orderdetail where OrderDetail_ID = @SearchOdID;";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
-                cmd.Parameters.AddWithValue("@SearchOID", shoppingoid);
+                cmd.Parameters.AddWithValue("@SearchOdID", ordertetailid);
 
                 if (MessageBox.Show("確認刪除此筆商品", "刪除", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -406,7 +402,7 @@ namespace POSSystem
             con.Open();
             string strSQL = "UPDATE orderdetail SET Quantity = @NewQuantity, Subtotal = @NewSubtotal, Sugar = @NewSugar, Ice = @NewIce, Espresso = @NewEspresso WHERE OrderDetail_ID = @SearchOID";
             SqlCommand cmd = new SqlCommand(strSQL, con);
-            cmd.Parameters.AddWithValue("@SearchOID", shoppingoid);
+            cmd.Parameters.AddWithValue("@SearchOID", ordertetailid);
             cmd.Parameters.AddWithValue("@NewQuantity", txtQ.Text);
             cmd.Parameters.AddWithValue("@NewSubtotal", subtotal);
             cmd.Parameters.AddWithValue("@NewSugar", stringSugar);
@@ -415,7 +411,7 @@ namespace POSSystem
 
             int rows = cmd.ExecuteNonQuery();
             con.Close();
-            ReadOrderDetail(shoppingoid);
+            ReadOrderDetail(ordertetailid);
             MessageBox.Show($"{rows}筆商品更新成功");
         }
     }

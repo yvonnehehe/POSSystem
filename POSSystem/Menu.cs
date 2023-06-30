@@ -15,6 +15,8 @@ namespace POSSystem
 {
     public partial class Menu : Form
     {
+        public int getcid { get; set; }
+        public bool islogin { get; set; }
         SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
 
         List<string> listProductName = new List<string>();
@@ -199,6 +201,7 @@ namespace POSSystem
             scsb.InitialCatalog = "IspanPersonalProject_POS";
             scsb.IntegratedSecurity = true;
             strDBConnectionString = scsb.ConnectionString;
+            QueryProd(1);
         }
         void ShowlistView()
         {
@@ -223,24 +226,21 @@ namespace POSSystem
         {
             ProductDetail productDetail = new ProductDetail();
             productDetail.selectID = (int)listViewMenu.SelectedItems[0].Tag;
-            productDetail.getorderid = getorderid;
-            productDetail.ShowProductDetail(productDetail.selectID, productDetail.getorderid);
+            //productDetail.getorderid = getorderid;
+            productDetail.ShowProductDetail(productDetail.selectID);
             productDetail.pictureBoxAddShopping.Visible = true;
             productDetail.ShowDialog();
 
 
         }
-        public int getorderid = 0;
-        public void GetorderId(int getorderid)
-        {
-        }
+        //public int getorderid = 0;
+
 
         private void btnGOShpping_Click(object sender, EventArgs e)
         {
             // 建立 ShoppingCar 表單
             ShoppingCar shoppingcar = new ShoppingCar();
-            shoppingcar.getorderid = getorderid;
-            shoppingcar.getOrderID(shoppingcar.getorderid); //給oid
+            //shoppingcar.getorderid = getorderid;
             
             // 檢查是否存在 HomePage 的執行個體
             HomePage homepage = Application.OpenForms.OfType<HomePage>().FirstOrDefault();
@@ -249,6 +249,7 @@ namespace POSSystem
                 // 將 ShoppingCar 表單加入 HomePage 的 panel2 中
                 shoppingcar.TopLevel = false;
                 shoppingcar.Dock = DockStyle.Fill;
+                shoppingcar.getcid = getcid;
                 homepage.panel2.Controls.Clear();
                 homepage.panel2.Controls.Add(shoppingcar);
                 shoppingcar.Show();

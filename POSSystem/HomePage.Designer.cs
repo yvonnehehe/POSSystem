@@ -29,20 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnBackEnterPage = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuImageButton6 = new Bunifu.UI.WinForms.BunifuImageButton();
             this.bunifuImageButton5 = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.bunifuImageButton4 = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.btnGoMyOrder = new Bunifu.UI.WinForms.BunifuImageButton();
             this.btnGoShoppingCar = new Bunifu.UI.WinForms.BunifuImageButton();
             this.btnGoMenu = new Bunifu.UI.WinForms.BunifuImageButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnEnterMenu = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +50,7 @@
             this.panel1.Controls.Add(this.btnBackEnterPage);
             this.panel1.Controls.Add(this.bunifuImageButton6);
             this.panel1.Controls.Add(this.bunifuImageButton5);
-            this.panel1.Controls.Add(this.bunifuImageButton4);
+            this.panel1.Controls.Add(this.btnGoMyOrder);
             this.panel1.Controls.Add(this.btnGoShoppingCar);
             this.panel1.Controls.Add(this.btnGoMenu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -131,6 +128,7 @@
             this.bunifuImageButton6.WaitOnLoad = false;
             this.bunifuImageButton6.Zoom = 10;
             this.bunifuImageButton6.ZoomSpeed = 10;
+            this.bunifuImageButton6.Click += new System.EventHandler(this.bunifuImageButton6_Click);
             // 
             // bunifuImageButton5
             // 
@@ -166,39 +164,40 @@
             this.bunifuImageButton5.Zoom = 10;
             this.bunifuImageButton5.ZoomSpeed = 10;
             // 
-            // bunifuImageButton4
+            // btnGoMyOrder
             // 
-            this.bunifuImageButton4.ActiveImage = null;
-            this.bunifuImageButton4.AllowAnimations = true;
-            this.bunifuImageButton4.AllowBuffering = false;
-            this.bunifuImageButton4.AllowToggling = false;
-            this.bunifuImageButton4.AllowZooming = true;
-            this.bunifuImageButton4.AllowZoomingOnFocus = false;
-            this.bunifuImageButton4.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuImageButton4.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.bunifuImageButton4.ErrorImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton4.ErrorImage")));
-            this.bunifuImageButton4.FadeWhenInactive = false;
-            this.bunifuImageButton4.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.bunifuImageButton4.Image = global::POSSystem.Properties.Resources.fi_rr_search_alt;
-            this.bunifuImageButton4.ImageActive = null;
-            this.bunifuImageButton4.ImageLocation = null;
-            this.bunifuImageButton4.ImageMargin = 10;
-            this.bunifuImageButton4.ImageSize = new System.Drawing.Size(30, 30);
-            this.bunifuImageButton4.ImageZoomSize = new System.Drawing.Size(40, 40);
-            this.bunifuImageButton4.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton4.InitialImage")));
-            this.bunifuImageButton4.Location = new System.Drawing.Point(11, 139);
-            this.bunifuImageButton4.Name = "bunifuImageButton4";
-            this.bunifuImageButton4.Rotation = 0;
-            this.bunifuImageButton4.ShowActiveImage = true;
-            this.bunifuImageButton4.ShowCursorChanges = true;
-            this.bunifuImageButton4.ShowImageBorders = true;
-            this.bunifuImageButton4.ShowSizeMarkers = false;
-            this.bunifuImageButton4.Size = new System.Drawing.Size(40, 40);
-            this.bunifuImageButton4.TabIndex = 3;
-            this.bunifuImageButton4.ToolTipText = "";
-            this.bunifuImageButton4.WaitOnLoad = false;
-            this.bunifuImageButton4.Zoom = 10;
-            this.bunifuImageButton4.ZoomSpeed = 10;
+            this.btnGoMyOrder.ActiveImage = null;
+            this.btnGoMyOrder.AllowAnimations = true;
+            this.btnGoMyOrder.AllowBuffering = false;
+            this.btnGoMyOrder.AllowToggling = false;
+            this.btnGoMyOrder.AllowZooming = true;
+            this.btnGoMyOrder.AllowZoomingOnFocus = false;
+            this.btnGoMyOrder.BackColor = System.Drawing.Color.Transparent;
+            this.btnGoMyOrder.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnGoMyOrder.ErrorImage = ((System.Drawing.Image)(resources.GetObject("btnGoMyOrder.ErrorImage")));
+            this.btnGoMyOrder.FadeWhenInactive = false;
+            this.btnGoMyOrder.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.btnGoMyOrder.Image = global::POSSystem.Properties.Resources.fi_rr_search_alt;
+            this.btnGoMyOrder.ImageActive = null;
+            this.btnGoMyOrder.ImageLocation = null;
+            this.btnGoMyOrder.ImageMargin = 10;
+            this.btnGoMyOrder.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnGoMyOrder.ImageZoomSize = new System.Drawing.Size(40, 40);
+            this.btnGoMyOrder.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnGoMyOrder.InitialImage")));
+            this.btnGoMyOrder.Location = new System.Drawing.Point(11, 139);
+            this.btnGoMyOrder.Name = "btnGoMyOrder";
+            this.btnGoMyOrder.Rotation = 0;
+            this.btnGoMyOrder.ShowActiveImage = true;
+            this.btnGoMyOrder.ShowCursorChanges = true;
+            this.btnGoMyOrder.ShowImageBorders = true;
+            this.btnGoMyOrder.ShowSizeMarkers = false;
+            this.btnGoMyOrder.Size = new System.Drawing.Size(40, 40);
+            this.btnGoMyOrder.TabIndex = 3;
+            this.btnGoMyOrder.ToolTipText = "";
+            this.btnGoMyOrder.WaitOnLoad = false;
+            this.btnGoMyOrder.Zoom = 10;
+            this.btnGoMyOrder.ZoomSpeed = 10;
+            this.btnGoMyOrder.Click += new System.EventHandler(this.btnGoMyOrder_Click);
             // 
             // btnGoShoppingCar
             // 
@@ -273,101 +272,11 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.panel2.Controls.Add(this.btnEnterMenu);
             this.panel2.Location = new System.Drawing.Point(65, 27);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(865, 561);
             this.panel2.TabIndex = 0;
-            // 
-            // btnEnterMenu
-            // 
-            this.btnEnterMenu.AllowAnimations = true;
-            this.btnEnterMenu.AllowMouseEffects = true;
-            this.btnEnterMenu.AllowToggling = false;
-            this.btnEnterMenu.AnimationSpeed = 200;
-            this.btnEnterMenu.AutoGenerateColors = false;
-            this.btnEnterMenu.AutoRoundBorders = false;
-            this.btnEnterMenu.AutoSizeLeftIcon = true;
-            this.btnEnterMenu.AutoSizeRightIcon = true;
-            this.btnEnterMenu.BackColor = System.Drawing.Color.Transparent;
-            this.btnEnterMenu.BackColor1 = System.Drawing.Color.LightSlateGray;
-            this.btnEnterMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEnterMenu.BackgroundImage")));
-            this.btnEnterMenu.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnEnterMenu.ButtonText = "ENTER\r\nMENU";
-            this.btnEnterMenu.ButtonTextMarginLeft = 0;
-            this.btnEnterMenu.ColorContrastOnClick = 45;
-            this.btnEnterMenu.ColorContrastOnHover = 45;
-            this.btnEnterMenu.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.btnEnterMenu.CustomizableEdges = borderEdges2;
-            this.btnEnterMenu.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnEnterMenu.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.btnEnterMenu.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnEnterMenu.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.btnEnterMenu.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.btnEnterMenu.Font = new System.Drawing.Font("Lucida Console", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnterMenu.ForeColor = System.Drawing.Color.White;
-            this.btnEnterMenu.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEnterMenu.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.btnEnterMenu.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.btnEnterMenu.IconMarginLeft = 11;
-            this.btnEnterMenu.IconPadding = 10;
-            this.btnEnterMenu.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEnterMenu.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.btnEnterMenu.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.btnEnterMenu.IconSize = 25;
-            this.btnEnterMenu.IdleBorderColor = System.Drawing.Color.LightSlateGray;
-            this.btnEnterMenu.IdleBorderRadius = 1;
-            this.btnEnterMenu.IdleBorderThickness = 1;
-            this.btnEnterMenu.IdleFillColor = System.Drawing.Color.LightSlateGray;
-            this.btnEnterMenu.IdleIconLeftImage = null;
-            this.btnEnterMenu.IdleIconRightImage = null;
-            this.btnEnterMenu.IndicateFocus = false;
-            this.btnEnterMenu.Location = new System.Drawing.Point(377, 222);
-            this.btnEnterMenu.Name = "btnEnterMenu";
-            this.btnEnterMenu.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.btnEnterMenu.OnDisabledState.BorderRadius = 1;
-            this.btnEnterMenu.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnEnterMenu.OnDisabledState.BorderThickness = 1;
-            this.btnEnterMenu.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnEnterMenu.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.btnEnterMenu.OnDisabledState.IconLeftImage = null;
-            this.btnEnterMenu.OnDisabledState.IconRightImage = null;
-            this.btnEnterMenu.onHoverState.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.btnEnterMenu.onHoverState.BorderRadius = 1;
-            this.btnEnterMenu.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnEnterMenu.onHoverState.BorderThickness = 1;
-            this.btnEnterMenu.onHoverState.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btnEnterMenu.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.btnEnterMenu.onHoverState.IconLeftImage = null;
-            this.btnEnterMenu.onHoverState.IconRightImage = null;
-            this.btnEnterMenu.OnIdleState.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.btnEnterMenu.OnIdleState.BorderRadius = 1;
-            this.btnEnterMenu.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnEnterMenu.OnIdleState.BorderThickness = 1;
-            this.btnEnterMenu.OnIdleState.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btnEnterMenu.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.btnEnterMenu.OnIdleState.IconLeftImage = null;
-            this.btnEnterMenu.OnIdleState.IconRightImage = null;
-            this.btnEnterMenu.OnPressedState.BorderColor = System.Drawing.Color.LightSteelBlue;
-            this.btnEnterMenu.OnPressedState.BorderRadius = 1;
-            this.btnEnterMenu.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnEnterMenu.OnPressedState.BorderThickness = 1;
-            this.btnEnterMenu.OnPressedState.FillColor = System.Drawing.Color.LightSlateGray;
-            this.btnEnterMenu.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.btnEnterMenu.OnPressedState.IconLeftImage = null;
-            this.btnEnterMenu.OnPressedState.IconRightImage = null;
-            this.btnEnterMenu.Size = new System.Drawing.Size(150, 156);
-            this.btnEnterMenu.TabIndex = 0;
-            this.btnEnterMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnEnterMenu.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnEnterMenu.TextMarginLeft = 0;
-            this.btnEnterMenu.TextPadding = new System.Windows.Forms.Padding(0);
-            this.btnEnterMenu.UseDefaultRadiusAndThickness = true;
-            this.btnEnterMenu.Click += new System.EventHandler(this.btnEnterMenu_Click);
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel3
             // 
@@ -418,7 +327,6 @@
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.HomePage_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.HomePage_MouseUp);
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -429,13 +337,12 @@
         private System.Windows.Forms.Panel panel1;
         private Bunifu.UI.WinForms.BunifuImageButton btnGoMenu;
         private Bunifu.UI.WinForms.BunifuImageButton btnGoShoppingCar;
-        private Bunifu.UI.WinForms.BunifuImageButton bunifuImageButton4;
+        private Bunifu.UI.WinForms.BunifuImageButton btnGoMyOrder;
         private Bunifu.UI.WinForms.BunifuImageButton bunifuImageButton5;
         private Bunifu.UI.WinForms.BunifuImageButton bunifuImageButton6;
         private System.Windows.Forms.Panel panel3;
         private Bunifu.UI.WinForms.BunifuImageButton btnBackEnterPage;
         private System.Windows.Forms.Button btnExit;
         public System.Windows.Forms.Panel panel2;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnEnterMenu;
     }
 }

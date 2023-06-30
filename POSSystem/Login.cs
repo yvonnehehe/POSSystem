@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,10 @@ namespace POSSystem
 {
     public partial class Login : Form
     {
-        public int getorderid;
+        //public int getorderid;
+        //public int getsum;
         int CID;
-
+        public bool islogin = false;
         public Login()
         {
             InitializeComponent();
@@ -28,9 +30,10 @@ namespace POSSystem
         {
             scsb.DataSource = @".";
             scsb.InitialCatalog = "IspanPersonalProject_POS";
-            scsb.IntegratedSecurity = true; //win驗證為true  如為SQLsever要設定flase
+            scsb.IntegratedSecurity = true;
 
-            strDBConnetionString = scsb.ConnectionString; //上面設定的內容都轉換成字串
+            strDBConnetionString = scsb.ConnectionString;
+            gBox登入.Visible = true;
         }
 
         private void btn登入_Click(object sender, EventArgs e)
@@ -79,12 +82,11 @@ namespace POSSystem
             txtAddress_Add.Text = "";
             txtEmail_Add.Text = "";
             dtpBirth_Add.Value = DateTime.Now;
-
         }
 
         private void btn會員搜尋_Click_1(object sender, EventArgs e)
         {
-            if ((txtName_Login.Text != "") && (txtPhone_Login.Text != "")) //姓名欄位不能是空字串
+            if ((txtName_Login.Text != "") || (txtPhone_Login.Text != ""))
             {
                 SqlConnection con = new SqlConnection(strDBConnetionString);
                 con.Open();
@@ -97,6 +99,7 @@ namespace POSSystem
                     CID = (int)reader["C_ID"];
                     txtName_Login.Text = reader["C_Name"].ToString();
                     txtPhone_Login.Text = reader["Phone"].ToString();
+                    islogin = true;
                 }
                 else
                 {
@@ -109,32 +112,40 @@ namespace POSSystem
             }
         }
 
-        private void btn結帳_Click_1(object sender, EventArgs e)
+        private void btnLoginClick_1(object sender, EventArgs e)
         {
-            if ((txtName_Login.Text != "") && (txtPhone_Login.Text != ""))
+            if (islogin==true)
             {
-                SqlConnection con = new SqlConnection(strDBConnetionString);
-                con.Open();
-
-                string strSQL = "UPDATE orders SET C_ID = @cid WHERE O_ID = @oid;";
-                SqlCommand cmd = new SqlCommand(strSQL, con);
-                cmd.Parameters.AddWithValue("@oid", getorderid);
-                cmd.Parameters.AddWithValue("@cid", CID);
-
-                int rows = cmd.ExecuteNonQuery();
-                con.Close();
+                //islogin = true;
                 MessageBox.Show($"會員登入成功");
-                Checkout checkout = new Checkout();
-                checkout.CID= CID;
-                checkout.ShowDialog();
+                HomePage homepage = new HomePage();
+                homepage.getcid = CID;
+                homepage.islogin = islogin;
+                homepage.Show();
+                //Checkout checkout = new Checkout();
+                //checkout.getsum = getsum;
+                //checkout.CID = CID;
 
+                // TODO:待寫未結帳登入畫面
+                this.Hide();
+                //checkout.ShowDialog();
             }
             else
             {
-                MessageBox.Show("姓名,電話必填");
+                MessageBox.Show("尚未登入");
             }
+}
 
+        private void btnGuests_Click(object sender, EventArgs e)
+        {
+            islogin = false;
+            MessageBox.Show($"訪客登入成功");
 
+            HomePage homepage = new HomePage();
+            homepage.islogin = islogin;
+            homepage.Show();
+
+            this.Hide();
         }
     }
 }

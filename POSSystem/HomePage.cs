@@ -15,20 +15,38 @@ namespace POSSystem
 {
     public partial class HomePage : Form
     {
-        private bool isOrderCreated = false; // 追蹤訂單是否已創建
+        //private bool isOrderCreated = false; // 追蹤訂單是否已創建
 
         public HomePage()
         {
             InitializeComponent();
-            if (!isOrderCreated)
-            {
-                NewOrderID(orderID);
-                isOrderCreated = true;
-            }
+            //if (!isOrderCreated)
+            //{
+            //    NewOrderID(orderID);
+            //    isOrderCreated = true;
+            //}
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            //關閉表單會刪除orderid=null的訂單
+            SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
+            scsb.DataSource = @".";
+            scsb.InitialCatalog = "IspanPersonalProject_POS";
+            scsb.IntegratedSecurity = true;
+            string strDBConnectionString = scsb.ConnectionString;
+
+            using (SqlConnection con = new SqlConnection(strDBConnectionString))
+            {
+                con.Open();
+
+                string deleteQuery = "DELETE FROM orderdetail WHERE O_ID IS NULL";
+
+                using (SqlCommand command = new SqlCommand(deleteQuery, con))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
             Application.Exit();
         }
 
@@ -153,65 +171,61 @@ namespace POSSystem
         private void btnGoShoppingCar_Click(object sender, EventArgs e)
         {
             ShoppingCar shoppingcar = new ShoppingCar();
-            shoppingcar.getorderid = orderID;//給oid
-            shoppingcar.getOrderID(shoppingcar.getorderid);
-
+            //shoppingcar.getorderid = orderID;//給oid
+            shoppingcar.getcid = getcid;
             shoppingcar.TopLevel = false;
             shoppingcar.Dock = DockStyle.Fill;
+            shoppingcar.islogin = islogin;
             panel2.Controls.Clear();
             panel2.Controls.Add(shoppingcar);
             shoppingcar.Show();
         }
         //建立新訂單
-        int orderID;
+        //int orderID;
 
-        public void NewOrderID(int newOid)
-        {
-            SqlConnectionStringBuilder scsb2 = new SqlConnectionStringBuilder();
-            scsb2.DataSource = @".";
-            scsb2.InitialCatalog = "IspanPersonalProject_POS";
-            scsb2.IntegratedSecurity = true;
-            string strDBConnectionString2 = scsb2.ConnectionString;
+        //public void NewOrderID(int newOid)
+        //{
+        //    SqlConnectionStringBuilder scsb2 = new SqlConnectionStringBuilder();
+        //    scsb2.DataSource = @".";
+        //    scsb2.InitialCatalog = "IspanPersonalProject_POS";
+        //    scsb2.IntegratedSecurity = true;
+        //    string strDBConnectionString2 = scsb2.ConnectionString;
 
-            SqlConnection con = new SqlConnection(strDBConnectionString2);
-            con.Open();
+        //    SqlConnection con = new SqlConnection(strDBConnectionString2);
+        //    con.Open();
 
-            if (orderID == 0) //檢查是否已經有一個訂單進行中，如果沒有則創建新的訂單
-            {
-                string getMaxOid = "SELECT MAX(O_ID) FROM orders;";
-                SqlCommand cmd = new SqlCommand(getMaxOid, con);
-                int maxOid = 0;
+        //    if (orderID == 0) //檢查是否已經有一個訂單進行中，如果沒有則創建新的訂單
+        //    {
+        //        string getMaxOid = "SELECT MAX(O_ID) FROM orders;";
+        //        SqlCommand cmd = new SqlCommand(getMaxOid, con);
+        //        int maxOid = 0;
 
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        if (!reader.IsDBNull(0))
-                        {
-                            maxOid = reader.GetInt32(0);
-                        }
-                    }
-                }
-                newOid = maxOid + 1;
+        //        using (SqlDataReader reader = cmd.ExecuteReader())
+        //        {
+        //            if (reader.Read())
+        //            {
+        //                if (!reader.IsDBNull(0))
+        //                {
+        //                    maxOid = reader.GetInt32(0);
+        //                }
+        //            }
+        //        }
+        //        newOid = maxOid + 1;
 
-                string insertNewOrder = "INSERT INTO orders (O_ID,OrderDate) VALUES (@NewOid,@NewTime);";
-                SqlCommand cmd2 = new SqlCommand(insertNewOrder, con);
-                cmd2.Parameters.AddWithValue("@NewOid", newOid);
-                cmd2.Parameters.AddWithValue("@NewTime", DateTime.Now);
-                cmd2.ExecuteNonQuery();
+        //        string insertNewOrder = "INSERT INTO orders (O_ID,OrderDate) VALUES (@NewOid,@NewTime);";
+        //        SqlCommand cmd2 = new SqlCommand(insertNewOrder, con);
+        //        cmd2.Parameters.AddWithValue("@NewOid", newOid);
+        //        cmd2.Parameters.AddWithValue("@NewTime", DateTime.Now);
+        //        cmd2.ExecuteNonQuery();
+        //        orderID = newOid;
+        //    }
+        //    con.Close();
+        //}
 
-
-                orderID = newOid;
-            }
-
-            con.Close();
-        }
-
-        private void btnEnterMenu_Click(object sender, EventArgs e)
+        private void btnEnterMenu_Click(object sender, EventArgs e) //待刪除
         {
             Menu menu = new Menu();
-            menu.getorderid = orderID;//給oid
-            menu.GetorderId(menu.getorderid);
+            //menu.getorderid = orderID;//給oid
 
             menu.TopLevel = false;
             menu.Dock = DockStyle.None;
@@ -223,14 +237,61 @@ namespace POSSystem
         public void btnGoMenu_Click(object sender, EventArgs e)
         {
             Menu menu = new Menu();
-            menu.getorderid = orderID;//給oid
-            menu.GetorderId(menu.getorderid);
-
             menu.TopLevel = false;
+            menu.getcid = getcid;
+            menu.islogin = islogin;
             menu.Dock = DockStyle.None;
             panel2.Controls.Clear();
             panel2.Controls.Add(menu);
             menu.Show();
         }
+
+        public void btnGoMyOrder_Click(object sender, EventArgs e)
+        {
+            MyOrder myOrder = new MyOrder();
+            myOrder.getcid = getcid;//給oid
+            myOrder.TopLevel = false;
+            myOrder.Dock = DockStyle.None;
+            myOrder.islogin = islogin;
+            panel2.Controls.Clear();
+            panel2.Controls.Add(myOrder);
+            myOrder.Show();
+        }
+        public int getcid { get; set; }
+        //public void showmyorder(int CID)
+        //{
+        //    MyOrder myOrder = new MyOrder();
+        //    //menu.getorderid = orderID;//給oid
+        //    myOrder.getcid = CID;
+        //    myOrder.TopLevel = false;
+        //    myOrder.Dock = DockStyle.None;
+        //    panel2.Controls.Clear();
+        //    panel2.Controls.Add(myOrder);
+        //    myOrder.Show();
+        //}
+        public bool islogin { get; set; }
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            Menu menu= new Menu();
+            menu.TopLevel = false;
+            menu.getcid = getcid;
+            menu.islogin = islogin;
+            menu.Dock = DockStyle.None;
+            panel2.Controls.Add(menu);
+            menu.Show();
+        }
+
+        private void bunifuImageButton6_Click(object sender, EventArgs e)
+        {
+            MyMemberCenter mymc = new MyMemberCenter();
+            mymc.TopLevel = false;
+            mymc.getcid = getcid;
+            mymc.islogin = islogin;
+            mymc.Dock = DockStyle.None;
+            panel2.Controls.Clear();
+            panel2.Controls.Add(mymc);
+            mymc.Show();
+        }
     }
 }
+

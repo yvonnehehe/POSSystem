@@ -67,6 +67,7 @@
             this.btnCash.Size = new System.Drawing.Size(79, 54);
             this.btnCash.TabIndex = 3;
             this.btnCash.UseVisualStyleBackColor = false;
+            this.btnCash.Click += new System.EventHandler(this.btnCash_Click);
             // 
             // btnCard
             // 
@@ -79,6 +80,7 @@
             this.btnCard.Size = new System.Drawing.Size(69, 54);
             this.btnCard.TabIndex = 2;
             this.btnCard.UseVisualStyleBackColor = true;
+            this.btnCard.Click += new System.EventHandler(this.btnCard_Click);
             // 
             // label1
             // 
@@ -181,6 +183,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Checkout";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Checkout";
             this.Load += new System.EventHandler(this.Checkout_Load);
             this.groupBox1.ResumeLayout(false);
