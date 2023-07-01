@@ -23,6 +23,7 @@ namespace POSSystem
         private void btn會員資料維護_Click(object sender, EventArgs e)
         {
             Back_CustomerCenter back_customercenter = new Back_CustomerCenter();
+            back_customercenter.EID = EID;
             back_customercenter.Show();
             this.Hide();
         }
@@ -30,6 +31,7 @@ namespace POSSystem
         private void btn商品維護_Click(object sender, EventArgs e)
         {
             Back_ProductCenter back_productcenter = new Back_ProductCenter();
+            back_productcenter.EID = EID;
             back_productcenter.Show();
             this.Hide();
         }
@@ -37,6 +39,7 @@ namespace POSSystem
         private void btn訂單管理_Click(object sender, EventArgs e)
         {
             Back_OrderCenter back_OrderCenter = new Back_OrderCenter();
+            back_OrderCenter.EID = EID;
             back_OrderCenter.Show();
             this.Hide();
         }
@@ -47,14 +50,16 @@ namespace POSSystem
             {
                 Back_SystemCenter BS = new Back_SystemCenter();
                 BS.isSystemOFF = isSystemOFF;
+                BS.EID = EID;
                 BS.SystemOff.Checked = true;
                 BS.Show();
                 this.Hide();
             }
             else
             {
-                Back_SystemCenter back_SystemCenter = new Back_SystemCenter();
-                back_SystemCenter.Show();
+                Back_SystemCenter BS = new Back_SystemCenter();
+                BS.EID = EID;
+                BS.Show();
                 this.Hide();
             }
         }
@@ -85,6 +90,7 @@ namespace POSSystem
         private void btn員工資料維護_Click(object sender, EventArgs e)
         {
             Back_EmpolyeesCenter E = new Back_EmpolyeesCenter();
+            E.EID = EID;
             E.Show();
             this.Hide();
         }

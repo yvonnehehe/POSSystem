@@ -153,6 +153,12 @@
     <Compile Include="Back_OrderCenter.Designer.cs">
       <DependentUpon>Back_OrderCenter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Back_OrderDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Back_OrderDetail.Designer.cs">
+      <DependentUpon>Back_OrderDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Back_ProductCenter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,12 @@
     <Compile Include="ShoppingCar.Designer.cs">
       <DependentUpon>ShoppingCar.cs</DependentUpon>
     </Compile>
+    <Compile Include="SystemCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemCenter.Designer.cs">
+      <DependentUpon>SystemCenter.cs</DependentUpon>
+    </Compile>
     <Compile Include="S_SystemOff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Back_OrderCenter.resx">
       <DependentUpon>Back_OrderCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Back_OrderDetail.resx">
+      <DependentUpon>Back_OrderDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Back_ProductCenter.resx">
       <DependentUpon>Back_ProductCenter.cs</DependentUpon>
@@ -300,6 +315,9 @@
     </Compile>
     <EmbeddedResource Include="ShoppingCar.resx">
       <DependentUpon>ShoppingCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemCenter.resx">
+      <DependentUpon>SystemCenter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="S_SystemOff.resx">
       <DependentUpon>S_SystemOff.cs</DependentUpon>
@@ -382,6 +400,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\20181124190753172.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7461.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jZtwiTJjeanry8nmHQJe76j5-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\166012_s.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

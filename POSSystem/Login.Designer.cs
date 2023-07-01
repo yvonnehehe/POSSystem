@@ -30,6 +30,7 @@
         {
             this.btnLogin = new System.Windows.Forms.Button();
             this.gBox建立新會員 = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtPassword_Add = new System.Windows.Forms.TextBox();
             this.btn清空欄位 = new System.Windows.Forms.Button();
             this.txtAcconunt_Add = new System.Windows.Forms.TextBox();
@@ -55,11 +56,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtPassword_Login = new System.Windows.Forms.TextBox();
             this.txtAcconunt_Login = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.gBox建立新會員.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gBox登入.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -106,6 +106,17 @@
             this.gBox建立新會員.TabIndex = 48;
             this.gBox建立新會員.TabStop = false;
             this.gBox建立新會員.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::POSSystem.Properties.Resources.cool_569584;
+            this.pictureBox2.Location = new System.Drawing.Point(397, 130);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 27);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 53;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // txtPassword_Add
             // 
@@ -381,7 +392,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::POSSystem.Properties.Resources.cool_569584;
-            this.pictureBox1.Location = new System.Drawing.Point(361, 292);
+            this.pictureBox1.Location = new System.Drawing.Point(361, 290);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 27);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -410,17 +421,6 @@
             this.txtAcconunt_Login.Size = new System.Drawing.Size(177, 26);
             this.txtAcconunt_Login.TabIndex = 48;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::POSSystem.Properties.Resources.cool_569584;
-            this.pictureBox2.Location = new System.Drawing.Point(397, 130);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 27);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 53;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -439,10 +439,10 @@
             this.Load += new System.EventHandler(this.CreateMember_Load);
             this.gBox建立新會員.ResumeLayout(false);
             this.gBox建立新會員.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.gBox登入.ResumeLayout(false);
             this.gBox登入.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

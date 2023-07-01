@@ -34,13 +34,15 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btn忘記密碼 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.pictureBox1.Image = global::POSSystem.Properties.Resources.cool_569584;
-            this.pictureBox1.Location = new System.Drawing.Point(402, 291);
+            this.pictureBox1.Location = new System.Drawing.Point(491, 307);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 27);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -50,37 +52,39 @@
             // 
             // txtPassword_Login
             // 
-            this.txtPassword_Login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtPassword_Login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.txtPassword_Login.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword_Login.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtPassword_Login.Location = new System.Drawing.Point(221, 294);
+            this.txtPassword_Login.ForeColor = System.Drawing.SystemColors.Control;
+            this.txtPassword_Login.Location = new System.Drawing.Point(165, 309);
             this.txtPassword_Login.Name = "txtPassword_Login";
             this.txtPassword_Login.PasswordChar = '*';
-            this.txtPassword_Login.Size = new System.Drawing.Size(177, 28);
+            this.txtPassword_Login.Size = new System.Drawing.Size(307, 28);
             this.txtPassword_Login.TabIndex = 49;
             // 
             // txtAcconunt_Login
             // 
-            this.txtAcconunt_Login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.txtAcconunt_Login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.txtAcconunt_Login.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAcconunt_Login.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtAcconunt_Login.Location = new System.Drawing.Point(224, 239);
+            this.txtAcconunt_Login.ForeColor = System.Drawing.SystemColors.Control;
+            this.txtAcconunt_Login.Location = new System.Drawing.Point(165, 239);
             this.txtAcconunt_Login.Name = "txtAcconunt_Login";
-            this.txtAcconunt_Login.Size = new System.Drawing.Size(177, 28);
+            this.txtAcconunt_Login.Size = new System.Drawing.Size(307, 28);
             this.txtAcconunt_Login.TabIndex = 48;
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(46)))), ((int)(((byte)(17)))));
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(144)))), ((int)(((byte)(144)))));
             this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Dubai", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnLogin.Location = new System.Drawing.Point(174, 388);
+            this.btnLogin.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLogin.Location = new System.Drawing.Point(120, 406);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(6);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(258, 43);
+            this.btnLogin.Size = new System.Drawing.Size(372, 43);
             this.btnLogin.TabIndex = 53;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -108,20 +112,38 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(234, 65);
+            this.label2.Location = new System.Drawing.Point(236, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(145, 40);
             this.label2.TabIndex = 55;
             this.label2.Text = "後台登入";
+            // 
+            // btn忘記密碼
+            // 
+            this.btn忘記密碼.BackColor = System.Drawing.Color.Transparent;
+            this.btn忘記密碼.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn忘記密碼.FlatAppearance.BorderSize = 0;
+            this.btn忘記密碼.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn忘記密碼.Font = new System.Drawing.Font("Calibri", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn忘記密碼.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn忘記密碼.Location = new System.Drawing.Point(331, 360);
+            this.btn忘記密碼.Margin = new System.Windows.Forms.Padding(6);
+            this.btn忘記密碼.Name = "btn忘記密碼";
+            this.btn忘記密碼.Size = new System.Drawing.Size(211, 31);
+            this.btn忘記密碼.TabIndex = 56;
+            this.btn忘記密碼.Text = "Forgot passowed?";
+            this.btn忘記密碼.UseVisualStyleBackColor = false;
+            this.btn忘記密碼.Click += new System.EventHandler(this.btn忘記密碼_Click);
             // 
             // Back_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.BackgroundImage = global::POSSystem.Properties.Resources.SL_100820_36440_081;
+            this.BackgroundImage = global::POSSystem.Properties.Resources._7461;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(610, 610);
+            this.Controls.Add(this.btn忘記密碼);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnExit);
@@ -146,5 +168,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn忘記密碼;
     }
 }

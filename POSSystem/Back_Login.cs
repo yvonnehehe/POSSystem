@@ -110,5 +110,10 @@ namespace POSSystem
             this.Close();
             Program.EnterPage.Show();
         }
+
+        private void btn忘記密碼_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("問店長");
+        }
     }
 }

@@ -124,9 +124,6 @@
   <data name="SL_100820_36440_08" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SL_100820_36440_08.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="happy_569501" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\happy_569501.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="cool_569584" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cool_569584.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,9 +132,6 @@
   </data>
   <data name="fi-rs-undo-alt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fi-rs-undo-alt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fi-rr-shopping-cart-check" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fi-rr-shopping-cart-check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fi-rr-caret-right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fi-rr-caret-right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,29 +142,44 @@
   <data name="fi-rr-utensils" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fi-rr-utensils.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="comment-dollar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\comment-dollar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fi-rr-undo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fi-rr-undo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="user (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cross" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cross.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="comment-dollar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\comment-dollar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SL_100820_36440_081" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SL_100820_36440_081.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fi-rr-home" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fi-rr-home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="20181124190753172" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\20181124190753172.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="happy_569501" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\happy_569501.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="jZtwiTJjeanry8nmHQJe76j5-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jZtwiTJjeanry8nmHQJe76j5-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fi-rr-search-alt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fi-rr-search-alt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SL_100820_36440_081" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SL_100820_36440_081.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fi-rr-home" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fi-rr-home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fi-rr-shopping-cart-check" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fi-rr-shopping-cart-check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fi-rr-undo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fi-rr-undo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="7461" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\7461.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,7 +190,7 @@
   <data name="fi-rs-credit-card" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fi-rs-credit-card.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="20181124190753172" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\20181124190753172.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="166012_s" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\166012_s.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

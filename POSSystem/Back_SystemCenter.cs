@@ -17,10 +17,12 @@ namespace POSSystem
             InitializeComponent();
         }
         public bool isSystemOFF { get; set; }
+        public int EID { get; set; }
+
         private void btnBack_Click(object sender, EventArgs e)
         {
             Back_Center BC = new Back_Center();
-
+            BC.EID = EID;
             if (SystemOff.Checked == true)
             {
                 BC.isSystemOFF = true;

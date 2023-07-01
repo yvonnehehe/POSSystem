@@ -63,6 +63,16 @@ namespace POSSystem.Properties {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
+        internal static System.Drawing.Bitmap _166012_s {
+            get {
+                object obj = ResourceManager.GetObject("166012_s", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
         internal static System.Drawing.Bitmap _20181124190753172 {
             get {
                 object obj = ResourceManager.GetObject("20181124190753172", resourceCulture);
@@ -86,6 +96,16 @@ namespace POSSystem.Properties {
         internal static System.Drawing.Bitmap _209883_P06QV8_9001 {
             get {
                 object obj = ResourceManager.GetObject("209883-P06QV8-9001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap _7461 {
+            get {
+                object obj = ResourceManager.GetObject("7461", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +256,16 @@ namespace POSSystem.Properties {
         internal static System.Drawing.Bitmap home {
             get {
                 object obj = ResourceManager.GetObject("home", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap jZtwiTJjeanry8nmHQJe76j5_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("jZtwiTJjeanry8nmHQJe76j5-removebg-preview", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

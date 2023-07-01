@@ -19,7 +19,9 @@ namespace POSSystem.Properties
         }
         SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
         string strDBConnetionString = ""; 
-        List<int> searchResultIDs = new List<int>(); 
+        List<int> searchResultIDs = new List<int>();
+        public int EID { get; set; }
+
 
         private void Back_CustomerCenter_Load(object sender, EventArgs e)
         {
@@ -334,6 +336,7 @@ namespace POSSystem.Properties
         private void btnBack_Click(object sender, EventArgs e)
         {
             Back_Center BC = new Back_Center();
+            BC.EID = EID;
             this.Close();
             BC.Visible = true;
         }

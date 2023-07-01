@@ -54,11 +54,11 @@ namespace POSSystem
 
         public void ReadOrderData()
         {
-            SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
-            scsb.DataSource = @".";
-            scsb.InitialCatalog = "IspanPersonalProject_POS";
-            scsb.IntegratedSecurity = true;
-            strDBConnectionString = scsb.ConnectionString;
+            //SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
+            //scsb.DataSource = @".";
+            //scsb.InitialCatalog = "IspanPersonalProject_POS";
+            //scsb.IntegratedSecurity = true;
+            //strDBConnectionString = scsb.ConnectionString;
 
             SqlConnection con = new SqlConnection(strDBConnectionString);
             con.Open();

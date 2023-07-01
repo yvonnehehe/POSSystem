@@ -21,6 +21,7 @@ namespace POSSystem
         List<int> listListID = new List<int>();
         string strDBConnectionString = "";
         string strImageDir = @"..\productsimage";
+        public int EID { get; set; }
 
         public Back_ProductCenter()
         {
@@ -30,6 +31,7 @@ namespace POSSystem
         private void btnBack_Click(object sender, EventArgs e)
         {
             Back_Center BC = new Back_Center();
+            BC.EID = EID;
             this.Close();
             BC.Visible = true;
         }
@@ -170,19 +172,26 @@ namespace POSSystem
 
         private void btn刪除商品_Click(object sender, EventArgs e)
         {
-            int selectID = (int)listView商品展示.SelectedItems[0].Tag;
-            if (selectID > 0)
-            {   //存進資料庫
-                SqlConnection con = new SqlConnection(strDBConnectionString);
-                con.Open();
-                string strSQL = "Delete from products where P_ID = @selectID ;";
+            if (listView商品展示.SelectedItems.Count > 0)
+            {
+                int selectID = (int)listView商品展示.SelectedItems[0].Tag;
+                if (selectID > 0)
+                {   //存進資料庫
+                    SqlConnection con = new SqlConnection(strDBConnectionString);
+                    con.Open();
+                    string strSQL = "Delete from products where P_ID = @selectID ;";
 
-                SqlCommand cmd = new SqlCommand(strSQL, con);
-                cmd.Parameters.AddWithValue("@selectID", selectID);
-                int rows = cmd.ExecuteNonQuery();
-                con.Close();
+                    SqlCommand cmd = new SqlCommand(strSQL, con);
+                    cmd.Parameters.AddWithValue("@selectID", selectID);
+                    int rows = cmd.ExecuteNonQuery();
+                    con.Close();
 
-                MessageBox.Show($"{rows}資料刪除成功");
+                    MessageBox.Show($"{rows}資料刪除成功");
+                }
+            }
+            else
+            {
+                MessageBox.Show("未選取商品");
             }
 
 

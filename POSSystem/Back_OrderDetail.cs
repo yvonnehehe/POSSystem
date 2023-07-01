@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace POSSystem
 {
-    public partial class ShoppingCar : Form
+    public partial class Back_OrderDetail : Form
     {
         SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
         string strDBConnectionString = "";
@@ -27,19 +27,19 @@ namespace POSSystem
         List<int> listOID = new List<int>();
         public List<int> listOrderDetailID = new List<int>();
         int sum;
+        public int getoid { get; set; }
 
-
-        public int getcid { get; set; }
-        public bool islogin { get; set; }
-
-        public ShoppingCar()
+        public Back_OrderDetail()
         {
             InitializeComponent();
         }
 
-        
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-        private void ShoppingCar_Load(object sender, EventArgs e)
+        private void Back_OrderDetail_Load(object sender, EventArgs e)
         {
             scsb.DataSource = @".";
             scsb.InitialCatalog = "IspanPersonalProject_POS";
@@ -49,37 +49,18 @@ namespace POSSystem
             //timer1.Start();
             ReadOrderData();
             ShowListView();
+
         }
-        //public int getorderid;
         private void ReadOrderData()
         {
-            //SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
-            //scsb.DataSource = @".";
-            //scsb.InitialCatalog = "IspanPersonalProject_POS";
-            //scsb.IntegratedSecurity = true;
-            //strDBConnectionString = scsb.ConnectionString;
-
             SqlConnection con = new SqlConnection(strDBConnectionString);
             con.Open();
-            //string strSQL = "SELECT * FROM orders WHERE O_ID = @OrderID";
-            //SqlCommand cmd = new SqlCommand(strSQL, con);
-            //cmd.Parameters.AddWithValue("@OrderID", getorderid);
-            //SqlDataReader reader = cmd.ExecuteReader();
-
-            //while (reader.Read() == true)
-            //{
-            //    listOrderID.Add((int)reader["O_ID"]);
-            //    //listTotalPrice.Add((int)reader["TotalPrice"]); //未寫進總金額
-            //}
-            //reader.Close();
-
-            // 使用 JOIN 子句合併 orderdetail 與 products 資料表
             string strSQL = @"SELECT  *
                                 FROM orderdetail od
                                 INNER JOIN products p ON od.P_ID = p.P_ID
-                                WHERE od.O_ID is NULL";
+                                WHERE od.O_ID = @OrderID";
             SqlCommand cmd = new SqlCommand(strSQL, con);
-            //cmd.Parameters.AddWithValue("@OrderID", getorderid);
+            cmd.Parameters.AddWithValue("@OrderID", getoid);
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read() == true)
             {
@@ -98,7 +79,6 @@ namespace POSSystem
             con.Close();
 
         }
-
         public void ShowListView()
         {
             listViewProduct.Clear();
@@ -137,83 +117,5 @@ namespace POSSystem
             }
         }
 
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            HomePage homePage = new HomePage();
-            Menu menu = new Menu();
-            menu.TopLevel = false;
-            menu.Dock = DockStyle.None;
-            homePage.panel2.Controls.Clear();
-            homePage.panel2.Controls.Add(menu);
-            menu.Show();
-            homePage.Show();
-            this.Hide();
-        }
-
-        private void listViewProduct_ItemActivate(object sender, EventArgs e)
-        {
-            ProductDetail productDetail = new ProductDetail();
-            productDetail.ordertetailid = (int)listViewProduct.SelectedItems[0].Tag;
-            //productDetail.shoppingoid = getorderid;
-            productDetail.ReadOrderDetail(productDetail.ordertetailid);
-            productDetail.btnAlter.Visible = true;
-            productDetail.btnDetele.Visible = true;
-            productDetail.ShowDialog();
-            RefreshData();
-        }
-        public void RefreshData()
-        {
-            sum = 0;
-            labTotalPrice.Text = "TotalPrice  NT$ ";
-            listOID.Clear();
-            listOrderDetailID.Clear();
-            listPID.Clear();
-            listProductName.Clear();
-            listPrice.Clear();
-            listProductName.Clear();
-            listQuantity.Clear();
-            listSugar.Clear();
-            listIce.Clear();
-            listSubtotal.Clear();
-            listEspresso.Clear();
-            ReadOrderData();
-            ShowListView();
-        }
-
-        private void btnCheckout_Click(object sender, EventArgs e)
-        {
-            if (sum > 0)
-            {
-                Checkout checkout = new Checkout();
-                checkout.getcid = getcid;
-                //login.getorderid = getorderid;
-                checkout.getsum = sum;
-                checkout.ShowDialog();
-                RefreshData();
-            }
-            else
-            {
-                MessageBox.Show("未加入任何商品");
-            }
-        }
-        //public int getNewOID { get; set; }
-        //void checkout()
-        //{
-        //    if(getNewOID !=0) 
-        //    { 
-        //    listProductName.Clear();
-        //    listPrice.Clear();
-        //    listQuantity.Clear();
-        //    }
-        //}
-
-        //private void timer1_Tick(object sender, EventArgs e)
-        //{
-        //    if (getNewOID != 0)
-        //    {
-        //        RefreshData();
-        //    }
-        //}
     }
 }

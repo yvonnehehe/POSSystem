@@ -16,6 +16,7 @@ namespace POSSystem
         SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
         string strDBConnetionString = "";
         List<int> searchResultIDs = new List<int>();
+        public int EID { get; set; }
 
         public Back_EmpolyeesCenter()
         {
@@ -86,6 +87,7 @@ namespace POSSystem
         private void btnBack_Click(object sender, EventArgs e)
         {
             Back_Center BC = new Back_Center();
+            BC.EID = EID;
             this.Close();
             BC.Visible = true;
         }
@@ -131,7 +133,11 @@ namespace POSSystem
 
                 int rows = cmd.ExecuteNonQuery();
                 con.Close();
-                MessageBox.Show($"員工資料已修改, {rows}筆資料受影響");
+                MessageBox.Show($"員工資料已修改");
+            }
+            else
+            {
+                MessageBox.Show("姓名必填");
             }
 
         }
