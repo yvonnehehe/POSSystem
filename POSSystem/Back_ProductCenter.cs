@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,7 @@ namespace POSSystem
         List<string> listProductName = new List<string>();
         List<int> listPrice = new List<int>();
         List<int> listPid = new List<int>();
+        List<int> listListID = new List<int>();
         string strDBConnectionString = "";
         string strImageDir = @"..\productsimage";
 
@@ -56,6 +58,7 @@ namespace POSSystem
                 listPid.Add((int)reader["P_ID"]);
                 listProductName.Add((string)reader["P_Name"]);
                 listPrice.Add((int)reader["Price"]);
+                listListID.Add((int)reader["List_ID"]);
                 string image_name = (string)reader["P_Image"];
                 string 完整圖檔路徑 = strImageDir + "\\" + image_name;
                 Image img商品圖檔 = Image.FromFile(完整圖檔路徑);
@@ -100,6 +103,7 @@ namespace POSSystem
             listView商品展示.Columns.Add("id", 100); //製作顯示欄位(欄位名稱,欄位寬度)
             listView商品展示.Columns.Add("商品名稱", 200);
             listView商品展示.Columns.Add("商品價格", 100);
+            listView商品展示.Columns.Add("商品類別", 100);
             listView商品展示.GridLines = true;//顯示格線
             listView商品展示.FullRowSelect = true;//選到某選項就會整列反白
             for (int i = 0; i < listPid.Count; i++)
@@ -110,6 +114,7 @@ namespace POSSystem
                 listItem.Text = listPid[i].ToString(); //第一欄是text 第二欄開始是SubItems
                 listItem.SubItems.Add(listProductName[i]);
                 listItem.SubItems.Add(listPrice[i].ToString());
+                listItem.SubItems.Add(listListID[i].ToString());
                 listItem.ForeColor = Color.DarkBlue;
                 listItem.BackColor = Color.LightGray;
 
@@ -155,6 +160,31 @@ namespace POSSystem
             Back_AddProduct back_AddProduct = new Back_AddProduct();
             back_AddProduct.selectID = (int)listView商品展示.SelectedItems[0].Tag;
             back_AddProduct.ShowDialog();
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn刪除商品_Click(object sender, EventArgs e)
+        {
+            int selectID = (int)listView商品展示.SelectedItems[0].Tag;
+            if (selectID > 0)
+            {   //存進資料庫
+                SqlConnection con = new SqlConnection(strDBConnectionString);
+                con.Open();
+                string strSQL = "Delete from products where P_ID = @selectID ;";
+
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                cmd.Parameters.AddWithValue("@selectID", selectID);
+                int rows = cmd.ExecuteNonQuery();
+                con.Close();
+
+                MessageBox.Show($"{rows}資料刪除成功");
+            }
+
 
         }
     }

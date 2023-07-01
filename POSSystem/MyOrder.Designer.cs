@@ -39,9 +39,9 @@
             this.listViewOrder.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.listViewOrder.ForeColor = System.Drawing.SystemColors.Window;
             this.listViewOrder.HideSelection = false;
-            this.listViewOrder.Location = new System.Drawing.Point(59, 31);
+            this.listViewOrder.Location = new System.Drawing.Point(43, 25);
             this.listViewOrder.Name = "listViewOrder";
-            this.listViewOrder.Size = new System.Drawing.Size(674, 387);
+            this.listViewOrder.Size = new System.Drawing.Size(760, 400);
             this.listViewOrder.TabIndex = 80;
             this.listViewOrder.UseCompatibleStateImageBehavior = false;
             // 
@@ -61,7 +61,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(844, 473);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.listViewOrder);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

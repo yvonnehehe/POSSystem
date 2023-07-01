@@ -30,8 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Back_CustomerCenter));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dgvCustomerList = new System.Windows.Forms.DataGridView();
+            this.dgv會員列表 = new System.Windows.Forms.DataGridView();
+            this.btnExit = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtPointEnd = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtPointstart = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.lboxAdvancedSearchResults = new System.Windows.Forms.ListBox();
             this.dtpBirthEnd = new System.Windows.Forms.DateTimePicker();
             this.dtpBirthStart = new System.Windows.Forms.DateTimePicker();
@@ -44,6 +50,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtAccount = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.dtpBirth = new System.Windows.Forms.DateTimePicker();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtPoint = new System.Windows.Forms.TextBox();
@@ -59,15 +69,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn重新整理 = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDeleteData = new System.Windows.Forms.Button();
             this.btnAddData = new System.Windows.Forms.Button();
             this.btnDataUpdate = new System.Windows.Forms.Button();
             this.btnDataSelect = new System.Windows.Forms.Button();
-            this.btnDataCount = new System.Windows.Forms.Button();
             this.btnBack = new Bunifu.UI.WinForms.BunifuImageButton();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv會員列表)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -75,29 +85,51 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.groupBox4.Controls.Add(this.dgvCustomerList);
+            this.groupBox4.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox4.Controls.Add(this.dgv會員列表);
             this.groupBox4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox4.Location = new System.Drawing.Point(618, 1);
+            this.groupBox4.Location = new System.Drawing.Point(618, 10);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(417, 426);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "會員列表";
             // 
-            // dgvCustomerList
+            // dgv會員列表
             // 
-            this.dgvCustomerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustomerList.Location = new System.Drawing.Point(6, 25);
-            this.dgvCustomerList.Name = "dgvCustomerList";
-            this.dgvCustomerList.RowTemplate.Height = 24;
-            this.dgvCustomerList.Size = new System.Drawing.Size(402, 395);
-            this.dgvCustomerList.TabIndex = 0;
-            this.dgvCustomerList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv會員列表_CellClick);
+            this.dgv會員列表.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgv會員列表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv會員列表.Location = new System.Drawing.Point(6, 25);
+            this.dgv會員列表.Name = "dgv會員列表";
+            this.dgv會員列表.RowTemplate.Height = 24;
+            this.dgv會員列表.Size = new System.Drawing.Size(402, 395);
+            this.dgv會員列表.TabIndex = 0;
+            this.dgv會員列表.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv會員列表_CellClick);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnExit.BackgroundImage = global::POSSystem.Properties.Resources.cross;
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.Transparent;
+            this.btnExit.Location = new System.Drawing.Point(1008, 7);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(20, 20);
+            this.btnExit.TabIndex = 14;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.Goldenrod;
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.txtPointEnd);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.txtPointstart);
+            this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.lboxAdvancedSearchResults);
             this.groupBox3.Controls.Add(this.dtpBirthEnd);
             this.groupBox3.Controls.Add(this.dtpBirthStart);
@@ -110,12 +142,59 @@
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox3.Location = new System.Drawing.Point(412, 1);
+            this.groupBox3.Location = new System.Drawing.Point(412, 10);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 426);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "進階搜尋";
+            // 
+            // txtPointEnd
+            // 
+            this.txtPointEnd.Location = new System.Drawing.Point(39, 270);
+            this.txtPointEnd.Name = "txtPointEnd";
+            this.txtPointEnd.Size = new System.Drawing.Size(100, 29);
+            this.txtPointEnd.TabIndex = 17;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label16.Location = new System.Drawing.Point(6, 273);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(26, 21);
+            this.label16.TabIndex = 16;
+            this.label16.Text = "到";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label17.Location = new System.Drawing.Point(6, 238);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(26, 21);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "從";
+            // 
+            // txtPointstart
+            // 
+            this.txtPointstart.Location = new System.Drawing.Point(39, 235);
+            this.txtPointstart.Name = "txtPointstart";
+            this.txtPointstart.Size = new System.Drawing.Size(100, 29);
+            this.txtPointstart.TabIndex = 14;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label15.Location = new System.Drawing.Point(6, 213);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(106, 21);
+            this.label15.TabIndex = 13;
+            this.label15.Text = "點數區間指定";
             // 
             // lboxAdvancedSearchResults
             // 
@@ -193,7 +272,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label12.ForeColor = System.Drawing.Color.Blue;
+            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label12.Location = new System.Drawing.Point(6, 300);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(74, 21);
@@ -204,7 +283,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label10.ForeColor = System.Drawing.Color.Blue;
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label10.Location = new System.Drawing.Point(6, 114);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(106, 21);
@@ -215,7 +294,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label9.ForeColor = System.Drawing.Color.Blue;
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label9.Location = new System.Drawing.Point(6, 25);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(122, 21);
@@ -224,7 +303,11 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.BurlyWood;
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.txtPassword);
+            this.groupBox2.Controls.Add(this.txtAccount);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.dtpBirth);
             this.groupBox2.Controls.Add(this.txtPhone);
             this.groupBox2.Controls.Add(this.txtPoint);
@@ -240,17 +323,55 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox2.Location = new System.Drawing.Point(162, 1);
+            this.groupBox2.Location = new System.Drawing.Point(162, 10);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(244, 426);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "資料欄位";
             // 
+            // txtPassword
+            // 
+            this.txtPassword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtPassword.Location = new System.Drawing.Point(61, 349);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(177, 29);
+            this.txtPassword.TabIndex = 31;
+            // 
+            // txtAccount
+            // 
+            this.txtAccount.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtAccount.Location = new System.Drawing.Point(61, 311);
+            this.txtAccount.Name = "txtAccount";
+            this.txtAccount.Size = new System.Drawing.Size(177, 29);
+            this.txtAccount.TabIndex = 30;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label7.Location = new System.Drawing.Point(8, 352);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 20);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "密碼";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label11.Location = new System.Drawing.Point(8, 314);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 20);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "帳號";
+            // 
             // dtpBirth
             // 
             this.dtpBirth.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dtpBirth.Location = new System.Drawing.Point(61, 237);
+            this.dtpBirth.Location = new System.Drawing.Point(61, 233);
             this.dtpBirth.Name = "dtpBirth";
             this.dtpBirth.Size = new System.Drawing.Size(177, 29);
             this.dtpBirth.TabIndex = 19;
@@ -259,7 +380,7 @@
             // txtPhone
             // 
             this.txtPhone.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtPhone.Location = new System.Drawing.Point(61, 121);
+            this.txtPhone.Location = new System.Drawing.Point(61, 117);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(177, 29);
             this.txtPhone.TabIndex = 13;
@@ -267,15 +388,15 @@
             // txtPoint
             // 
             this.txtPoint.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtPoint.Location = new System.Drawing.Point(61, 313);
+            this.txtPoint.Location = new System.Drawing.Point(61, 270);
             this.txtPoint.Name = "txtPoint";
-            this.txtPoint.Size = new System.Drawing.Size(136, 29);
+            this.txtPoint.Size = new System.Drawing.Size(177, 29);
             this.txtPoint.TabIndex = 23;
             // 
             // txtAddress
             // 
             this.txtAddress.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtAddress.Location = new System.Drawing.Point(61, 159);
+            this.txtAddress.Location = new System.Drawing.Point(61, 155);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(177, 29);
             this.txtAddress.TabIndex = 15;
@@ -283,7 +404,7 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtEmail.Location = new System.Drawing.Point(61, 196);
+            this.txtEmail.Location = new System.Drawing.Point(61, 192);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(177, 29);
             this.txtEmail.TabIndex = 17;
@@ -291,7 +412,7 @@
             // txtCName
             // 
             this.txtCName.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtCName.Location = new System.Drawing.Point(61, 83);
+            this.txtCName.Location = new System.Drawing.Point(61, 79);
             this.txtCName.Name = "txtCName";
             this.txtCName.Size = new System.Drawing.Size(177, 29);
             this.txtCName.TabIndex = 11;
@@ -309,7 +430,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label8.Location = new System.Drawing.Point(8, 318);
+            this.label8.Location = new System.Drawing.Point(8, 275);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 20);
             this.label8.TabIndex = 25;
@@ -319,7 +440,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label6.Location = new System.Drawing.Point(8, 163);
+            this.label6.Location = new System.Drawing.Point(8, 159);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 20);
             this.label6.TabIndex = 22;
@@ -329,7 +450,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label5.Location = new System.Drawing.Point(8, 202);
+            this.label5.Location = new System.Drawing.Point(8, 198);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 20);
             this.label5.TabIndex = 20;
@@ -340,7 +461,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(8, 241);
+            this.label4.Location = new System.Drawing.Point(8, 237);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 20);
             this.label4.TabIndex = 18;
@@ -350,7 +471,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(8, 124);
+            this.label3.Location = new System.Drawing.Point(8, 120);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 20);
             this.label3.TabIndex = 16;
@@ -360,8 +481,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.ForeColor = System.Drawing.Color.DarkOrchid;
-            this.label2.Location = new System.Drawing.Point(8, 86);
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(8, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 20);
             this.label2.TabIndex = 14;
@@ -379,20 +500,30 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.RosyBrown;
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.btn重新整理);
             this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.btnDeleteData);
             this.groupBox1.Controls.Add(this.btnAddData);
             this.groupBox1.Controls.Add(this.btnDataUpdate);
             this.groupBox1.Controls.Add(this.btnDataSelect);
-            this.groupBox1.Controls.Add(this.btnDataCount);
             this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 1);
+            this.groupBox1.Location = new System.Drawing.Point(0, 10);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(156, 426);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "功能按鈕";
+            // 
+            // btn重新整理
+            // 
+            this.btn重新整理.Location = new System.Drawing.Point(34, 339);
+            this.btn重新整理.Name = "btn重新整理";
+            this.btn重新整理.Size = new System.Drawing.Size(89, 33);
+            this.btn重新整理.TabIndex = 6;
+            this.btn重新整理.Text = "重新整理";
+            this.btn重新整理.UseVisualStyleBackColor = true;
+            this.btn重新整理.Click += new System.EventHandler(this.btn重新整理_Click);
             // 
             // btnClear
             // 
@@ -436,7 +567,7 @@
             // 
             // btnDataSelect
             // 
-            this.btnDataSelect.ForeColor = System.Drawing.Color.DarkOrchid;
+            this.btnDataSelect.ForeColor = System.Drawing.Color.Black;
             this.btnDataSelect.Location = new System.Drawing.Point(34, 95);
             this.btnDataSelect.Name = "btnDataSelect";
             this.btnDataSelect.Size = new System.Drawing.Size(89, 33);
@@ -444,16 +575,6 @@
             this.btnDataSelect.Text = "資料搜尋";
             this.btnDataSelect.UseVisualStyleBackColor = true;
             this.btnDataSelect.Click += new System.EventHandler(this.btnDataSelect_Click);
-            // 
-            // btnDataCount
-            // 
-            this.btnDataCount.Location = new System.Drawing.Point(34, 47);
-            this.btnDataCount.Name = "btnDataCount";
-            this.btnDataCount.Size = new System.Drawing.Size(89, 33);
-            this.btnDataCount.TabIndex = 0;
-            this.btnDataCount.Text = "資料筆數";
-            this.btnDataCount.UseVisualStyleBackColor = true;
-            this.btnDataCount.Click += new System.EventHandler(this.btnDataCount_Click);
             // 
             // btnBack
             // 
@@ -495,18 +616,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(1036, 478);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Back_CustomerCenter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Back_CustomerCenter";
             this.Load += new System.EventHandler(this.Back_CustomerCenter_Load);
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv會員列表)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -519,7 +643,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView dgvCustomerList;
+        private System.Windows.Forms.DataGridView dgv會員列表;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ListBox lboxAdvancedSearchResults;
         private System.Windows.Forms.DateTimePicker dtpBirthEnd;
@@ -553,7 +677,17 @@
         private System.Windows.Forms.Button btnAddData;
         private System.Windows.Forms.Button btnDataUpdate;
         private System.Windows.Forms.Button btnDataSelect;
-        private System.Windows.Forms.Button btnDataCount;
         private Bunifu.UI.WinForms.BunifuImageButton btnBack;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtAccount;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btn重新整理;
+        private System.Windows.Forms.TextBox txtPointEnd;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtPointstart;
+        private System.Windows.Forms.Label label15;
     }
 }

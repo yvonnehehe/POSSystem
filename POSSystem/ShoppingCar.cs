@@ -25,8 +25,10 @@ namespace POSSystem
         List<bool> listEspresso = new List<bool>();
         List<int> listPID = new List<int>();
         List<int> listOID = new List<int>();
-        List<int> listOrderDetailID = new List<int>();
+        public List<int> listOrderDetailID = new List<int>();
         int sum;
+
+
         public int getcid { get; set; }
         public bool islogin { get; set; }
 
@@ -34,13 +36,17 @@ namespace POSSystem
         {
             InitializeComponent();
         }
+
+        
+
         private void ShoppingCar_Load(object sender, EventArgs e)
         {
             scsb.DataSource = @".";
             scsb.InitialCatalog = "IspanPersonalProject_POS";
             scsb.IntegratedSecurity = true;
             strDBConnectionString = scsb.ConnectionString;
-
+            //checkout();
+            //timer1.Start();
             ReadOrderData();
             ShowListView();
         }
@@ -101,12 +107,12 @@ namespace POSSystem
             listViewProduct.View = View.Details;
             //listViewProduct.Columns.Add("PID", 1);
             listViewProduct.Columns.Add("Name", 200);
-            listViewProduct.Columns.Add("Price", 100);
-            listViewProduct.Columns.Add("Quantity", 100);
-            listViewProduct.Columns.Add("Sugar", 80);
-            listViewProduct.Columns.Add("Ice", 80);
-            listViewProduct.Columns.Add("Espresso", 100);
-            listViewProduct.Columns.Add("Subtotal", 100);
+            listViewProduct.Columns.Add("Price", 110);
+            listViewProduct.Columns.Add("Quantity", 110);
+            listViewProduct.Columns.Add("Sugar", 110);
+            listViewProduct.Columns.Add("Ice", 110);
+            listViewProduct.Columns.Add("Espresso", 110);
+            listViewProduct.Columns.Add("Subtotal", 110);
             listViewProduct.GridLines = true;//顯示格線
             listViewProduct.FullRowSelect = true;//選到某選項就會整列反白
             for (int i = 0; i < listOrderDetailID.Count(); i++)
@@ -156,9 +162,10 @@ namespace POSSystem
             productDetail.ShowDialog();
             RefreshData();
         }
-        void RefreshData()
+        public void RefreshData()
         {
             sum = 0;
+            labTotalPrice.Text = "TotalPrice  NT$ ";
             listOID.Clear();
             listOrderDetailID.Clear();
             listPID.Clear();
@@ -183,11 +190,30 @@ namespace POSSystem
                 //login.getorderid = getorderid;
                 checkout.getsum = sum;
                 checkout.ShowDialog();
+                RefreshData();
             }
             else
             {
                 MessageBox.Show("未加入任何商品");
             }
         }
+        //public int getNewOID { get; set; }
+        //void checkout()
+        //{
+        //    if(getNewOID !=0) 
+        //    { 
+        //    listProductName.Clear();
+        //    listPrice.Clear();
+        //    listQuantity.Clear();
+        //    }
+        //}
+
+        //private void timer1_Tick(object sender, EventArgs e)
+        //{
+        //    if (getNewOID != 0)
+        //    {
+        //        RefreshData();
+        //    }
+        //}
     }
 }

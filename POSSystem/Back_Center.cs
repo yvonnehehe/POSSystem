@@ -43,9 +43,59 @@ namespace POSSystem
 
         private void btn系統維護_Click(object sender, EventArgs e)
         {
-            Back_SystemCenter back_SystemCenter = new Back_SystemCenter();
-            back_SystemCenter.Show();
+            if (isSystemOFF == true)
+            {
+                Back_SystemCenter BS = new Back_SystemCenter();
+                BS.isSystemOFF = isSystemOFF;
+                BS.SystemOff.Checked = true;
+                BS.Show();
+                this.Hide();
+            }
+            else
+            {
+                Back_SystemCenter back_SystemCenter = new Back_SystemCenter();
+                back_SystemCenter.Show();
+                this.Hide();
+            }
+        }
+        public bool isSystemOFF { get; set; }
+        public int EID { get; set; }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            EnterPage EP = new EnterPage();
+
+            if (isSystemOFF == true)
+            {
+                EP.isSystemOFF = true;
+                this.Hide();
+                EP.Visible = true;
+            }
+            else { 
             this.Hide();
+            EP.Visible = true;
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn員工資料維護_Click(object sender, EventArgs e)
+        {
+            Back_EmpolyeesCenter E = new Back_EmpolyeesCenter();
+            E.Show();
+            this.Hide();
+        }
+
+        private void Back_Center_Load(object sender, EventArgs e)
+        {
+            if(EID == 1)
+            {
+                btn員工資料維護.Visible = true;
+                btn系統維護.Visible = true;
+            }
         }
     }
 }

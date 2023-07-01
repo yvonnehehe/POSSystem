@@ -17,6 +17,7 @@ namespace POSSystem
         string strDBConnectionString = "";
         List<int> listODID = new List<int>();
         List<int> listOID = new List<int>();
+        List<string> listPM = new List<string>();
         List<int> listSubtotal = new List<int>();
         List<DateTime> listDate = new List<DateTime>();
         public int getcid { get; set; }
@@ -72,6 +73,7 @@ namespace POSSystem
                 listOID.Add((int)reader["O_ID"]);
                 listODID.Add((int)reader["OrderDetail_ID"]);
                 listDate.Add(Convert.ToDateTime(reader["OrderDate"]));
+                listPM.Add(reader["PaymentMethod"].ToString());
                 listSubtotal.Add((int)reader["Subtotal"]);
             }
             reader.Close();
@@ -89,6 +91,7 @@ namespace POSSystem
             listViewOrder.Columns.Add("訂單編號", 80);
             listViewOrder.Columns.Add("訂單日期", 300);
             listViewOrder.Columns.Add("訂單金額", 200);
+            listViewOrder.Columns.Add("支付方式", 200);
             listViewOrder.GridLines = true;//顯示格線
             listViewOrder.FullRowSelect = true;//選到某選項就會整列反白
             int count = 1;
@@ -114,6 +117,8 @@ namespace POSSystem
                     }
                 }
                 listItem.SubItems.Add(sum.ToString());
+                listItem.SubItems.Add(listPM[i].ToString());
+
                 listItem.ForeColor = Color.DarkBlue;
                 listItem.BackColor = Color.LightGray;
                 listViewOrder.Items.Add(listItem);

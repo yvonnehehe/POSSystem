@@ -135,6 +135,18 @@
     <Compile Include="Back_Center.Designer.cs">
       <DependentUpon>Back_Center.cs</DependentUpon>
     </Compile>
+    <Compile Include="Back_EmpolyeesCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Back_EmpolyeesCenter.Designer.cs">
+      <DependentUpon>Back_EmpolyeesCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Back_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Back_Login.Designer.cs">
+      <DependentUpon>Back_Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Back_OrderCenter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,11 +233,23 @@
     <Compile Include="ShoppingCar.Designer.cs">
       <DependentUpon>ShoppingCar.cs</DependentUpon>
     </Compile>
+    <Compile Include="S_SystemOff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="S_SystemOff.Designer.cs">
+      <DependentUpon>S_SystemOff.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Back_AddProduct.resx">
       <DependentUpon>Back_AddProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Back_Center.resx">
       <DependentUpon>Back_Center.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Back_EmpolyeesCenter.resx">
+      <DependentUpon>Back_EmpolyeesCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Back_Login.resx">
+      <DependentUpon>Back_Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Back_OrderCenter.resx">
       <DependentUpon>Back_OrderCenter.cs</DependentUpon>
@@ -276,6 +300,9 @@
     </Compile>
     <EmbeddedResource Include="ShoppingCar.resx">
       <DependentUpon>ShoppingCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="S_SystemOff.resx">
+      <DependentUpon>S_SystemOff.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -334,6 +361,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\comment-dollar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\happy_569501.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cool_569584.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SL_100820_36440_08.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SL_100820_36440_081.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\209883-P06QV8-900.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\209883-P06QV8-9001.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20181124190753172.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

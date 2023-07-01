@@ -62,6 +62,7 @@ namespace POSSystem
                     txt商品名稱.Text = reader["P_Name"].ToString();
                     txt商品價格.Text = reader["Price"].ToString();
                     txt商品描述.Text = reader["P_Desc"].ToString();
+                    txtList.Text = reader["List_ID"].ToString();
                     //圖檔變動 上傳的圖檔以隨機命名產生檔名(不然會有重複)
                     image_modify_name = reader["P_Image"].ToString();
                     string 完整圖檔路徑 = strImageDir + "\\" + image_modify_name;
@@ -83,7 +84,7 @@ namespace POSSystem
             {   //存進資料庫
                 SqlConnection con = new SqlConnection(strDBConnectionString);
                 con.Open();
-                string strSQL = "UPDATE products SET P_Name=@NewPName, Price=@NewPrice, P_Desc=@NewPdesc, Pimage=@NewPimage where P_ID = @selectID ;";
+                string strSQL = "UPDATE products SET P_Name=@NewPName, Price=@NewPrice, P_Desc=@NewPdesc, P_Image=@NewPimage, List_ID = @NewList where P_ID = @selectID ;";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 cmd.Parameters.AddWithValue("@selectID", selectID);
                 cmd.Parameters.AddWithValue("@NewPName", txt商品名稱.Text);
@@ -91,6 +92,7 @@ namespace POSSystem
                 Int32.TryParse(txt商品價格.Text, out intPrice);
                 cmd.Parameters.AddWithValue("@NewPrice", intPrice);
                 cmd.Parameters.AddWithValue("@NewPdesc", txt商品描述.Text);
+                cmd.Parameters.AddWithValue("@NewList", txtList.Text);
                 cmd.Parameters.AddWithValue("@NewPimage", image_modify_name);
                 int rows = cmd.ExecuteNonQuery();
                 con.Close();
@@ -142,13 +144,14 @@ namespace POSSystem
                 //存進資料庫
                 SqlConnection con = new SqlConnection(strDBConnectionString);
                 con.Open();
-                string strSQL = "insert into products values (@NewPName, @NewPrice, @NewPdesc, @NewPimage);";
+                string strSQL = "insert into products values (@NewPName, @NewPrice, @NewPdesc, @NewPimage,@NewList);";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 cmd.Parameters.AddWithValue("@NewPName", txt商品名稱.Text);
                 int intPrice = 0;
                 Int32.TryParse(txt商品價格.Text, out intPrice);
                 cmd.Parameters.AddWithValue("@NewPrice", intPrice);
                 cmd.Parameters.AddWithValue("@NewPdesc", txt商品描述.Text);
+                cmd.Parameters.AddWithValue("@NewList", txtList.Text);
                 cmd.Parameters.AddWithValue("@NewPimage", image_modify_name);
                 int rows = cmd.ExecuteNonQuery();
                 con.Close();
@@ -175,8 +178,15 @@ namespace POSSystem
             txt商品名稱.Clear();
             txt商品價格.Clear();
             txt商品描述.Clear();
+            txtList.Clear();
             pictureBox商品圖檔.Image = null; //物件型式只能用null
 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Back_ProductCenter BP = new Back_ProductCenter();
+            this.Close();
         }
     }
 }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace POSSystem
 {
     public partial class EnterPage : Form
     {
+        public bool isSystemOFF { get; set; }
+
         public EnterPage()
         {
             InitializeComponent();
@@ -25,12 +28,19 @@ namespace POSSystem
 
         private void btnEnterToOrder_Click(object sender, EventArgs e)
         {
-            //HomePage homePage = new HomePage();
-            //homePage.Show();
-            //this.Hide();
-            Login login = new Login();
-            login.Show();
-            this.Hide();
+            if (isSystemOFF == true)
+            {
+                S_SystemOff s = new S_SystemOff();
+                s.isSystemOFF = true;
+                s.Show();
+                this.Hide();
+            }
+            else
+            {
+                Login login = new Login();
+                login.Show();
+                this.Hide();
+            }
         }
 
         bool isMouseDown = false; //表示滑鼠是否在按下的狀態 
@@ -42,7 +52,7 @@ namespace POSSystem
             Declining,//斜角，同時改變寬和高
             None//不拖動
         }
-        
+
         private void EnterPage_MouseMove(object sender, MouseEventArgs e)
         {
             //調整大小
@@ -151,9 +161,24 @@ namespace POSSystem
 
         private void btnContentManagement_Click(object sender, EventArgs e)
         {
-            Back_Center back_center = new Back_Center();
-            back_center.Show();
-            this.Hide();
+            if (isSystemOFF == true)
+            {
+                Back_Login BL = new Back_Login();
+                BL.isSystemOFF = true;
+                BL.Show();
+                this.Hide();
+            }
+            else
+            {
+                Back_Login BL = new Back_Login();
+                BL.Show();
+                this.Hide();
+            }
+
+        }
+
+        private void EnterPage_Load(object sender, EventArgs e)
+        {
         }
     }
 }

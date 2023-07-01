@@ -147,21 +147,37 @@ namespace POSSystem
         private void btnCoffee_Click(object sender, EventArgs e)
         {
             QueryProd(1);
+            btnCoffee.BackColor = Color.DarkGray;
+            btnFizz.BackColor = Color.DimGray;
+            btnTeaAndFlavorMilk.BackColor = Color.DimGray;
+            btnDessert.BackColor = Color.DimGray;
         }
 
         private void btnFizz_Click(object sender, EventArgs e)
         {
             QueryProd(2);
+            btnCoffee.BackColor = Color.DimGray;
+            btnFizz.BackColor = Color.DarkGray;
+            btnTeaAndFlavorMilk.BackColor = Color.DimGray;
+            btnDessert.BackColor = Color.DimGray;
         }
 
         private void btnTeaAndFlavorMilk_Click(object sender, EventArgs e)
         {
             QueryProd(3);
+            btnCoffee.BackColor = Color.DimGray;
+            btnFizz.BackColor = Color.DimGray;
+            btnTeaAndFlavorMilk.BackColor = Color.DarkGray;
+            btnDessert.BackColor = Color.DimGray;
         }
 
         private void btnDessert_Click(object sender, EventArgs e)
         {
             QueryProd(4);
+            btnCoffee.BackColor = Color.DimGray;
+            btnFizz.BackColor = Color.DimGray;
+            btnTeaAndFlavorMilk.BackColor = Color.DimGray;
+            btnDessert.BackColor = Color.DarkGray;
         }
 
         private void QueryProd(int List_ID)
@@ -216,7 +232,8 @@ namespace POSSystem
                 ListViewItem item = new ListViewItem(); //ListView顯示單元
                 item.ImageIndex = i;
                 item.Text = $"{listProductName[i]} {listPrice[i]}元";
-                item.Font = new Font("微軟正黑體", 10, FontStyle.Regular);
+                item.Font = new Font("微軟正黑體", 11, FontStyle.Regular);
+                item.ForeColor = Color.White;
                 item.Tag = listPid[i]; //藏東西選Tag ->藏ID (不會顯示出來但可以儲存資訊
                 listViewMenu.Items.Add(item);
             }
@@ -230,8 +247,6 @@ namespace POSSystem
             productDetail.ShowProductDetail(productDetail.selectID);
             productDetail.pictureBoxAddShopping.Visible = true;
             productDetail.ShowDialog();
-
-
         }
         //public int getorderid = 0;
 

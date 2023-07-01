@@ -17,21 +17,17 @@ namespace POSSystem.Properties
         {
             InitializeComponent();
         }
-        //欄位 方便存取
-        //資料庫連線字串建立器
-        SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();//資料庫連線字串建立
-        string strDBConnetionString = ""; //資料庫連線字串
-        List<int> searchResultIDs = new List<int>(); //用ID的搜尋結果儲存在這
+        SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
+        string strDBConnetionString = ""; 
+        List<int> searchResultIDs = new List<int>(); 
 
         private void Back_CustomerCenter_Load(object sender, EventArgs e)
         {
-            //建立資料庫連線字串 沒精靈只能自己來
-            //DataSource 是伺服器名稱 @-忽略特殊符號
-            scsb.DataSource = @"."; //伺服器名稱：. , localhost , 192.168.0.55 , 機器名稱 , DESKTOP-UQUJ8R9 , dbserver1/sq12019
-            scsb.InitialCatalog = "IspanPersonalProject_POS"; //資料庫名稱
-            scsb.IntegratedSecurity = true; //win驗證為true  如為SQLsever要設定flase
+            scsb.DataSource = @"."; 
+            scsb.InitialCatalog = "IspanPersonalProject_POS"; 
+            scsb.IntegratedSecurity = true; 
 
-            strDBConnetionString = scsb.ConnectionString; //上面設定的內容都轉換成字串
+            strDBConnetionString = scsb.ConnectionString;
 
             //欄位預設值指定
             cboxSearchTag.Items.Add("C_Name");
@@ -41,36 +37,6 @@ namespace POSSystem.Properties
             cboxSearchTag.SelectedIndex = 0;
 
             產生會員資料列表DataGridView();
-
-        }
-
-        private void btnDataCount_Click(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection(strDBConnetionString);//SQL元件 資料庫連線的物件
-            con.Open();//開啟他
-            string strSQL = "select top 500 * from customer;";//建立SQL語法 「select *」如有過多資料會當機
-            SqlCommand cmd = new SqlCommand(strSQL, con);  //SQL語法
-            SqlDataReader reader = cmd.ExecuteReader(); //SQL資料讀取器
-
-            string strMsg = "";//把查詢結果全部塞到字串
-            int count = 0; //筆數
-            while (reader.Read() == true)  //read=有回傳值 每次讀一筆如果有資料就會回傳true
-            {
-                int id = Convert.ToInt32(reader["C_ID"]);  //reader[key]讀出來是object 要轉型態
-                string 姓名 = reader["C_Name"].ToString();
-                string 電話 = reader["Phone"].ToString();
-                string email = reader["Email"].ToString();
-                string 地址 = reader["Address"].ToString();
-                DateTime 生日 = Convert.ToDateTime(reader["Birth"]);
-                int 會員點數 = Convert.ToInt32(reader["Point"]);
-
-                strMsg += $"{id}{姓名}{電話}{email}{地址}{生日}\n";
-                count++;
-            }
-            strMsg += $"資料筆數:{count}";
-            reader.Close();
-            con.Close();//先進後出 要先關掉reader才能關con 不然會當掉
-            MessageBox.Show(strMsg);
 
         }
 
@@ -95,6 +61,8 @@ namespace POSSystem.Properties
                     txtAddress.Text = reader["Address"].ToString();
                     dtpBirth.Value = Convert.ToDateTime(reader["Birth"]);
                     txtPoint.Text = reader["Point"].ToString();
+                    txtAccount.Text = reader["Account"].ToString();
+                    txtPassword.Text = reader["Password"].ToString();
                 }
                 else
                 {
@@ -125,7 +93,7 @@ namespace POSSystem.Properties
             {
                 SqlConnection con = new SqlConnection(strDBConnetionString);
                 con.Open();
-                string strSQL = "update customer set C_Name = @NewName, Phone = @NewhPhone, Address = @NewAddress, Email = @NewEmail, Birth = @NewBirth, Point = @NewPoints where C_ID = @searchID;";
+                string strSQL = "update customer set C_Name = @NewName, Phone = @NewhPhone, Address = @NewAddress, Email = @NewEmail, Birth = @NewBirth, Point = @NewPoints, Account = @NewAccount, Password = @NewPassword where C_ID = @searchID;";
 
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 cmd.Parameters.AddWithValue("@searchID", intID);
@@ -134,6 +102,8 @@ namespace POSSystem.Properties
                 cmd.Parameters.AddWithValue("@NewAddress", txtAddress.Text);
                 cmd.Parameters.AddWithValue("@NewEmail", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@NewBirth", dtpBirth.Value);
+                cmd.Parameters.AddWithValue("@NewAccount", txtAccount.Text);
+                cmd.Parameters.AddWithValue("@NewPassword", txtPassword.Text);
                 int intPoints = 0;
                 Int32.TryParse(txtPoint.Text, out intPoints);
                 cmd.Parameters.AddWithValue("@NewPoints", intPoints);
@@ -152,13 +122,15 @@ namespace POSSystem.Properties
                 SqlConnection con = new SqlConnection(strDBConnetionString);
                 con.Open();
 
-                string strSQL = "insert into customer values(@NewName, @NewhPhone, @NewAddress, @NewEmail, @NewBirth, @NewPoints);";
+                string strSQL = "insert into customer values(@NewName, @NewhPhone, @NewAddress, @NewEmail, @NewBirth, @NewPoints,@NewAccount,@NewPassword);";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 cmd.Parameters.AddWithValue("@NewName", txtCName.Text);
                 cmd.Parameters.AddWithValue("@NewhPhone", txtPhone.Text);
                 cmd.Parameters.AddWithValue("@NewAddress", txtAddress.Text);
                 cmd.Parameters.AddWithValue("@NewEmail", txtEmail.Text);
                 cmd.Parameters.AddWithValue("@NewBirth", dtpBirth.Value);
+                cmd.Parameters.AddWithValue("@NewAccount", txtAccount.Text);
+                cmd.Parameters.AddWithValue("@NewPassword", txtPassword.Text);
                 int intPoints = 0;
                 Int32.TryParse(txtPoint.Text, out intPoints);
                 cmd.Parameters.AddWithValue("@NewPoints", intPoints);
@@ -176,8 +148,7 @@ namespace POSSystem.Properties
 
         private void btnDeleteData_Click(object sender, EventArgs e)
         {
-            int intID = 0; //查詢條件 可以衍伸到全部 因為沒有ID=0這個人
-            //intID = Convert.ToInt32(txtID.Text);
+            int intID = 0;
             Int32.TryParse(txtID.Text, out intID);
 
             if (intID > 0)
@@ -221,7 +192,7 @@ namespace POSSystem.Properties
 
                     SqlConnection con = new SqlConnection(strDBConnetionString);
                     con.Open();
-                    string strSQL = $"select * from customer where ( Birth > @BirthStart and Birth < @BirthEnd ) and {str搜尋欄位名稱} like @SearchKeyword";
+                    string strSQL = $"select * from customer where ( Birth > @BirthStart and Birth < @BirthEnd ) and ({str搜尋欄位名稱} like @SearchKeyword) and (Point > @PointStart and Point <= @PointEnd )  ";
 
                     if (cboxSearchTag.SelectedItem.ToString().ToLower() == "C_ID")
                     {
@@ -240,6 +211,8 @@ namespace POSSystem.Properties
                     }
                     cmd.Parameters.AddWithValue("@BirthStart", dtpBirthStart.Value);
                     cmd.Parameters.AddWithValue("@BirthEnd", dtpBirthEnd.Value);
+                    cmd.Parameters.AddWithValue("@PointStart", txtPointstart.Text);
+                    cmd.Parameters.AddWithValue("@PointEnd", txtPointEnd.Text);
                     SqlDataReader reader = cmd.ExecuteReader();
 
 
@@ -273,21 +246,23 @@ namespace POSSystem.Properties
 
                 SqlConnection con = new SqlConnection(strDBConnetionString);
                 con.Open();
-                string strSQL = $"select * from customer where C_ID = @SearchID;"; //先放一個參數@
+                string strSQL = $"select * from customer where C_ID = @SearchID;";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 //指定參數賦予他的值
-                cmd.Parameters.AddWithValue("@SearchID", selectedID); //把參數值換回欄位名稱 這樣比較安全(SQL Injection漏洞) 帶進去的參數不能有SQL語法 不然會被入侵
+                cmd.Parameters.AddWithValue("@SearchID", selectedID);
                 SqlDataReader reader = cmd.ExecuteReader();
                 //reader只有一筆資料
-                if (reader.Read() == true) //只有搜尋一筆資料不用外迴圈
+                if (reader.Read() == true)
                 {
-                    txtID.Text = reader["C_ID"].ToString();  //reader[key]讀出來是object 要轉型態
+                    txtID.Text = reader["C_ID"].ToString();
                     txtCName.Text = reader["C_Name"].ToString();
                     txtPhone.Text = reader["Phone"].ToString();
                     txtEmail.Text = reader["Email"].ToString();
                     txtAddress.Text = reader["Address"].ToString();
                     dtpBirth.Value = Convert.ToDateTime(reader["Birth"]);
                     txtPoint.Text = reader["Point"].ToString();
+                    txtAccount.Text = reader["Account"].ToString();
+                    txtPassword.Text = reader["Password"].ToString();
                 }
                 else
                 {
@@ -303,15 +278,14 @@ namespace POSSystem.Properties
         {
             SqlConnection con = new SqlConnection(strDBConnetionString);
             con.Open();
-            string strSQL = "select C_ID as 會員編號, C_Name as 姓名, Phone as 電話, Email as 電子郵件 from customer;";
+            string strSQL = "select C_ID as 會員編號,C_Name as 姓名, Phone as 電話,Email, Point as 點數 from customer;";
             SqlCommand cmd = new SqlCommand(@strSQL, con);
             SqlDataReader reader = cmd.ExecuteReader();
-            //檢測reader有沒有資料
             if (reader.HasRows == true)
             {
                 DataTable dt = new DataTable();
                 dt.Load(reader); //資料讀進去
-                dgvCustomerList.DataSource = dt; //取出資料
+                dgv會員列表.DataSource = dt; //取出資料
             }
             reader.Close();
             con.Close();
@@ -321,7 +295,7 @@ namespace POSSystem.Properties
         {//Cell -> 儲存格 Click -> 點擊  DataGridViewCellEventArgs e e為儲存格事件 Rowindex列索引值
             if (e.RowIndex >= 0) //選擇某一列 就會>1
             {
-                string strSelectedID = dgvCustomerList.Rows[e.RowIndex].Cells[0].Value.ToString();//取得儲存格上面的值對應到的欄位[0]->ID
+                string strSelectedID = dgv會員列表.Rows[e.RowIndex].Cells[0].Value.ToString();//取得儲存格上面的值對應到的欄位[0]->ID
                 int selectedID = 0;
                 Int32.TryParse(strSelectedID, out selectedID);
 
@@ -342,6 +316,9 @@ namespace POSSystem.Properties
                     txtAddress.Text = reader["Address"].ToString();
                     dtpBirth.Value = Convert.ToDateTime(reader["Birth"]);
                     txtPoint.Text = reader["Point"].ToString();
+                    txtAccount.Text = reader["Account"].ToString();
+                    txtPassword.Text = reader["Password"].ToString();
+
                 }
                 else
                 {
@@ -359,6 +336,16 @@ namespace POSSystem.Properties
             Back_Center BC = new Back_Center();
             this.Close();
             BC.Visible = true;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn重新整理_Click(object sender, EventArgs e)
+        {
+            產生會員資料列表DataGridView();
         }
     }
 }

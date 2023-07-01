@@ -45,7 +45,7 @@
             this.listViewProduct.HideSelection = false;
             this.listViewProduct.Location = new System.Drawing.Point(45, 24);
             this.listViewProduct.Name = "listViewProduct";
-            this.listViewProduct.Size = new System.Drawing.Size(654, 322);
+            this.listViewProduct.Size = new System.Drawing.Size(777, 373);
             this.listViewProduct.TabIndex = 0;
             this.listViewProduct.UseCompatibleStateImageBehavior = false;
             this.listViewProduct.ItemActivate += new System.EventHandler(this.listViewProduct_ItemActivate);
@@ -53,13 +53,13 @@
             // labTotalPrice
             // 
             this.labTotalPrice.AutoSize = true;
-            this.labTotalPrice.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labTotalPrice.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labTotalPrice.ForeColor = System.Drawing.SystemColors.Control;
-            this.labTotalPrice.Location = new System.Drawing.Point(367, 371);
+            this.labTotalPrice.Location = new System.Drawing.Point(350, 423);
             this.labTotalPrice.Name = "labTotalPrice";
-            this.labTotalPrice.Size = new System.Drawing.Size(109, 25);
+            this.labTotalPrice.Size = new System.Drawing.Size(205, 33);
             this.labTotalPrice.TabIndex = 63;
-            this.labTotalPrice.Text = "Total Price";
+            this.labTotalPrice.Text = "TotalPrice  NT$ ";
             // 
             // btnCheckout
             // 
@@ -81,7 +81,7 @@
             this.btnCheckout.ImageSize = new System.Drawing.Size(42, 34);
             this.btnCheckout.ImageZoomSize = new System.Drawing.Size(52, 44);
             this.btnCheckout.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnCheckout.InitialImage")));
-            this.btnCheckout.Location = new System.Drawing.Point(647, 352);
+            this.btnCheckout.Location = new System.Drawing.Point(770, 423);
             this.btnCheckout.Name = "btnCheckout";
             this.btnCheckout.Rotation = 0;
             this.btnCheckout.ShowActiveImage = true;
@@ -116,7 +116,7 @@
             this.btnBack.ImageSize = new System.Drawing.Size(42, 34);
             this.btnBack.ImageZoomSize = new System.Drawing.Size(52, 44);
             this.btnBack.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnBack.InitialImage")));
-            this.btnBack.Location = new System.Drawing.Point(45, 352);
+            this.btnBack.Location = new System.Drawing.Point(45, 423);
             this.btnBack.Name = "btnBack";
             this.btnBack.Rotation = 0;
             this.btnBack.ShowActiveImage = true;
@@ -147,7 +147,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.ClientSize = new System.Drawing.Size(733, 431);
+            this.ClientSize = new System.Drawing.Size(848, 482);
             this.Controls.Add(this.btnCheckout);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pictureBox1);

@@ -58,7 +58,7 @@
             this.btnFizz.BackColor = System.Drawing.Color.DarkGray;
             this.btnFizz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFizz.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFizz.Location = new System.Drawing.Point(115, 19);
+            this.btnFizz.Location = new System.Drawing.Point(116, 19);
             this.btnFizz.Name = "btnFizz";
             this.btnFizz.Size = new System.Drawing.Size(75, 30);
             this.btnFizz.TabIndex = 2;
@@ -71,7 +71,7 @@
             this.btnTeaAndFlavorMilk.BackColor = System.Drawing.Color.DarkGray;
             this.btnTeaAndFlavorMilk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTeaAndFlavorMilk.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTeaAndFlavorMilk.Location = new System.Drawing.Point(189, 19);
+            this.btnTeaAndFlavorMilk.Location = new System.Drawing.Point(191, 19);
             this.btnTeaAndFlavorMilk.Name = "btnTeaAndFlavorMilk";
             this.btnTeaAndFlavorMilk.Size = new System.Drawing.Size(130, 30);
             this.btnTeaAndFlavorMilk.TabIndex = 3;
@@ -84,7 +84,7 @@
             this.btnDessert.BackColor = System.Drawing.Color.DarkGray;
             this.btnDessert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDessert.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDessert.Location = new System.Drawing.Point(319, 19);
+            this.btnDessert.Location = new System.Drawing.Point(322, 19);
             this.btnDessert.Name = "btnDessert";
             this.btnDessert.Size = new System.Drawing.Size(75, 30);
             this.btnDessert.TabIndex = 4;
@@ -99,7 +99,7 @@
             this.listViewMenu.HideSelection = false;
             this.listViewMenu.Location = new System.Drawing.Point(41, 48);
             this.listViewMenu.Name = "listViewMenu";
-            this.listViewMenu.Size = new System.Drawing.Size(673, 327);
+            this.listViewMenu.Size = new System.Drawing.Size(756, 362);
             this.listViewMenu.TabIndex = 5;
             this.listViewMenu.UseCompatibleStateImageBehavior = false;
             this.listViewMenu.ItemActivate += new System.EventHandler(this.listViewMenu_ItemActivate);
@@ -130,7 +130,7 @@
             this.btnGOShpping.FlatAppearance.BorderSize = 0;
             this.btnGOShpping.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGOShpping.ForeColor = System.Drawing.Color.Transparent;
-            this.btnGOShpping.Location = new System.Drawing.Point(664, 381);
+            this.btnGOShpping.Location = new System.Drawing.Point(747, 416);
             this.btnGOShpping.Name = "btnGOShpping";
             this.btnGOShpping.Size = new System.Drawing.Size(50, 40);
             this.btnGOShpping.TabIndex = 8;
@@ -142,7 +142,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.ClientSize = new System.Drawing.Size(752, 450);
+            this.ClientSize = new System.Drawing.Size(827, 458);
             this.Controls.Add(this.btnGOShpping);
             this.Controls.Add(this.listViewMenu);
             this.Controls.Add(this.btnDessert);

@@ -39,6 +39,7 @@
             this.txtUsePoint = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.labTotal = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,9 +123,9 @@
             this.labePoint.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labePoint.Location = new System.Drawing.Point(185, 76);
             this.labePoint.Name = "labePoint";
-            this.labePoint.Size = new System.Drawing.Size(41, 20);
+            this.labePoint.Size = new System.Drawing.Size(18, 20);
             this.labePoint.TabIndex = 6;
-            this.labePoint.Text = "點數";
+            this.labePoint.Text = "0";
             // 
             // label5
             // 
@@ -139,11 +140,14 @@
             // 
             // txtUsePoint
             // 
+            this.txtUsePoint.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.txtUsePoint.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtUsePoint.Location = new System.Drawing.Point(189, 110);
             this.txtUsePoint.Name = "txtUsePoint";
+            this.txtUsePoint.ReadOnly = true;
             this.txtUsePoint.Size = new System.Drawing.Size(100, 29);
             this.txtUsePoint.TabIndex = 8;
+            this.txtUsePoint.TextChanged += new System.EventHandler(this.txtUsePoint_TextChanged);
             // 
             // label6
             // 
@@ -167,12 +171,30 @@
             this.labTotal.TabIndex = 10;
             this.labTotal.Text = "NT$ 000";
             // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.BackgroundImage = global::POSSystem.Properties.Resources.cross;
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.Transparent;
+            this.btnExit.Location = new System.Drawing.Point(475, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(20, 20);
+            this.btnExit.TabIndex = 11;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // Checkout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.ClientSize = new System.Drawing.Size(507, 316);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.labTotal);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtUsePoint);
@@ -182,6 +204,7 @@
             this.Controls.Add(this.labSum);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Checkout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Checkout";
@@ -205,5 +228,6 @@
         private System.Windows.Forms.TextBox txtUsePoint;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labTotal;
+        private System.Windows.Forms.Button btnExit;
     }
 }

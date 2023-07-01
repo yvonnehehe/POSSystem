@@ -56,7 +56,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(65, 600);
+            this.panel1.Size = new System.Drawing.Size(65, 665);
             this.panel1.TabIndex = 0;
             // 
             // btnBackEnterPage
@@ -80,7 +80,7 @@
             this.btnBackEnterPage.ImageSize = new System.Drawing.Size(30, 30);
             this.btnBackEnterPage.ImageZoomSize = new System.Drawing.Size(40, 40);
             this.btnBackEnterPage.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnBackEnterPage.InitialImage")));
-            this.btnBackEnterPage.Location = new System.Drawing.Point(11, 547);
+            this.btnBackEnterPage.Location = new System.Drawing.Point(11, 612);
             this.btnBackEnterPage.Name = "btnBackEnterPage";
             this.btnBackEnterPage.Rotation = 0;
             this.btnBackEnterPage.ShowActiveImage = true;
@@ -274,7 +274,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.panel2.Location = new System.Drawing.Point(65, 27);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(865, 561);
+            this.panel2.Size = new System.Drawing.Size(974, 626);
             this.panel2.TabIndex = 0;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -285,7 +285,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(65, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(868, 30);
+            this.panel3.Size = new System.Drawing.Size(986, 30);
             this.panel3.TabIndex = 0;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
             this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseMove);
@@ -301,7 +301,7 @@
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.Color.Transparent;
-            this.btnExit.Location = new System.Drawing.Point(842, 4);
+            this.btnExit.Location = new System.Drawing.Point(960, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(20, 20);
             this.btnExit.TabIndex = 3;
@@ -313,7 +313,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.ClientSize = new System.Drawing.Size(933, 600);
+            this.ClientSize = new System.Drawing.Size(1051, 665);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

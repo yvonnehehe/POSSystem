@@ -97,14 +97,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(772, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnContentManagement);
             this.Controls.Add(this.btnEnterToOrder);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EnterPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.EnterPage_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EnterPage_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.EnterPage_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.EnterPage_MouseUp);
