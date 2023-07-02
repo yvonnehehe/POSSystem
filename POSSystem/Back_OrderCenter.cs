@@ -120,7 +120,7 @@ namespace POSSystem
                     //var CID = dgvOList.Rows[oid].Cells[1].Value;
                     //var PM = dgvOList.Rows[oid].Cells[3].Value;
                     var CID = dgvOList.Rows[e.RowIndex].Cells[1].Value;
-                    var PM = dgvOList.Rows[e.RowIndex].Cells[3].Value;
+                    var PM = dgvOList.Rows[e.RowIndex].Cells[4].Value;
                     //int rowIndex = e.RowIndex; // 獲取所選行的索引值
                     //找到所在的行列
                     //

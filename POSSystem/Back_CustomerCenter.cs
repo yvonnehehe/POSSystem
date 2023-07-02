@@ -18,16 +18,16 @@ namespace POSSystem.Properties
             InitializeComponent();
         }
         SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
-        string strDBConnetionString = ""; 
+        string strDBConnetionString = "";
         List<int> searchResultIDs = new List<int>();
         public int EID { get; set; }
 
 
         private void Back_CustomerCenter_Load(object sender, EventArgs e)
         {
-            scsb.DataSource = @"."; 
-            scsb.InitialCatalog = "IspanPersonalProject_POS"; 
-            scsb.IntegratedSecurity = true; 
+            scsb.DataSource = @".";
+            scsb.InitialCatalog = "IspanPersonalProject_POS";
+            scsb.IntegratedSecurity = true;
 
             strDBConnetionString = scsb.ConnectionString;
 
@@ -84,6 +84,8 @@ namespace POSSystem.Properties
             txtAddress.Clear();
             txtPoint.Clear();
             dtpBirth.Value = DateTime.Now;
+            txtAccount.Clear();
+            txtPassword.Clear();
         }
 
         private void btnDataUpdate_Click(object sender, EventArgs e)
@@ -157,15 +159,49 @@ namespace POSSystem.Properties
             {
                 SqlConnection con = new SqlConnection(strDBConnetionString);
                 con.Open();
-                string strSQL = "delete from customer where C_ID=@searchID;";
+                //string strSQL = "delete from customer where C_ID=@searchID;";
+                //SqlCommand cmd = new SqlCommand(strSQL, con);
+                //cmd.Parameters.AddWithValue("@searchID", intID);
+
+                string strSQL = "DELETE FROM Customer WHERE C_ID = @searchID;";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 cmd.Parameters.AddWithValue("@searchID", intID);
 
+                string strSQL2 = "UPDATE Orders SET C_ID = NULL WHERE C_ID = @searchID;";
+                SqlCommand cmd2 = new SqlCommand(strSQL2, con);
+                cmd2.Parameters.AddWithValue("@searchID", intID);
+
+
                 if (MessageBox.Show("確認刪除會員資料", "刪除", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int rows = cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show($"會員資料刪除成功,{rows}筆資料受影響");
+                    //int rows = cmd.ExecuteNonQuery();
+                    //con.Close();
+                    //MessageBox.Show($"會員資料刪除成功,{rows}筆資料受影響");
+
+
+                    SqlTransaction transaction = con.BeginTransaction();
+                    try
+                    {
+                        cmd2.Transaction = transaction;
+                        int customerRowsAffected = cmd2.ExecuteNonQuery();
+
+                        cmd.Transaction = transaction;
+                        int ordersRowsAffected = cmd.ExecuteNonQuery();
+
+                        transaction.Commit();
+
+                        MessageBox.Show($"會員資料刪除成功");
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show($"刪除會員資料時出現錯誤：{ex.Message}");
+                    }
+                    finally
+                    {
+                        con.Close();
+                    }
+
                 }
             }
             else
