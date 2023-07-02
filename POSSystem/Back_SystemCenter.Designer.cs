@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Back_SystemCenter));
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState19 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState20 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState21 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState22 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState23 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState24 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState25 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState26 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
-            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState27 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState1 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState2 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState3 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState4 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState5 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState6 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState7 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState8 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
+            Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState toggleState9 = new Bunifu.UI.WinForms.BunifuToggleSwitch.ToggleState();
             this.btnBack = new Bunifu.UI.WinForms.BunifuImageButton();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -90,10 +90,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(139, 27);
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Location = new System.Drawing.Point(132, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 31);
+            this.label1.Size = new System.Drawing.Size(133, 37);
             this.label1.TabIndex = 9;
             this.label1.Text = "系統維護";
             // 
@@ -114,7 +114,7 @@
             // 
             // SystemOff
             // 
-            this.SystemOff.Animation = 5;
+            this.SystemOff.Animation = 10;
             this.SystemOff.BackColor = System.Drawing.Color.Transparent;
             this.SystemOff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SystemOff.BackgroundImage")));
             this.SystemOff.Checked = false;
@@ -126,33 +126,33 @@
             this.SystemOff.Size = new System.Drawing.Size(100, 23);
             this.SystemOff.TabIndex = 7;
             this.SystemOff.ThumbMargin = 3;
-            toggleState19.BackColor = System.Drawing.Color.DarkGray;
-            toggleState19.BackColorInner = System.Drawing.Color.White;
-            toggleState19.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState19.BorderColorInner = System.Drawing.Color.White;
-            toggleState19.BorderRadius = 17;
-            toggleState19.BorderRadiusInner = 11;
-            toggleState19.BorderThickness = 1;
-            toggleState19.BorderThicknessInner = 1;
-            this.SystemOff.ToggleStateDisabled = toggleState19;
-            toggleState20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState20.BackColorInner = System.Drawing.Color.White;
-            toggleState20.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState20.BorderColorInner = System.Drawing.Color.White;
-            toggleState20.BorderRadius = 17;
-            toggleState20.BorderRadiusInner = 11;
-            toggleState20.BorderThickness = 1;
-            toggleState20.BorderThicknessInner = 1;
-            this.SystemOff.ToggleStateOff = toggleState20;
-            toggleState21.BackColor = System.Drawing.Color.DodgerBlue;
-            toggleState21.BackColorInner = System.Drawing.Color.White;
-            toggleState21.BorderColor = System.Drawing.Color.DodgerBlue;
-            toggleState21.BorderColorInner = System.Drawing.Color.White;
-            toggleState21.BorderRadius = 17;
-            toggleState21.BorderRadiusInner = 11;
-            toggleState21.BorderThickness = 1;
-            toggleState21.BorderThicknessInner = 1;
-            this.SystemOff.ToggleStateOn = toggleState21;
+            toggleState1.BackColor = System.Drawing.Color.DarkGray;
+            toggleState1.BackColorInner = System.Drawing.Color.White;
+            toggleState1.BorderColor = System.Drawing.Color.DarkGray;
+            toggleState1.BorderColorInner = System.Drawing.Color.White;
+            toggleState1.BorderRadius = 17;
+            toggleState1.BorderRadiusInner = 11;
+            toggleState1.BorderThickness = 1;
+            toggleState1.BorderThicknessInner = 1;
+            this.SystemOff.ToggleStateDisabled = toggleState1;
+            toggleState2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState2.BackColorInner = System.Drawing.Color.White;
+            toggleState2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState2.BorderColorInner = System.Drawing.Color.White;
+            toggleState2.BorderRadius = 17;
+            toggleState2.BorderRadiusInner = 11;
+            toggleState2.BorderThickness = 1;
+            toggleState2.BorderThicknessInner = 1;
+            this.SystemOff.ToggleStateOff = toggleState2;
+            toggleState3.BackColor = System.Drawing.Color.DodgerBlue;
+            toggleState3.BackColorInner = System.Drawing.Color.White;
+            toggleState3.BorderColor = System.Drawing.Color.DodgerBlue;
+            toggleState3.BorderColorInner = System.Drawing.Color.White;
+            toggleState3.BorderRadius = 17;
+            toggleState3.BorderRadiusInner = 11;
+            toggleState3.BorderThickness = 1;
+            toggleState3.BorderThicknessInner = 1;
+            this.SystemOff.ToggleStateOn = toggleState3;
             this.SystemOff.Value = false;
             // 
             // label4
@@ -166,7 +166,7 @@
             // 
             // OrderOff
             // 
-            this.OrderOff.Animation = 5;
+            this.OrderOff.Animation = 10;
             this.OrderOff.BackColor = System.Drawing.Color.Transparent;
             this.OrderOff.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("OrderOff.BackgroundImage")));
             this.OrderOff.Checked = false;
@@ -178,33 +178,33 @@
             this.OrderOff.Size = new System.Drawing.Size(100, 23);
             this.OrderOff.TabIndex = 5;
             this.OrderOff.ThumbMargin = 3;
-            toggleState22.BackColor = System.Drawing.Color.DarkGray;
-            toggleState22.BackColorInner = System.Drawing.Color.White;
-            toggleState22.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState22.BorderColorInner = System.Drawing.Color.White;
-            toggleState22.BorderRadius = 17;
-            toggleState22.BorderRadiusInner = 11;
-            toggleState22.BorderThickness = 1;
-            toggleState22.BorderThicknessInner = 1;
-            this.OrderOff.ToggleStateDisabled = toggleState22;
-            toggleState23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState23.BackColorInner = System.Drawing.Color.White;
-            toggleState23.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState23.BorderColorInner = System.Drawing.Color.White;
-            toggleState23.BorderRadius = 17;
-            toggleState23.BorderRadiusInner = 11;
-            toggleState23.BorderThickness = 1;
-            toggleState23.BorderThicknessInner = 1;
-            this.OrderOff.ToggleStateOff = toggleState23;
-            toggleState24.BackColor = System.Drawing.Color.DodgerBlue;
-            toggleState24.BackColorInner = System.Drawing.Color.White;
-            toggleState24.BorderColor = System.Drawing.Color.DodgerBlue;
-            toggleState24.BorderColorInner = System.Drawing.Color.White;
-            toggleState24.BorderRadius = 17;
-            toggleState24.BorderRadiusInner = 11;
-            toggleState24.BorderThickness = 1;
-            toggleState24.BorderThicknessInner = 1;
-            this.OrderOff.ToggleStateOn = toggleState24;
+            toggleState4.BackColor = System.Drawing.Color.DarkGray;
+            toggleState4.BackColorInner = System.Drawing.Color.White;
+            toggleState4.BorderColor = System.Drawing.Color.DarkGray;
+            toggleState4.BorderColorInner = System.Drawing.Color.White;
+            toggleState4.BorderRadius = 17;
+            toggleState4.BorderRadiusInner = 11;
+            toggleState4.BorderThickness = 1;
+            toggleState4.BorderThicknessInner = 1;
+            this.OrderOff.ToggleStateDisabled = toggleState4;
+            toggleState5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState5.BackColorInner = System.Drawing.Color.White;
+            toggleState5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState5.BorderColorInner = System.Drawing.Color.White;
+            toggleState5.BorderRadius = 17;
+            toggleState5.BorderRadiusInner = 11;
+            toggleState5.BorderThickness = 1;
+            toggleState5.BorderThicknessInner = 1;
+            this.OrderOff.ToggleStateOff = toggleState5;
+            toggleState6.BackColor = System.Drawing.Color.DodgerBlue;
+            toggleState6.BackColorInner = System.Drawing.Color.White;
+            toggleState6.BorderColor = System.Drawing.Color.DodgerBlue;
+            toggleState6.BorderColorInner = System.Drawing.Color.White;
+            toggleState6.BorderRadius = 17;
+            toggleState6.BorderRadiusInner = 11;
+            toggleState6.BorderThickness = 1;
+            toggleState6.BorderThicknessInner = 1;
+            this.OrderOff.ToggleStateOn = toggleState6;
             this.OrderOff.Value = false;
             // 
             // label3
@@ -224,39 +224,39 @@
             this.LoginOff.Checked = false;
             this.LoginOff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LoginOff.InnerCirclePadding = 3;
-            this.LoginOff.Location = new System.Drawing.Point(125, 37);
+            this.LoginOff.Location = new System.Drawing.Point(125, 38);
             this.LoginOff.Margin = new System.Windows.Forms.Padding(5);
             this.LoginOff.Name = "LoginOff";
             this.LoginOff.Size = new System.Drawing.Size(100, 23);
             this.LoginOff.TabIndex = 3;
             this.LoginOff.ThumbMargin = 3;
-            toggleState25.BackColor = System.Drawing.Color.DarkGray;
-            toggleState25.BackColorInner = System.Drawing.Color.White;
-            toggleState25.BorderColor = System.Drawing.Color.DarkGray;
-            toggleState25.BorderColorInner = System.Drawing.Color.White;
-            toggleState25.BorderRadius = 17;
-            toggleState25.BorderRadiusInner = 11;
-            toggleState25.BorderThickness = 1;
-            toggleState25.BorderThicknessInner = 1;
-            this.LoginOff.ToggleStateDisabled = toggleState25;
-            toggleState26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState26.BackColorInner = System.Drawing.Color.White;
-            toggleState26.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            toggleState26.BorderColorInner = System.Drawing.Color.White;
-            toggleState26.BorderRadius = 17;
-            toggleState26.BorderRadiusInner = 11;
-            toggleState26.BorderThickness = 1;
-            toggleState26.BorderThicknessInner = 1;
-            this.LoginOff.ToggleStateOff = toggleState26;
-            toggleState27.BackColor = System.Drawing.Color.DodgerBlue;
-            toggleState27.BackColorInner = System.Drawing.Color.White;
-            toggleState27.BorderColor = System.Drawing.Color.DodgerBlue;
-            toggleState27.BorderColorInner = System.Drawing.Color.White;
-            toggleState27.BorderRadius = 17;
-            toggleState27.BorderRadiusInner = 11;
-            toggleState27.BorderThickness = 1;
-            toggleState27.BorderThicknessInner = 1;
-            this.LoginOff.ToggleStateOn = toggleState27;
+            toggleState7.BackColor = System.Drawing.Color.DarkGray;
+            toggleState7.BackColorInner = System.Drawing.Color.White;
+            toggleState7.BorderColor = System.Drawing.Color.DarkGray;
+            toggleState7.BorderColorInner = System.Drawing.Color.White;
+            toggleState7.BorderRadius = 17;
+            toggleState7.BorderRadiusInner = 11;
+            toggleState7.BorderThickness = 1;
+            toggleState7.BorderThicknessInner = 1;
+            this.LoginOff.ToggleStateDisabled = toggleState7;
+            toggleState8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState8.BackColorInner = System.Drawing.Color.White;
+            toggleState8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            toggleState8.BorderColorInner = System.Drawing.Color.White;
+            toggleState8.BorderRadius = 17;
+            toggleState8.BorderRadiusInner = 11;
+            toggleState8.BorderThickness = 1;
+            toggleState8.BorderThicknessInner = 1;
+            this.LoginOff.ToggleStateOff = toggleState8;
+            toggleState9.BackColor = System.Drawing.Color.DodgerBlue;
+            toggleState9.BackColorInner = System.Drawing.Color.White;
+            toggleState9.BorderColor = System.Drawing.Color.DodgerBlue;
+            toggleState9.BorderColorInner = System.Drawing.Color.White;
+            toggleState9.BorderRadius = 17;
+            toggleState9.BorderRadiusInner = 11;
+            toggleState9.BorderThickness = 1;
+            toggleState9.BorderThicknessInner = 1;
+            this.LoginOff.ToggleStateOn = toggleState9;
             this.LoginOff.Value = false;
             // 
             // label2

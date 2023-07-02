@@ -87,12 +87,12 @@ namespace POSSystem
             listViewProduct.View = View.Details;
             //listViewProduct.Columns.Add("PID", 1);
             listViewProduct.Columns.Add("Name", 200);
-            listViewProduct.Columns.Add("Price", 110);
-            listViewProduct.Columns.Add("Quantity", 110);
-            listViewProduct.Columns.Add("Sugar", 110);
-            listViewProduct.Columns.Add("Ice", 110);
-            listViewProduct.Columns.Add("Espresso", 110);
-            listViewProduct.Columns.Add("Subtotal", 110);
+            listViewProduct.Columns.Add("Price", 100);
+            listViewProduct.Columns.Add("Quantity", 100);
+            listViewProduct.Columns.Add("Sugar", 100);
+            listViewProduct.Columns.Add("Ice", 100);
+            listViewProduct.Columns.Add("Espresso", 100);
+            listViewProduct.Columns.Add("Subtotal", 100);
             listViewProduct.GridLines = true;//顯示格線
             listViewProduct.FullRowSelect = true;//選到某選項就會整列反白
             for (int i = 0; i < listOrderDetailID.Count(); i++)
