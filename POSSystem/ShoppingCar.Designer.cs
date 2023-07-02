@@ -39,7 +39,7 @@
             // 
             // listViewProduct
             // 
-            this.listViewProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
+            this.listViewProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.listViewProduct.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.listViewProduct.ForeColor = System.Drawing.SystemColors.Window;
             this.listViewProduct.HideSelection = false;
@@ -54,7 +54,7 @@
             // 
             this.labTotalPrice.AutoSize = true;
             this.labTotalPrice.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTotalPrice.ForeColor = System.Drawing.SystemColors.Control;
+            this.labTotalPrice.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.labTotalPrice.Location = new System.Drawing.Point(350, 423);
             this.labTotalPrice.Name = "labTotalPrice";
             this.labTotalPrice.Size = new System.Drawing.Size(205, 33);
@@ -135,7 +135,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::POSSystem.Properties.Resources.fi_rr_caret_right;
-            this.pictureBox1.Location = new System.Drawing.Point(-17, 40);
+            this.pictureBox1.Location = new System.Drawing.Point(-17, 45);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(50, 44);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -146,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(848, 482);
             this.Controls.Add(this.btnCheckout);
             this.Controls.Add(this.btnBack);

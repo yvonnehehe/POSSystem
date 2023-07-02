@@ -105,10 +105,10 @@ namespace POSSystem
                 listItem.Font = new Font("微軟正黑體", 14, FontStyle.Regular);
                 listItem.Tag = listOID[i];
                 //listItem.Text = listPID[i].ToString();
-                listItem.Text =count.ToString();
+                listItem.Text = count.ToString();
                 listItem.SubItems.Add(listDate[i].ToString());
                 //int count = listSubtotal[i];
-                int sum=0;
+                int sum = 0;
                 for (int j = 0; j < listOID.Count(); j++)
                 {
                     if (listOID[j] == listOID[i])
@@ -127,5 +127,25 @@ namespace POSSystem
             }
         }
 
+        private void listViewOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewOrder.SelectedIndices.Count > 0)
+            {
+                int selectedIndex = listViewOrder.SelectedIndices[0];
+                ListViewItem selectedItem = listViewOrder.Items[selectedIndex];
+                int oid;
+                if (int.TryParse(selectedItem.Tag.ToString(), out oid)) //讀到tag
+                {
+                    Back_OrderDetail OD = new Back_OrderDetail();
+                    OD.ReadMyOrderData(oid);
+                    OD.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("無效的訂單編號");
+                }
+            }
+
+        }
     }
 }

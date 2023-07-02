@@ -152,22 +152,22 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label6.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label6.Location = new System.Drawing.Point(103, 227);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 20);
+            this.label6.Size = new System.Drawing.Size(90, 21);
             this.label6.TabIndex = 9;
             this.label6.Text = "結帳金額為";
             // 
             // labTotal
             // 
             this.labTotal.AutoSize = true;
-            this.labTotal.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.labTotal.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.labTotal.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labTotal.Location = new System.Drawing.Point(103, 261);
             this.labTotal.Name = "labTotal";
-            this.labTotal.Size = new System.Drawing.Size(71, 20);
+            this.labTotal.Size = new System.Drawing.Size(76, 21);
             this.labTotal.TabIndex = 10;
             this.labTotal.Text = "NT$ 000";
             // 

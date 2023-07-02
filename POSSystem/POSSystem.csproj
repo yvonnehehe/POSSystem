@@ -410,5 +410,11 @@
   <ItemGroup>
     <None Include="Resources\166012_s.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vip-person_3041566-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vip-person_3041566 %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

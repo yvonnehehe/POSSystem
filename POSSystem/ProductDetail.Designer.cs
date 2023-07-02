@@ -55,6 +55,7 @@
             this.pictureBoxProduct = new System.Windows.Forms.PictureBox();
             this.btnAlter = new System.Windows.Forms.Button();
             this.btnDetele = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.groupBoxSugar.SuspendLayout();
             this.groupBoxIce.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddShopping)).BeginInit();
@@ -395,12 +396,29 @@
             this.btnDetele.Visible = false;
             this.btnDetele.Click += new System.EventHandler(this.btnDetele_Click);
             // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.BackgroundImage = global::POSSystem.Properties.Resources.cross;
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.Transparent;
+            this.btnExit.Location = new System.Drawing.Point(738, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(20, 20);
+            this.btnExit.TabIndex = 70;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // ProductDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.ClientSize = new System.Drawing.Size(766, 427);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDetele);
             this.Controls.Add(this.btnAlter);
             this.Controls.Add(this.checkBoxEspresso);
@@ -420,6 +438,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProductDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProductDetail";
@@ -463,5 +482,6 @@
         public System.Windows.Forms.Button btnAlter;
         public System.Windows.Forms.PictureBox pictureBoxAddShopping;
         public System.Windows.Forms.Button btnDetele;
+        private System.Windows.Forms.Button btnExit;
     }
 }

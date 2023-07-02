@@ -233,7 +233,7 @@ namespace POSSystem
                 item.ImageIndex = i;
                 item.Text = $"{listProductName[i]} {listPrice[i]}元";
                 item.Font = new Font("微軟正黑體", 11, FontStyle.Regular);
-                item.ForeColor = Color.White;
+                item.ForeColor = Color.Black;
                 item.Tag = listPid[i]; //藏東西選Tag ->藏ID (不會顯示出來但可以儲存資訊
                 listViewMenu.Items.Add(item);
             }

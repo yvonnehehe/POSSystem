@@ -16,7 +16,7 @@ namespace POSSystem
         //int intID = 0; //先預設 之後要改
         public int getcid { get; set; }
         public bool islogin { get; set; }
-
+        int Point;
 
         public MyMemberCenter()
         {
@@ -51,6 +51,7 @@ namespace POSSystem
                     txtAddress.Text = reader["Address"].ToString();
                     dtpBirth.Value = Convert.ToDateTime(reader["Birth"]);
                     txtPoint.Text = reader["Point"].ToString();
+                    Point = (int)reader["Point"];
                 }
                 reader.Close();
                 con.Close();
@@ -58,6 +59,16 @@ namespace POSSystem
             else
             {
                 MessageBox.Show("尚未登入");
+            }
+            if(Point > 2000)
+            {
+                pictureBox2.Visible = true;
+                pictureBox2.Image = Properties.Resources.vip_person_3041566__1_;
+            }
+            else if (Point < 2000 && Point > 0)
+            {
+                pictureBox2.Visible = true;
+                pictureBox2.Image = Properties.Resources.vip_person_3041566_removebg_preview;
             }
 
         }

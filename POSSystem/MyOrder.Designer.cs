@@ -35,7 +35,7 @@
             // 
             // listViewOrder
             // 
-            this.listViewOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
+            this.listViewOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.listViewOrder.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.listViewOrder.ForeColor = System.Drawing.SystemColors.Window;
             this.listViewOrder.HideSelection = false;
@@ -44,12 +44,13 @@
             this.listViewOrder.Size = new System.Drawing.Size(760, 400);
             this.listViewOrder.TabIndex = 80;
             this.listViewOrder.UseCompatibleStateImageBehavior = false;
+            this.listViewOrder.SelectedIndexChanged += new System.EventHandler(this.listViewOrder_SelectedIndexChanged);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::POSSystem.Properties.Resources.fi_rr_caret_right;
-            this.pictureBox1.Location = new System.Drawing.Point(-13, 79);
+            this.pictureBox1.Location = new System.Drawing.Point(-16, 84);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(50, 44);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -60,7 +61,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(844, 473);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.listViewOrder);

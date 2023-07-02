@@ -80,19 +80,26 @@ namespace POSSystem
                 string strSQL = "UPDATE orders SET  PaymentMethod = @iscard WHERE O_ID = @oid;";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 cmd.Parameters.AddWithValue("@oid", orderID);
+                //int roundedNewpoint = 0;
                 if (usepoint > 0) 
                 {
                     string strSQL2 = "UPDATE Customer SET   Point = @NewPoint WHERE　C_ID = @cid;";
                     SqlCommand cmd2 = new SqlCommand(strSQL2, con);
                     cmd2.Parameters.AddWithValue("@cid", getcid);
 
-                    int Newpoint = point - usepoint;
+                    //點數回饋
+                    double cashBack = Math.Round(getsum * 0.1);
+                    int Newpoint = (int)Math.Round(point - usepoint + cashBack);
                     cmd2.Parameters.AddWithValue("@NewPoint", Newpoint);
-                    int rows2 = cmd2.ExecuteNonQuery(); 
+                    int rows2 = cmd2.ExecuteNonQuery();
+                    MessageBox.Show($"信用卡結帳完成\n以信用卡結帳點數回饋1%:{cashBack}");
+                }
+                else
+                {
+                    MessageBox.Show($"信用卡結帳完成");
                 }
                 cmd.Parameters.AddWithValue("@iscard", $"信用卡");
                 int rows = cmd.ExecuteNonQuery(); 
-                MessageBox.Show($"信用卡結帳完成");
                 this.Close();
             }
             else if (isCash == true)
@@ -101,18 +108,29 @@ namespace POSSystem
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 cmd.Parameters.AddWithValue("@oid", orderID);
                 cmd.Parameters.AddWithValue("@iscash", $"現金");
+                //int roundedNewpoint = 0;
                 if (usepoint > 0)
                 {
                     string strSQL2 = "UPDATE Customer SET   Point = @NewPoint WHERE　C_ID = @cid;";
                     SqlCommand cmd2 = new SqlCommand(strSQL2, con);
                     cmd2.Parameters.AddWithValue("@cid", getcid);
-
-                    int Newpoint = point - usepoint;
+                    //點數回饋
+                    //int Newpoint = point - usepoint;
+                    //double newPointWithBonus = getsum * 0.2;
+                    double cashBack = Math.Round(getsum * 0.2);
+                    int Newpoint = (int)Math.Round(point - usepoint + cashBack);
+                    //roundedNewpoint = (int)Math.Round(Newpoint);
                     cmd2.Parameters.AddWithValue("@NewPoint", Newpoint);
+                    //cmd2.Parameters.AddWithValue("@NewPoint", Newpoint);
                     int rows2 = cmd2.ExecuteNonQuery();
+                    MessageBox.Show($"現金結帳完成\n以現金結帳點數回饋2%:{cashBack}");
                 }
+                else
+                {
+                    MessageBox.Show($"現金結帳完成");
+                }
+
                 int rows = cmd.ExecuteNonQuery();
-                MessageBox.Show($"現金結帳完成");
                 this.Close();
             }
             con.Close();
@@ -175,7 +193,7 @@ namespace POSSystem
 
 
 
-        int total = 0;
+        //int total = 0;
         int point = 0;
         //我要找CID的Point
         void 讀取商品資料庫()
@@ -207,7 +225,7 @@ namespace POSSystem
             isCard = true;
             orderfinlly();
             paymentmethod();
-            message = $"您以信用卡結帳，金額為{getsum}元!";
+            message = $"\n訂單編號:{orderID}\n支付方式:信用卡\n訂單金額:{getsum}元";
             testmessage();
             this.Close();
         }
@@ -220,7 +238,7 @@ namespace POSSystem
             isCash = true;
             orderfinlly();
             paymentmethod();
-            message = $"您以現金結帳，金額為{getsum}元!";
+            message = $"\n訂單編號:{orderID}\n支付方式:現金\n訂單金額:{getsum}元";
             testmessage();
             this.Close();
         }

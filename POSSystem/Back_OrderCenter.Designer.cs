@@ -32,17 +32,18 @@
             this.dgvOList = new System.Windows.Forms.DataGridView();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnBack = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.labTotalPrice = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOList)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvOList
             // 
-            this.dgvOList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvOList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.dgvOList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOList.Location = new System.Drawing.Point(35, 29);
+            this.dgvOList.Location = new System.Drawing.Point(12, 29);
             this.dgvOList.Name = "dgvOList";
             this.dgvOList.RowTemplate.Height = 24;
-            this.dgvOList.Size = new System.Drawing.Size(818, 409);
+            this.dgvOList.Size = new System.Drawing.Size(860, 337);
             this.dgvOList.TabIndex = 42;
             this.dgvOList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOList_CellClick);
             this.dgvOList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOList_CellContentClick);
@@ -51,7 +52,7 @@
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.BackgroundImage = global::POSSystem.Properties.Resources.cross;
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnExit.FlatAppearance.BorderSize = 0;
@@ -100,12 +101,24 @@
             this.btnBack.ZoomSpeed = 10;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // labTotalPrice
+            // 
+            this.labTotalPrice.AutoSize = true;
+            this.labTotalPrice.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labTotalPrice.ForeColor = System.Drawing.SystemColors.Control;
+            this.labTotalPrice.Location = new System.Drawing.Point(159, 389);
+            this.labTotalPrice.Name = "labTotalPrice";
+            this.labTotalPrice.Size = new System.Drawing.Size(211, 35);
+            this.labTotalPrice.TabIndex = 65;
+            this.labTotalPrice.Text = "營業額統計 NT$";
+            // 
             // Back_OrderCenter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.ClientSize = new System.Drawing.Size(910, 450);
+            this.Controls.Add(this.labTotalPrice);
             this.Controls.Add(this.dgvOList);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnBack);
@@ -116,6 +129,7 @@
             this.Load += new System.EventHandler(this.Back_OrderCenter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOList)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -124,5 +138,6 @@
         private Bunifu.UI.WinForms.BunifuImageButton btnBack;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridView dgvOList;
+        private System.Windows.Forms.Label labTotalPrice;
     }
 }

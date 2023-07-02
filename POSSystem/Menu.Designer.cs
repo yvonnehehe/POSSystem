@@ -94,12 +94,12 @@
             // 
             // listViewMenu
             // 
-            this.listViewMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
+            this.listViewMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.listViewMenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.listViewMenu.HideSelection = false;
             this.listViewMenu.Location = new System.Drawing.Point(41, 48);
             this.listViewMenu.Name = "listViewMenu";
-            this.listViewMenu.Size = new System.Drawing.Size(756, 362);
+            this.listViewMenu.Size = new System.Drawing.Size(789, 367);
             this.listViewMenu.TabIndex = 5;
             this.listViewMenu.UseCompatibleStateImageBehavior = false;
             this.listViewMenu.ItemActivate += new System.EventHandler(this.listViewMenu_ItemActivate);
@@ -130,7 +130,7 @@
             this.btnGOShpping.FlatAppearance.BorderSize = 0;
             this.btnGOShpping.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGOShpping.ForeColor = System.Drawing.Color.Transparent;
-            this.btnGOShpping.Location = new System.Drawing.Point(747, 416);
+            this.btnGOShpping.Location = new System.Drawing.Point(780, 421);
             this.btnGOShpping.Name = "btnGOShpping";
             this.btnGOShpping.Size = new System.Drawing.Size(50, 40);
             this.btnGOShpping.TabIndex = 8;
@@ -141,8 +141,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
-            this.ClientSize = new System.Drawing.Size(827, 458);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ClientSize = new System.Drawing.Size(857, 476);
             this.Controls.Add(this.btnGOShpping);
             this.Controls.Add(this.listViewMenu);
             this.Controls.Add(this.btnDessert);

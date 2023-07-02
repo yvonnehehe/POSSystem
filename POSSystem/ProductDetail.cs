@@ -414,5 +414,10 @@ namespace POSSystem
             ReadOrderDetail(ordertetailid);
             MessageBox.Show($"{rows}筆商品更新成功");
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

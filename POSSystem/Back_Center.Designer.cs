@@ -40,7 +40,7 @@
             // 
             // btn系統維護
             // 
-            this.btn系統維護.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn系統維護.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.btn系統維護.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn系統維護.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btn系統維護.Location = new System.Drawing.Point(283, 220);
@@ -55,7 +55,7 @@
             // 
             // btn會員資料維護
             // 
-            this.btn會員資料維護.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn會員資料維護.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.btn會員資料維護.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn會員資料維護.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btn會員資料維護.Location = new System.Drawing.Point(15, 220);
@@ -69,7 +69,7 @@
             // 
             // btn商品維護
             // 
-            this.btn商品維護.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn商品維護.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.btn商品維護.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn商品維護.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btn商品維護.Location = new System.Drawing.Point(283, 10);
@@ -83,7 +83,7 @@
             // 
             // btn訂單管理
             // 
-            this.btn訂單管理.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn訂單管理.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.btn訂單管理.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn訂單管理.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btn訂單管理.Location = new System.Drawing.Point(15, 10);
@@ -97,7 +97,7 @@
             // 
             // btn員工資料維護
             // 
-            this.btn員工資料維護.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn員工資料維護.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.btn員工資料維護.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn員工資料維護.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btn員工資料維護.Location = new System.Drawing.Point(551, 10);
@@ -113,7 +113,7 @@
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.BackgroundImage = global::POSSystem.Properties.Resources.cross;
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnExit.FlatAppearance.BorderSize = 0;
@@ -166,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.ClientSize = new System.Drawing.Size(853, 450);
             this.Controls.Add(this.btn員工資料維護);
             this.Controls.Add(this.btnExit);

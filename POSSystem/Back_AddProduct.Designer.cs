@@ -115,7 +115,6 @@
             this.groupBox商品新增.Size = new System.Drawing.Size(697, 188);
             this.groupBox商品新增.TabIndex = 24;
             this.groupBox商品新增.TabStop = false;
-            this.groupBox商品新增.Text = "商品新增";
             // 
             // btn選取商品照片_修改
             // 
@@ -189,6 +188,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label4.Location = new System.Drawing.Point(343, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 27);
@@ -199,6 +199,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label3.Location = new System.Drawing.Point(343, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 27);
@@ -209,6 +210,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label2.Location = new System.Drawing.Point(343, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 27);
@@ -219,6 +221,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(343, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 30);
@@ -245,6 +248,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label5.Location = new System.Drawing.Point(343, 284);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 27);
@@ -263,7 +267,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.ClientSize = new System.Drawing.Size(721, 517);
             this.Controls.Add(this.txtList);
             this.Controls.Add(this.label5);

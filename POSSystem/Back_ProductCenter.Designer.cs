@@ -80,7 +80,7 @@
             // btn新增商品
             // 
             this.btn新增商品.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn新增商品.Location = new System.Drawing.Point(618, 196);
+            this.btn新增商品.Location = new System.Drawing.Point(618, 202);
             this.btn新增商品.Name = "btn新增商品";
             this.btn新增商品.Size = new System.Drawing.Size(135, 40);
             this.btn新增商品.TabIndex = 13;
@@ -91,7 +91,7 @@
             // btn列表模式
             // 
             this.btn列表模式.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn列表模式.Location = new System.Drawing.Point(618, 113);
+            this.btn列表模式.Location = new System.Drawing.Point(618, 141);
             this.btn列表模式.Name = "btn列表模式";
             this.btn列表模式.Size = new System.Drawing.Size(135, 40);
             this.btn列表模式.TabIndex = 12;
@@ -102,7 +102,7 @@
             // btn圖片模式
             // 
             this.btn圖片模式.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn圖片模式.Location = new System.Drawing.Point(618, 27);
+            this.btn圖片模式.Location = new System.Drawing.Point(618, 80);
             this.btn圖片模式.Name = "btn圖片模式";
             this.btn圖片模式.Size = new System.Drawing.Size(135, 40);
             this.btn圖片模式.TabIndex = 11;
@@ -113,7 +113,7 @@
             // btn重新整理
             // 
             this.btn重新整理.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn重新整理.Location = new System.Drawing.Point(618, 339);
+            this.btn重新整理.Location = new System.Drawing.Point(618, 324);
             this.btn重新整理.Name = "btn重新整理";
             this.btn重新整理.Size = new System.Drawing.Size(135, 40);
             this.btn重新整理.TabIndex = 10;
@@ -123,7 +123,7 @@
             // 
             // listView商品展示
             // 
-            this.listView商品展示.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.listView商品展示.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.listView商品展示.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.listView商品展示.HideSelection = false;
             this.listView商品展示.Location = new System.Drawing.Point(48, 12);
@@ -142,7 +142,7 @@
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.BackgroundImage = global::POSSystem.Properties.Resources.cross;
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnExit.FlatAppearance.BorderSize = 0;
@@ -158,7 +158,7 @@
             // btn刪除商品
             // 
             this.btn刪除商品.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn刪除商品.Location = new System.Drawing.Point(618, 268);
+            this.btn刪除商品.Location = new System.Drawing.Point(618, 263);
             this.btn刪除商品.Name = "btn刪除商品";
             this.btn刪除商品.Size = new System.Drawing.Size(135, 40);
             this.btn刪除商品.TabIndex = 15;
@@ -170,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(69)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btn刪除商品);
             this.Controls.Add(this.btnExit);

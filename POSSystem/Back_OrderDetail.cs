@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,6 +29,7 @@ namespace POSSystem
         public List<int> listOrderDetailID = new List<int>();
         int sum;
         public int getoid { get; set; }
+        int cid;
 
         public Back_OrderDetail()
         {
@@ -79,6 +81,47 @@ namespace POSSystem
             con.Close();
 
         }
+        //給MYorder讀
+        public void ReadMyOrderData(int getoid)
+        {
+            int oid = getoid;
+            SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
+            string strDBConnectionString = "";
+            scsb.DataSource = @".";
+            scsb.InitialCatalog = "IspanPersonalProject_POS";
+            scsb.IntegratedSecurity = true;
+            strDBConnectionString = scsb.ConnectionString;
+
+
+            SqlConnection con = new SqlConnection(strDBConnectionString);
+            con.Open();
+            string strSQL = @"select *
+                            FROM Orders as o
+                            inner JOIN OrderDetail as od ON o.O_ID = od.O_ID
+                            inner join products as p on p.P_ID = od.P_ID
+                            WHERE od.O_ID = @OID;";
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            cmd.Parameters.AddWithValue("@OID", oid);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read() == true)
+            {
+                //listOID.Add((int)reader["O_ID"]);
+                listOrderDetailID.Add((int)reader["OrderDetail_ID"]);
+                listPID.Add((int)reader["P_ID"]);
+                listQuantity.Add((int)reader["Quantity"]);
+                listSubtotal.Add((int)reader["Subtotal"]);
+                listSugar.Add((string)reader["Sugar"]);
+                listIce.Add((string)reader["Ice"]);
+                listEspresso.Add((bool)reader["Espresso"]);
+                listProductName.Add((string)reader["P_Name"]);
+                listPrice.Add((int)reader["Price"]);
+            }
+            reader.Close();
+            con.Close();
+            ShowListView();
+            labTotalPrice.Visible = false;
+        }
+
         public void ShowListView()
         {
             listViewProduct.Clear();
@@ -118,4 +161,6 @@ namespace POSSystem
         }
 
     }
+
 }
+

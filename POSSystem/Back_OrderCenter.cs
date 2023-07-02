@@ -48,7 +48,8 @@ namespace POSSystem
             dgvOList.Columns.Clear();
             SqlConnection con = new SqlConnection(strDBConnetionString);
             con.Open();
-            string strSQL = "select O_ID as 訂單編號, C_ID as 客戶編號, OrderDate as 訂單時間, PaymentMethod as 支付方式 from Orders;";
+            //string strSQL = "select O_ID as 訂單編號, C_ID as 客戶編號, OrderDate as 訂單時間, PaymentMethod as 支付方式 from Orders;";
+            string strSQL = "SELECT od.O_ID AS 訂單編號, o.C_ID AS 客戶編號, SUM(od.Subtotal) AS 訂單金額, o.OrderDate AS 訂單時間, o.PaymentMethod AS 支付方式 FROM Orders AS o INNER JOIN OrderDetail AS od ON o.O_ID = od.O_ID GROUP BY od.O_ID, o.C_ID, o.OrderDate, o.PaymentMethod;";
             SqlCommand cmd = new SqlCommand(@strSQL, con);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
@@ -56,10 +57,11 @@ namespace POSSystem
                 DataTable dt = new DataTable();
                 dt.Columns.Add("訂單編號");
                 dt.Columns.Add("客戶編號");
+                dt.Columns.Add("訂單金額");
                 dt.Columns.Add("訂單時間");
                 dt.Columns.Add("支付方式");
 
-
+                int totalAmount = 0; //統計總金額
 
                 while (reader.Read())
                 {
@@ -75,13 +77,16 @@ namespace POSSystem
                     {
                         row["客戶編號"] = reader["客戶編號"];
                     }
-
+                    int subtotal = (int)reader["訂單金額"];
+                    row["訂單金額"] = subtotal;
+                    //row["訂單金額"] = reader["訂單金額"];
                     row["訂單時間"] = reader["訂單時間"];
                     row["支付方式"] = reader["支付方式"];
                     dt.Rows.Add(row);
+                    totalAmount += subtotal;
                 }
                 dgvOList.DataSource = dt;
-
+                labTotalPrice.Text = "營業額統計 NT$ " + totalAmount.ToString();
 
             }
             reader.Close();

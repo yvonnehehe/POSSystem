@@ -292,6 +292,16 @@ namespace POSSystem
             panel2.Controls.Add(mymc);
             mymc.Show();
         }
+
+        private void bunifuImageButton5_Click(object sender, EventArgs e)
+        {
+            SystemCenter SC = new SystemCenter();
+            SC.TopLevel = false;
+            SC.Dock = DockStyle.None;
+            panel2.Controls.Clear();
+            panel2.Controls.Add(SC);
+            SC.Show();
+        }
     }
 }
 
