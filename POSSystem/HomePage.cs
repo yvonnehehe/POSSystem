@@ -298,6 +298,7 @@ namespace POSSystem
             SystemCenter SC = new SystemCenter();
             SC.TopLevel = false;
             SC.Dock = DockStyle.None;
+            SC.getcid = getcid;
             panel2.Controls.Clear();
             panel2.Controls.Add(SC);
             SC.Show();
