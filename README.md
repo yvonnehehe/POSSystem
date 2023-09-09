@@ -1,13 +1,13 @@
 # POSSystem
-<img src="https://ibb.co/wcvDBG3" alt="" />
-<img src="https://ibb.co/1QLQVCt" alt="" />
-<img src="https://ibb.co/44xhBdP" alt="" />
-<img src="https://ibb.co/HnTX4Mb" alt="" />
-<img src="https://ibb.co/Jzw561q" alt="" />
-<img src="https://ibb.co/H7FKqfV" alt="" />
-<img src="https://ibb.co/1Z2Gs3S" alt="" />
-<img src="https://ibb.co/myXJygd" alt="" />
-<img src="https://ibb.co/6w89SsL" alt="" />
+![GitHub Logo](https://ibb.co/wcvDBG3)
+![GitHub Logo](https://ibb.co/1QLQVCt))
+![GitHub Logo](https://ibb.co/44xhBdP))
+![GitHub Logo](https://ibb.co/HnTX4Mb))
+![GitHub Logo](https://ibb.co/Jzw561q))
+![GitHub Logo](https://ibb.co/H7FKqfV))
+![GitHub Logo](https://ibb.co/1Z2Gs3S))
+![GitHub Logo](https://ibb.co/myXJygd))
+![GitHub Logo](https://ibb.co/6w89SsL))
 
 
 
