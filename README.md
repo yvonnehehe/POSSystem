@@ -1,13 +1,13 @@
 # POSSystem
-![GitHub Logo]([https://ibb.co/wcvDBG3](https://ibb.co/wcvDBG3))
-![GitHub Logo](https://ibb.co/1QLQVCt))
-![GitHub Logo](https://ibb.co/44xhBdP))
-![GitHub Logo](https://ibb.co/HnTX4Mb))
-![GitHub Logo](https://ibb.co/Jzw561q))
-![GitHub Logo](https://ibb.co/H7FKqfV))
-![GitHub Logo](https://ibb.co/1Z2Gs3S))
-![GitHub Logo](https://ibb.co/myXJygd))
-![GitHub Logo](https://ibb.co/6w89SsL))
+![GitHub Octocat](/imgs/擷取.JPG)
+![GitHub Octocat](/imgs/2.JPG)
+![GitHub Octocat](/imgs/3.JPG)
+![GitHub Octocat](/imgs/4.JPG)
+![GitHub Octocat](/imgs/5.JPG)
+![GitHub Octocat](/imgs/6.JPG)
+![GitHub Octocat](/imgs/7.JPG)
+![GitHub Octocat](/imgs/8.JPG)
+![GitHub Octocat](/imgs/9.JPG)
 
 
 
