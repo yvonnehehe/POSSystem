@@ -7,7 +7,6 @@
 ![GitHub Octocat](/imgs/6.JPG)
 ![GitHub Octocat](/imgs/7.JPG)
 ![GitHub Octocat](/imgs/8.JPG)
-![GitHub Octocat](/imgs/9.JPG)
 
 
 
